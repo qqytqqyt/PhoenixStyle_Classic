@@ -411,7 +411,7 @@ function psfColiseumonevent(self,event,...)
         --print(arg11) -- spellSchool
         --print(arg12) -- amount/ABSORB
         --print(arg13) -- overkill
-        --print(arg14) -- school
+        --print(arg14) -- school/ABSORBED
         --print(arg15) -- resisted
         --print(arg16) -- blocked
         --print(arg17) -- absorbed
@@ -435,13 +435,13 @@ function psfColiseumonevent(self,event,...)
             elseif (arg7 == pscojaraboss or arg4 == pscojaraboss) then
                 timetocheck = arg1 + 5
             elseif (arg1 > timetocheck) then
+                print("jarax after fight")
                 psfjaraxafterf()
                 psfjaraxrezetall()
             end
         end
 
-        if (arg9 == 67173 or arg9 == 65808 or arg9 == 67172 or arg9 == 67174 or
-            arg9 == 67239 or arg9 == 67238 or arg9 == 65795 or arg9 == 67240) then
+        if (arg9 == 65808 or arg9 == 65795) then
             if arg2 == "SPELL_DAMAGE" then psftwinseat() end
 
             if arg2 == "SPELL_MISSED" then psftwinseat2() end
@@ -456,25 +456,19 @@ function psfColiseumonevent(self,event,...)
 
             -- проверка 4 и 8 действия
             if arg2 == "SPELL_CAST_START" and
-                (arg9 == 67208 or arg9 == 66046 or arg9 == 67206 or arg9 ==
-                    67207) then psvaladdability(3) end
+                (arg9 == 66046) then psvaladdability(3) end
 
             if arg2 == "SPELL_CAST_START" and
-                (arg9 == 67184 or arg9 == 66058 or arg9 == 67182 or arg9 ==
-                    67183) then psvaladdability(4) end
+                (arg9 == 66058) then psvaladdability(4) end
 
             if arg2 == "SPELL_CAST_START" and
-                (arg9 == 67305 or arg9 == 65875 or arg9 == 67303 or arg9 ==
-                    67304) then psvaladdability(1) end
+                (arg9 == 65875) then psvaladdability(1) end
 
             if arg2 == "SPELL_CAST_START" and
-                (arg9 == 65876 or arg9 == 67306 or arg9 == 67307 or arg9 ==
-                    67308) then psvaladdability(2) end
+                (arg9 == 65876) then psvaladdability(2) end
 
             -- интерапт, валькирии
-            if (arg12 == 67303 or arg12 == 65875 or arg12 == 65876 or arg12 ==
-                67304 or arg12 == 67305 or arg12 == 67306 or arg12 == 67307 or
-                arg12 == 67308) then
+            if (arg12 == 65875 or arg12 == 65876) then
                 if arg2 == "SPELL_INTERRUPT" and psshieldon == 1 then
                     psshieldon = 0
                     psschitupal = 0
@@ -526,8 +520,7 @@ function psfColiseumonevent(self,event,...)
             end
 
             -- отслеживание каста!
-            if (arg9 == 67303 or arg9 == 65875 or arg9 == 65876 or arg9 == 67304 or
-                arg9 == 67305 or arg9 == 67306 or arg9 == 67307 or arg9 == 67308) then
+            if (arg9 == 65875 or arg9 == 65876) then
 
                 if arg2 == "SPELL_CAST_START" then
                     if (psdamagename == nil or psdamagename == {}) then
@@ -631,22 +624,24 @@ function psfColiseumonevent(self,event,...)
             end -- конец арг9 каста
 
             -- Отслеживание какой щит!
-            if (arg9 == 67258 or arg9 == 67256 or arg9 == 65874 or arg9 == 67257) then
+            if (arg9 == 65874) then
                 if arg2 == "SPELL_AURA_APPLIED" then
                     psvaladdability(1)
                     psvalbitnada = arg4
                     psschitupal = 0
                     psnoobibiyut = pscotwinsvalkyr
-                    if (arg9 == 67258) then
+                    
+                    local difficultyID = GetInstanceDifficulty()
+                    if (difficultyID == 4) then
                         psshieldamount = 1200000
                     end
-                    if (arg9 == 67256) then
+                    if (difficultyID == 2) then
                         psshieldamount = 700000
                     end
-                    if (arg9 == 65874) then
+                    if (difficultyID == 1) then
                         psshieldamount = 175000
                     end
-                    if (arg9 == 67257) then
+                    if (difficultyID == 3) then
                         psshieldamount = 300000
                     end
                 end
@@ -655,22 +650,23 @@ function psfColiseumonevent(self,event,...)
                 end
             end
 
-            if (arg9 == 67261 or arg9 == 67259 or arg9 == 65858 or arg9 == 67260) then
+            if (arg9 == 65858) then
                 if arg2 == "SPELL_AURA_APPLIED" then
                     psvaladdability(2)
                     psvalbitnada = arg4
                     psschitupal = 0
                     psnoobibiyut = pscotwinsvalkyr2
-                    if (arg9 == 67261) then
+                    local difficultyID = GetInstanceDifficulty()
+                    if (difficultyID == 4) then
                         psshieldamount = 1200000
                     end
-                    if (arg9 == 67259) then
+                    if (difficultyID == 2) then
                         psshieldamount = 700000
                     end
-                    if (arg9 == 65858) then
+                    if (difficultyID == 1) then
                         psshieldamount = 175000
                     end
-                    if (arg9 == 67260) then
+                    if (difficultyID == 3) then
                         psshieldamount = 300000
                     end
                 end
@@ -683,10 +679,10 @@ function psfColiseumonevent(self,event,...)
             if (psshieldon == 1 and arg7 == psvalbitnada) then
                 if arg2 == "SPELL_PERIODIC_MISSED" then
                     if arg12 == "ABSORB" then
-                        psdamagvalkyes = psdamagvalkyes + arg13
+                        psdamagvalkyes = psdamagvalkyes + arg14
                         psunitisplayer(arg3, arg4)
                         if psunitplayertrue then
-                            addtotwodamagetables(arg4, arg13)
+                            addtotwodamagetables(arg4, arg14)
                             psdamagetwotablsort1()
                         end
 
@@ -694,10 +690,10 @@ function psfColiseumonevent(self,event,...)
                 end
                 if arg2 == "SPELL_MISSED" then
                     if arg12 == "ABSORB" then
-                        psdamagvalkyes = psdamagvalkyes + arg13
+                        psdamagvalkyes = psdamagvalkyes + arg14
                         psunitisplayer(arg3, arg4)
                         if psunitplayertrue then
-                            addtotwodamagetables(arg4, arg13)
+                            addtotwodamagetables(arg4, arg14)
                             psdamagetwotablsort1()
                         end
 
@@ -728,10 +724,10 @@ function psfColiseumonevent(self,event,...)
                 end
                 if arg2 == "RANGE_MISSED" then
                     if arg12 == "ABSORB" then
-                        psdamagvalkyes = psdamagvalkyes + arg13
+                        psdamagvalkyes = psdamagvalkyes + arg14
                         psunitisplayer(arg3, arg4)
                         if psunitplayertrue then
-                            addtotwodamagetables(arg4, arg13)
+                            addtotwodamagetables(arg4, arg14)
                             psdamagetwotablsort1()
                         end
 
@@ -739,10 +735,10 @@ function psfColiseumonevent(self,event,...)
                 end
                 if arg2 == "SWING_MISSED" then
                     if arg9 == "ABSORB" then
-                        psdamagvalkyes = psdamagvalkyes + arg10
+                        psdamagvalkyes = psdamagvalkyes + arg11
                         psunitisplayer(arg3, arg4)
                         if psunitplayertrue then
-                            addtotwodamagetables(arg4, arg10)
+                            addtotwodamagetables(arg4, arg11)
                             psdamagetwotablsort1()
                         end
 
@@ -808,8 +804,7 @@ function psfColiseumonevent(self,event,...)
 
             if (arg2 == "SPELL_DAMAGE" or
                 (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
-                (arg9 == 68718 or arg9 == 66496 or arg9 == 68716 or arg9 ==
-                    68717) then
+                (arg9 == 66496) then
                 psunitisplayer(arg6, arg7)
                 if psunitplayertrue then
                     wasornojara = 1
@@ -823,19 +818,19 @@ function psfColiseumonevent(self,event,...)
                 (arg9 == 66237) then
 
                 local difficultyID = GetInstanceDifficulty()
-                if arg9 == 4 then
+                if difficultyID == 4 then
                     psshieldamount = 85000
                     psjxshieldtime = 12
                 end
-                if arg9 == 1 then
+                if difficultyID == 1 then
                     psshieldamount = 30000
                     psjxshieldtime = 15
                 end
-                if arg9 == 2 then
+                if difficultyID == 2 then
                     psshieldamount = 60000
                     psjxshieldtime = 15
                 end
-                if arg9 == 3 then
+                if difficultyID == 3 then
                     psshieldamount = 40000
                     psjxshieldtime = 12
                 end
@@ -864,8 +859,7 @@ function psfColiseumonevent(self,event,...)
 
             -- сняли дебафф
             if arg2 == "SPELL_AURA_REMOVED" and psjxshieldon == 1 and
-                (arg9 == 67051 or arg9 == 66237 or arg9 == 67049 or arg9 ==
-                    67050) then
+                (arg9 == 66237 ) then
                 psjxpausareport = arg1 + 0.5
                 psjxpausareport2 = 1
                 psjxshieldon = 0
@@ -908,8 +902,7 @@ function psfColiseumonevent(self,event,...)
             if psjxpausareport2 == 1 then
 
                 if arg2 == "SPELL_AURA_APPLIED" and
-                    (arg9 == 67061 or arg9 == 66242 or arg9 == 67059 or arg9 ==
-                        67060) then
+                    (arg9 == 66242) then
                     psjxpausareport2 = 0
                     psjxpausareport = 0
 
@@ -1568,12 +1561,12 @@ function pscreatedropmcol(aa, bb, cc, dd, ee, nn)
     UIDropDownMenu_JustifyText(aa, "LEFT")
 end
 
--- создание таблиц времени и проверка таргетов всего рейда, +0.2 сек к след проверке
 function GetInstanceDifficulty()
-    local name, instanceType, difficultyID, ... = GetInstanceInfo()
+    local name, instanceType, difficultyID = GetInstanceInfo()
     return difficultyID - 2 
 end
 
+-- создание таблиц времени и проверка таргетов всего рейда, +0.2 сек к след проверке
 function pstwsozdtabltime(psboss)
     if (pstwraidroster == nil or pstwraidroster == {}) then
         pstwraidroster = {}
