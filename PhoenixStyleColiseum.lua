@@ -47,13 +47,13 @@ function psfColiseum()
     if (psgalochki == nil) then psgalochki = {"yes", "yes", "yes"} end
 
     if GetRealZoneText() == pszonecoliseum then
-        this:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-        this:RegisterEvent("PLAYER_TARGET_CHANGED")
+        PhoenixStyleMod_Coliseum:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+        PhoenixStyleMod_Coliseum:RegisterEvent("PLAYER_TARGET_CHANGED")
     end
-    this:RegisterEvent("PLAYER_REGEN_DISABLED")
-    this:RegisterEvent("PLAYER_REGEN_ENABLED")
-    this:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-    this:RegisterEvent("ADDON_LOADED")
+    PhoenixStyleMod_Coliseum:RegisterEvent("PLAYER_REGEN_DISABLED")
+    PhoenixStyleMod_Coliseum:RegisterEvent("PLAYER_REGEN_ENABLED")
+    PhoenixStyleMod_Coliseum:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+    PhoenixStyleMod_Coliseum:RegisterEvent("ADDON_LOADED")
 
 end
 
@@ -281,7 +281,9 @@ function PSFcoli_OnUpdate()
 
 end
 
-function psfColiseumonevent()
+function psfColiseumonevent(self,event,...)
+
+	local arg1, arg2, arg3, arg4, arg5, arg6, _, _, _, _, _, _, arg13 = ...
 
     if event == "PLAYER_REGEN_DISABLED" then
         if psbilresnut == 1 then
@@ -386,7 +388,33 @@ function psfColiseumonevent()
         end
     end
 
-    if GetNumRaidMembers() > 0 and event == "COMBAT_LOG_EVENT_UNFILTERED" then
+    if GetNumGroupMembers() > 0 and event == "COMBAT_LOG_EVENT_UNFILTERED" then
+
+        local arg1, arg2, argNEW1, arg3, arg4, arg5, argNEW2, arg6, arg7, arg8, argNEW3, arg9,
+              arg10, arg11, arg12, arg13, arg14, arg15, arg16, arg17,
+              arg18, arg19 = CombatLogGetCurrentEventInfo()
+
+        --print(event)
+        --print(arg1) -- timestamp
+        --print(arg2) -- subevent
+        --print(argNEW1) -- hideCaster
+        --print(arg3) -- sourceGUID
+        --print(arg4) -- sourceName
+        --print(arg5) -- sourcFlags
+        --print(argNEW2) -- sourceRaidFlags
+        --print(arg6) -- destinationGUID
+        --print(arg7) -- destName
+        --print(arg8) -- destFlags
+        --print(argNEW3) -- destRaidFlags
+        --print(arg9) -- spellId
+        --print(arg10) -- spellName
+        --print(arg11) -- spellSchool
+        --print(arg12) -- amount/ABSORB
+        --print(arg13) -- overkill
+        --print(arg14) -- school
+        --print(arg15) -- resisted
+        --print(arg16) -- blocked
+        --print(arg17) -- absorbed
 
         -- твины
         if (twinboyinterr == 1) then
@@ -792,22 +820,22 @@ function psfColiseumonevent()
 
             -- вешает дебафф
             if arg2 == "SPELL_AURA_APPLIED" and
-                (arg9 == 67051 or arg9 == 66237 or arg9 == 67049 or arg9 ==
-                    67050) then
+                (arg9 == 66237) then
 
-                if arg9 == 67051 then
+                local difficultyID = GetInstanceDifficulty()
+                if arg9 == 4 then
                     psshieldamount = 85000
                     psjxshieldtime = 12
                 end
-                if arg9 == 66237 then
+                if arg9 == 1 then
                     psshieldamount = 30000
                     psjxshieldtime = 15
                 end
-                if arg9 == 67049 then
+                if arg9 == 2 then
                     psshieldamount = 60000
                     psjxshieldtime = 15
                 end
-                if arg9 == 67050 then
+                if arg9 == 3 then
                     psshieldamount = 40000
                     psjxshieldtime = 12
                 end
@@ -938,19 +966,19 @@ function PSF_buttonkolizei2()
     openmenujarax()
     psfcoldraw()
     if (twinspart) then
-        PSFmain7_CheckButton201:SetChecked()
+        PSFmain7_CheckButton201:SetChecked(true)
     else
         pscolbosstxt2:SetText("|cffff0000" .. pscoliboss1 .. "|r")
         PSFmain7_CheckButton201:SetChecked(false)
     end
     if (zveripart) then
-        PSFmain7_CheckButton202:SetChecked()
+        PSFmain7_CheckButton202:SetChecked(true)
     else
         pscolbosstxt1:SetText("|cffff0000" .. pscoliboss2 .. "|r")
         PSFmain7_CheckButton202:SetChecked(false)
     end
     if (jaraxpart) then
-        PSFmain7_CheckButton203:SetChecked()
+        PSFmain7_CheckButton203:SetChecked(true)
     else
         pscolbosstxt3:SetText("|cffff0000" .. pscoliboss3 .. "|r")
         PSFmain7_CheckButton203:SetChecked(false)
@@ -958,20 +986,20 @@ function PSF_buttonkolizei2()
     if (twinspart2) then
         PSFmain7_CheckButton212:SetChecked(false)
     else
-        PSFmain7_CheckButton212:SetChecked()
+        PSFmain7_CheckButton212:SetChecked(true)
     end
     if (jaraxpart2) then
         PSFmain7_CheckButton213:SetChecked(false)
     else
-        PSFmain7_CheckButton213:SetChecked()
+        PSFmain7_CheckButton213:SetChecked(true)
     end
     if (twinspart3) then
-        PSFmain7_CheckButton2122:SetChecked()
+        PSFmain7_CheckButton2122:SetChecked(true)
     else
         PSFmain7_CheckButton2122:SetChecked(false)
     end
     if (twinspart4) then
-        PSFmain7_CheckButton2123:SetChecked()
+        PSFmain7_CheckButton2123:SetChecked(true)
     else
         PSFmain7_CheckButton2123:SetChecked(false)
     end
@@ -1222,17 +1250,17 @@ function pstwrelookmenu()
     -- перепроверяем галочки и прописываем все
 
     if (psgalochki[1] == "yes") then
-        PSTwinValmenu_CheckButton1:SetChecked()
+        PSTwinValmenu_CheckButton1:SetChecked(true)
     else
         PSTwinValmenu_CheckButton1:SetChecked(false)
     end
     if (psgalochki[2] == "yes") then
-        PSTwinValmenu_CheckButton2:SetChecked()
+        PSTwinValmenu_CheckButton2:SetChecked(true)
     else
         PSTwinValmenu_CheckButton2:SetChecked(false)
     end
     if (psgalochki[3] == "yes") then
-        PSTwinValmenu_CheckButton3:SetChecked()
+        PSTwinValmenu_CheckButton3:SetChecked(true)
     else
         PSTwinValmenu_CheckButton3:SetChecked(false)
     end
@@ -1541,6 +1569,10 @@ function pscreatedropmcol(aa, bb, cc, dd, ee, nn)
 end
 
 -- создание таблиц времени и проверка таргетов всего рейда, +0.2 сек к след проверке
+function GetInstanceDifficulty()
+    local name, instanceType, difficultyID, ... = GetInstanceInfo()
+    return difficultyID - 2 
+end
 
 function pstwsozdtabltime(psboss)
     if (pstwraidroster == nil or pstwraidroster == {}) then
@@ -1557,7 +1589,7 @@ function pstwsozdtabltime(psboss)
         psgrups = 2
     end
 
-    for i = 1, GetNumRaidMembers() do
+    for i = 1, GetNumGroupMembers() do
         local psname, pssubgroup = GetRaidRosterInfo(i)
         if pssubgroup <= psgrups then
             table.insert(pstwraidroster, (GetRaidRosterInfo(i)))
