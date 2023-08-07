@@ -41,7 +41,7 @@ end
 
 function PSF_buttonbeginmark()
     if (thisaddonwork) then
-        if (IsRaidOfficer() == 1) then
+        if ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then
             for te = 1, 8 do
                 if psfautomebtable[te]:GetText() == "" then
                     psautomarchangeno(te)
@@ -58,7 +58,8 @@ function PSF_buttonbeginmark()
             psautomarunfoc()
 
             if (psdatrumark == 1) then
-                if (IsRaidOfficer() == 1) then
+                if ((UnitIsGroupAssistant("player") or
+                    UnitIsGroupLeader("player"))) then
                     autorefmark = true
                     PSFmain4_Button20:Hide()
                     PSFmain4_Button22:Show()
@@ -341,7 +342,7 @@ function openaddchat()
     -- создание списка чата
     pschc = {}
     table.wipe(pschc)
-    _, pschc[1], _, pschc[2], _, pschc[3], _, pschc[4], _, pschc[5], _, pschc[6], _, pschc[7], _, pschc[8], _, pschc[9], _, pschc[10] =
+    _, pschc[1], _, _, pschc[2], _, _, pschc[3], _, _, pschc[4], _, _, pschc[5], _, _, pschc[6], _, _, pschc[7], _, _, pschc[8], _, _, pschc[9], _, _, pschc[10], _ =
         GetChannelList()
 
     local pschc2 = {}
@@ -361,7 +362,8 @@ function openaddchat()
     for i = 8, #bigmenuchatlist do
         for j = 1, #pschc do
             if pschc[j] and bigmenuchatlist[i] then
-                if string.lower(pschc[j]) == string.lower(bigmenuchatlist[i]) then
+                if string.lower(tostring(pschc[j])) ==
+                    string.lower(tostring(bigmenuchatlist[i])) then
                     table.remove(pschc, j)
                 end
             end
@@ -440,7 +442,7 @@ function PSF_chatedit()
             local t = PSFmainchated:CreateFontString()
             t:SetWidth(550)
             t:SetHeight(30)
-            t:SetFont(GameFontNormal:GetFont(), 12)
+            t:SetFont(GameFontNormal:GetFont(), 12, 'MONOCHROME')
             t:SetPoint("TOPLEFT", 20, -205)
             t:SetText(pschetremtxt1)
             t:SetJustifyH("LEFT")

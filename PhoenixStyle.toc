@@ -1,4 +1,4 @@
-﻿## Interface: 30300
+﻿## Interface: 30402
 ## Title: Phoenix|cff7fff7fStyle|r   Core
 ## Title-ruRU: Phoenix|cff7fff7fStyle|r   Основной
 ## Author: Shurshik

@@ -1,8 +1,11 @@
 ﻿-- Author: Shurshik
 -- version: 1.4961
 -- http://phoenix-wow.ru
-function PhoenixStyle_OnLoad()
+function psf_unitaura(name, spellInfo)
+    return AuraUtil.FindAuraByName(spellInfo,name)
+end
 
+function PhoenixStyle_OnLoad()
     pslocalem()
     pslocaleuim()
     pslocalezonem()
@@ -176,14 +179,16 @@ function PSF_OnUpdate()
 
     if psmsgtimestart42 > 0 and CurrentTimepull > psmsgtimestart42 + 0.4 then
         psmsgtimestart42 = 0
-        SendAddonMessage("PhoenixStyle", "myname:" .. psnamemsgsend ..
-                             "++mychat:" .. psmsgmychat42 .. "++", "RAID")
+        C_ChatInfo.SendAddonMessage("PhoenixStyle",
+                                    "myname:" .. psnamemsgsend .. "++mychat:" ..
+                                        psmsgmychat42 .. "++", "RAID")
     end
 
     if psmsgtimestart43 > 0 and CurrentTimepull > psmsgtimestart43 + 0.4 then
         psmsgtimestart43 = 0
-        SendAddonMessage("PhoenixStyle", "myname:" .. psnamemsgsend ..
-                             "++mychat:" .. psmsgmychat43 .. "++", "RAID")
+        C_ChatInfo.SendAddonMessage("PhoenixStyle",
+                                    "myname:" .. psnamemsgsend .. "++mychat:" ..
+                                        psmsgmychat43 .. "++", "RAID")
     end
 
     if psmsgtimestart > 0 and CurrentTimepull > psmsgtimestart + 0.4 then
@@ -192,12 +197,14 @@ function PSF_OnUpdate()
         -- тут отправка в аддон канал инфы
 
         if pssendinterboj == nil then
-            SendAddonMessage("PhoenixStyle", "myname:" .. psnamemsgsend ..
-                                 "++mychat:" .. psmsgmychat .. "++", "RAID")
+            C_ChatInfo.SendAddonMessage("PhoenixStyle", "myname:" ..
+                                            psnamemsgsend .. "++mychat:" ..
+                                            psmsgmychat .. "++", "RAID")
         else
-            SendAddonMessage("PhoenixStyle", "myname:" .. psnamemsgsend ..
-                                 "++mychat:" .. psmsgmychat .. "++fightend++",
-                             "RAID")
+            C_ChatInfo.SendAddonMessage("PhoenixStyle", "myname:" ..
+                                            psnamemsgsend .. "++mychat:" ..
+                                            psmsgmychat .. "++fightend++",
+                                        "RAID")
         end
 
     end
@@ -342,7 +349,7 @@ function PSF_OnUpdate()
     if (autorefmark) then
 
         if (CurrentTimepull > timeeventr) then
-            if (IsRaidOfficer() == 1) then
+            if (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) then
 
                 local timetocheck = 0
                 if psdelaydeathcheck == nil or
@@ -359,7 +366,7 @@ function PSF_OnUpdate()
                                 UnitExists(pssetmarknew[i][ij]) then
                                 if timetocheck == 1 then
                                     local oj = 1
-                                    while oj <= GetNumRaidMembers() do
+                                    while oj <= GetNumGroupMembers() do
                                         local name2, _, _, _, _, _, _, online,
                                               isDead = GetRaidRosterInfo(oj)
 
@@ -429,9 +436,9 @@ function PSF_OnUpdate()
 
     if psunmarkallraiders and CurrentTimepull > psunmarkallraiders then
         psunmarkallraiders = nil
-        if (IsRaidOfficer() == 1) then
+        if (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) then
 
-            for i = 1, GetNumRaidMembers() do
+            for i = 1, GetNumGroupMembers() do
                 local name = GetRaidRosterInfo(i)
                 if UnitExists(name) and GetRaidTargetIndex(name) and
                     GetRaidTargetIndex(name) > 0 then
@@ -444,11 +451,14 @@ function PSF_OnUpdate()
 
 end
 
-function PhoenixStyle_OnEvent()
+function PhoenixStyle_OnEvent(self, event, ...)
 
+    local arg1, arg2, arg3, arg4, arg5, arg6, _, _, _, _, _, _, arg13 = ...
     if event == "PLAYER_ALIVE" then psbilresnut = 1 end
 
     if event == "CHAT_MSG_ADDON" then
+
+		if (string.find(arg4, "-")) then arg4, _ = strsplit( "-", arg4, 2 ) end
 
         -- получение данных при задержке аннонса1
         if arg1 == "PhoenixStyle" and psmsgwaiting > 0 then
@@ -650,10 +660,11 @@ function PhoenixStyle_OnEvent()
             if psa4 == 0 or psa4 == 1 then
                 psa6 = "-" .. whererepiccchat[1] .. "," .. whererepiccchat[2]
             end
-            SendAddonMessage("PhoenixStyle_info2",
-                             UnitName("player") .. " v." .. psversion .. " " ..
-                                 psa1 .. psa2 .. psa3 .. " rsc:" .. psa5 ..
-                                 " icc:" .. psa4 .. psa6, arg3)
+            C_ChatInfo.SendAddonMessage("PhoenixStyle_info2",
+                                        UnitName("player") .. " v." .. psversion ..
+                                            " " .. psa1 .. psa2 .. psa3 ..
+                                            " rsc:" .. psa5 .. " icc:" .. psa4 ..
+                                            psa6, arg3)
         end
 
         if arg1 == "PSverwhips" and arg3 == "WHISPER" then
@@ -675,10 +686,11 @@ function PhoenixStyle_OnEvent()
             if psa4 == 0 or psa4 == 1 then
                 psa6 = "-" .. whererepiccchat[1] .. "," .. whererepiccchat[2]
             end
-            SendAddonMessage("PSverwhips2",
-                             UnitName("player") .. " v." .. psversion .. " " ..
-                                 psa1 .. psa2 .. psa3 .. " rsc:" .. psa5 ..
-                                 " icc:" .. psa4 .. psa6, "WHISPER", arg4)
+            C_ChatInfo.SendAddonMessage("PSverwhips2",
+                                        UnitName("player") .. " v." .. psversion ..
+                                            " " .. psa1 .. psa2 .. psa3 ..
+                                            " rsc:" .. psa5 .. " icc:" .. psa4 ..
+                                            psa6, "WHISPER", arg4)
         end
 
         if arg1 == "PSverwhips2" and arg3 == "WHISPER" then print(arg2) end
@@ -725,7 +737,7 @@ function PhoenixStyle_OnEvent()
             elseif tonumber(arg2) < psversion then
                 if pslastsendbinf == nil or
                     (pslastsendbinf and GetTime() > pslastsendbinf + 60) then
-                    SendAddonMessage("PS-myvers", psversion, arg3)
+                    C_ChatInfo.SendAddonMessage("PS-myvers", psversion, arg3)
                     pslastsendbinf = GetTime()
                 end
             end
@@ -768,7 +780,7 @@ function PhoenixStyle_OnEvent()
 
                 local psgood = 0
 
-                for i = 1, GetNumRaidMembers() do
+                for i = 1, GetNumGroupMembers() do
                     local name, rank = GetRaidRosterInfo(i)
                     if (rank > 0 and arg2 == name) then
                         psgood = 1
@@ -789,7 +801,6 @@ function PhoenixStyle_OnEvent()
     if event == "ZONE_CHANGED_NEW_AREA" then pszonechangedalldel = GetTime() end
 
     if event == "ADDON_LOADED" then
-
         if arg1 == "PhoenixStyle" then
             if psoldvern > psversion then PSFmain3_Textoldv:Show() end
 
@@ -816,7 +827,11 @@ function PhoenixStyle_OnEvent()
         lalaproverka = 1
     end
 
-    if GetNumRaidMembers() > 0 and event == "COMBAT_LOG_EVENT_UNFILTERED" then
+    if GetNumGroupMembers() > 0 and event == "COMBAT_LOG_EVENT_UNFILTERED" then
+
+        local arg1, arg2, arg3, arg4, arg5, arg6, argNEW1, arg7, arg8, arg9,
+              argNEW2, arg10, arg11, arg12, arg13, arg14, arg15, arg16, arg17,
+              arg18, arg19 = CombatLogGetCurrentEventInfo()
 
         -- обнулить проверку реса
         if psbilresnut == 1 then
@@ -845,7 +860,7 @@ function PhoenixStyleFailbot_Command(msg)
             val == "7" or val == "8" or val == "9" or val == "10" or val == "11" or
             val == "12" or val == "13" or val == "14" or val == "15" or val ==
             "16" or val == "17" or val == "18" or val == "19" or val == "20") then
-            if (IsRaidOfficer() == 1) then
+            if (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) then
                 if pspullactiv == 0 and thisaddonwork then
 
                     timertopull = tonumber(val)
@@ -982,7 +997,7 @@ end
 function PSF_buttonulda()
     PSF_closeallpr()
     if (thisaddonwork) then
-        if IsAddOnLoaded("PhoenixStyleMod_Ulduar") == nil then
+        if IsAddOnLoaded("PhoenixStyleMod_Ulduar") == false then
             LoadAddOn("PhoenixStyleMod_Ulduar")
             if IsAddOnLoaded("PhoenixStyleMod_Ulduar") then
                 print("|cff99ffffPhoenixStyle|r - " .. psmoduleload .. " " ..
@@ -1004,7 +1019,7 @@ end
 function PSF_buttonkolizei()
     PSF_closeallpr()
     if (thisaddonwork) then
-        if IsAddOnLoaded("PhoenixStyleMod_Coliseum") == nil then
+        if IsAddOnLoaded("PhoenixStyleMod_Coliseum") == false then
             LoadAddOn("PhoenixStyleMod_Coliseum")
             if IsAddOnLoaded("PhoenixStyleMod_Coliseum") then
                 print("|cff99ffffPhoenixStyle|r - " .. psmoduleload .. " " ..
@@ -1026,7 +1041,7 @@ end
 function PSF_buttonicecrown()
     PSF_closeallpr()
     if (thisaddonwork) then
-        if IsAddOnLoaded("PhoenixStyleMod_Icecrown") == nil then
+        if IsAddOnLoaded("PhoenixStyleMod_Icecrown") == false then
             LoadAddOn("PhoenixStyleMod_Icecrown")
             if IsAddOnLoaded("PhoenixStyleMod_Icecrown") then
                 if psicgalochki[1][1] == 0 then
@@ -1246,22 +1261,22 @@ function PSF_showoptions()
     framewasinuse11 = nil
 
     if (thisaddononoff) then
-        PSFmain3_CheckButton1:SetChecked()
+        PSFmain3_CheckButton1:SetChecked(true)
     else
         PSFmain3_CheckButton1:SetChecked(false)
     end
     if (thisaddonwork) then
-        PSFmain3_CheckButton2:SetChecked()
+        PSFmain3_CheckButton2:SetChecked(true)
     else
         PSFmain3_CheckButton2:SetChecked(false)
     end
     if (psfnopromrep) then
-        PSFmain3_CheckButton3:SetChecked()
+        PSFmain3_CheckButton3:SetChecked(true)
     else
         PSFmain3_CheckButton3:SetChecked(false)
     end
     if (psminibutenabl) then
-        PSFmain3_CheckButton4:SetChecked()
+        PSFmain3_CheckButton4:SetChecked(true)
     else
         PSFmain3_CheckButton4:SetChecked(false)
     end
@@ -1490,7 +1505,7 @@ end
 
 function psfwipecheck()
     psnumdead = 0
-    for i = 1, GetNumRaidMembers() do
+    for i = 1, GetNumGroupMembers() do
         local name, rank, subgroup, level, class, fileName, zone, online, isDead =
             GetRaidRosterInfo(i)
         if (isDead == 1 and subgroup < 6) then psnumdead = psnumdead + 1 end
@@ -1509,7 +1524,7 @@ function pscheckwipe1(numd10, numd25)
         if GetRaidDifficulty() == 2 or GetRaidDifficulty() == 4 then
             psnumgrup = 5
         end
-        for i = 1, GetNumRaidMembers() do
+        for i = 1, GetNumGroupMembers() do
             local nameee, _, subgroup, _, _, _, _, _, isDead =
                 GetRaidRosterInfo(i)
             if ((isDead == 1 or UnitIsDeadOrGhost(nameee) == 1) and subgroup <=
@@ -1629,7 +1644,7 @@ function chechtekzone()
 
         if psverschech1 then
             if (UnitInRaid("player")) then
-                SendAddonMessage("PS-myvers", psversion, "raid")
+                C_ChatInfo.SendAddonMessage("PS-myvers", psversion, "raid")
             end
         end
 
@@ -2032,9 +2047,10 @@ function pszapuskanonsa(kudarep, chtorep, bojinterr, vajnreport, addicc, norep)
                 end
 
             else
-                -- if(IsRaidOfficer()==1 or psfnopromrep) then
+                -- if((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) or psfnopromrep) then
                 if ((kudarep == "raid" or kudarep == "raid_warning") and
-                    IsRaidOfficer() == nil and psfnopromrep == false) then
+                    (UnitIsGroupAssistant("player") or
+                        UnitIsGroupLeader("player")) and psfnopromrep == false) then
                     psfnotofficer()
                 else
 
@@ -2114,7 +2130,8 @@ function pszapuskanonsa(kudarep, chtorep, bojinterr, vajnreport, addicc, norep)
                                                 psnamemsgsend = "00" ..
                                                                     psnamemsgsend
                                             end
-                                            if IsRaidOfficer() == 1 then
+                                            if (UnitIsGroupAssistant("player") or
+                                                UnitIsGroupLeader("player")) then
                                                 psnamemsgsend = "0" ..
                                                                     psnamemsgsend
                                             end
@@ -2147,7 +2164,8 @@ function pszapuskanonsa(kudarep, chtorep, bojinterr, vajnreport, addicc, norep)
                                                 psnamemsgsend = "00" ..
                                                                     psnamemsgsend
                                             end
-                                            if IsRaidOfficer() == 1 then
+                                            if (UnitIsGroupAssistant("player") or
+                                                UnitIsGroupLeader("player")) then
                                                 psnamemsgsend = "0" ..
                                                                     psnamemsgsend
                                             end
@@ -2175,7 +2193,8 @@ function pszapuskanonsa(kudarep, chtorep, bojinterr, vajnreport, addicc, norep)
                                                 psnamemsgsend = "00" ..
                                                                     psnamemsgsend
                                             end
-                                            if IsRaidOfficer() == 1 then
+                                            if (UnitIsGroupAssistant("player") or
+                                                UnitIsGroupLeader("player")) then
                                                 psnamemsgsend = "0" ..
                                                                     psnamemsgsend
                                             end
@@ -2272,9 +2291,9 @@ function psver(cchat)
     print(UnitName("player") .. " v." .. psversion .. " " .. psa1 .. psa2 ..
               psa3 .. " rsc:" .. psa5 .. " icc:" .. psa4 .. psa6)
     if cchat == nil then
-        SendAddonMessage("PhoenixStyle_info", "info", "raid")
+        C_ChatInfo.SendAddonMessage("PhoenixStyle_info", "info", "raid")
     else
-        SendAddonMessage("PhoenixStyle_info", "info", cchat)
+        C_ChatInfo.SendAddonMessage("PhoenixStyle_info", "info", cchat)
     end
 end
 
@@ -2282,7 +2301,7 @@ function psmapbuttreflesh()
     if pstextffgdgdf == nil then
         pstextffgdgdf = 1
 
-        tpsicon = PS_MinimapButton:CreateTexture(nil, "MEDIUM")
+        tpsicon = PS_MinimapButton:CreateTexture(nil, 'ARTWORK')
         tpsicon:SetTexture("Interface\\AddOns\\PhoenixStyle\\icon_phoenix_e")
         tpsicon:SetWidth(21)
         tpsicon:SetHeight(21)
@@ -2426,9 +2445,9 @@ end
 
 function psmarksoff(where)
     if where == nil then
-        SendAddonMessage("PS-marksoff", "off", "raid")
+        C_ChatInfo.SendAddonMessage("PS-marksoff", "off", "raid")
     else
-        SendAddonMessage("PS-marksoff", "off", where)
+        C_ChatInfo.SendAddonMessage("PS-marksoff", "off", where)
     end
 end
 
@@ -2524,11 +2543,11 @@ function pszonechangedall()
     if psverschech1 == nil then
         psverschech1 = 1
         if (UnitInRaid("player")) then
-            SendAddonMessage("PS-myvers", psversion, "raid")
+            C_ChatInfo.SendAddonMessage("PS-myvers", psversion, "raid")
         end
 
         if IsInGuild() then
-            SendAddonMessage("PS-myvers", psversion, "guild")
+            C_ChatInfo.SendAddonMessage("PS-myvers", psversion, "guild")
         end
     end
 end
@@ -2544,8 +2563,8 @@ function psunitisplayer(id, name)
     if UnitInRaid(name) then
         psunitplayertrue = 1
     else
-        if GetNumRaidMembers() > 0 then
-            for i = 1, GetNumRaidMembers() do
+        if GetNumGroupMembers() > 0 then
+            for i = 1, GetNumGroupMembers() do
                 if UnitGUID("raid" .. i) and UnitGUID("raid" .. i) == id then
                     psunitplayertrue = 1
                     i = 41

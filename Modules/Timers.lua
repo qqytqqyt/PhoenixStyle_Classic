@@ -1,12 +1,13 @@
 ﻿function psfpullbegin()
 
     if (thisaddonwork) then
-        if (IsRaidOfficer() == 1) then
+        if ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then
             if pspullactiv == 0 then
                 if GetTime() > pstimeruraid then
 
                     pspullactiv = 1
-                    SendAddonMessage("PhoenixStyle-pull", timertopull, "RAID")
+                    C_ChatInfo.SendAddonMessage("PhoenixStyle-pull",
+                                                timertopull, "RAID")
 
                     pstimermake(psattack, timertopull)
 
@@ -73,7 +74,9 @@ function psfcancelpull()
 end
 
 function PSFbeginpullmenu()
-    if (thisaddonwork and IsRaidOfficer() == 1 and pspullactiv == 0) then
+    if (thisaddonwork and
+        (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) and
+        pspullactiv == 0) then
         if (PSFmain5_timertopull1:GetNumber() > 1 and
             PSFmain5_timertopull1:GetNumber() < 21) then
             timertopull = PSFmain5_timertopull1:GetNumber()
@@ -90,7 +93,7 @@ function PSFbeginpullmenu()
 end
 
 function PSFbeginpereriv()
-    if (IsRaidOfficer() == 1) then
+    if ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then
         if (PSFmain5_RadioButton251:GetChecked()) then
             -- минут
             if (PSFmain5_timerpereriv1:GetNumber() > 0 and
@@ -144,7 +147,7 @@ end
 function PSFbegiowntimer()
     nazvtimera = PSFmain5_timersvoi2:GetText()
     if (nazvtimera == "") then nazvtimera = pstimernoname end
-    if (IsRaidOfficer() == 1) then
+    if ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then
         if (PSFmain5_RadioButton253:GetChecked()) then
             -- минут
             if (PSFmain5_timersvoi1:GetNumber() > 0 and
@@ -203,20 +206,21 @@ function pstimermake(pstext, pstime, otmtimera)
         DBM:CreatePizzaTimer(pstime, pstext, sender22)
 
     else
-        SendAddonMessage("DBMv4-Pizza", ("%s\t%s"):format(pstime, pstext),
-                         "RAID")
+        C_ChatInfo.SendAddonMessage("DBMv4-Pizza",
+                                    ("%s\t%s"):format(pstime, pstext), "RAID")
     end
 
-    SendAddonMessage("BigWigs", "BWCustomBar " .. pstime .. " " .. pstext,
-                     "RAID")
-    SendAddonMessage("DXE",
-                     "^1^SAlertsRaidBar^N" .. pstime .. "^S~`" .. pstext .. "^^",
-                     "RAID")
+    C_ChatInfo.SendAddonMessage("BigWigs",
+                                "BWCustomBar " .. pstime .. " " .. pstext,
+                                "RAID")
+    C_ChatInfo.SendAddonMessage("DXE",
+                                "^1^SAlertsRaidBar^N" .. pstime .. "^S~`" ..
+                                    pstext .. "^^", "RAID")
     if otmtimera == nil then
-        SendAddonMessage("RW2",
-                         "^1^SStartCommBar^F" .. (math.random() * 10) ..
-                             "^f-53^N" .. pstime .. "^S" .. pstext .. "^^",
-                         "RAID")
+        C_ChatInfo.SendAddonMessage("RW2",
+                                    "^1^SStartCommBar^F" .. (math.random() * 10) ..
+                                        "^f-53^N" .. pstime .. "^S" .. pstext ..
+                                        "^^", "RAID")
     end
 
 end

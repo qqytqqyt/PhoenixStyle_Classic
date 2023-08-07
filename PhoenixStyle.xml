@@ -3,8 +3,8 @@
 
 	<Scripts>
 	<OnLoad>PhoenixStyle_OnLoad()</OnLoad>
-	<OnEvent>if(thisaddonwork or (thisaddonwork==false and event=="ADDON_LOADED")) then PhoenixStyle_OnEvent() end</OnEvent>
-	<OnUpdate>if(thisaddonwork) then PSF_OnUpdate() end</OnUpdate>
+	<OnEvent>if (thisaddonwork or (thisaddonwork==false and event=="ADDON_LOADED")) and pstemporarystop==nil then PhoenixStyle_OnEvent(self,event,...) end</OnEvent>
+	<OnUpdate>if thisaddonwork and pstemporarystop==nil then PSF_OnUpdate() end</OnUpdate>
 	</Scripts>
 	</Frame>
 
@@ -28,9 +28,9 @@
 	</BackgroundInsets>
 	</Backdrop>
 <Scripts>
-	<OnMouseDown>this:StartMoving()</OnMouseDown>
-	<OnMouseUp>this:StopMovingOrSizing()</OnMouseUp>
-	<OnDragStop>this:StopMovingOrSizing()</OnDragStop>
+	<OnMouseDown>self:StartMoving()</OnMouseDown>
+	<OnMouseUp>self:StopMovingOrSizing()</OnMouseUp>
+	<OnDragStop>self:StopMovingOrSizing()</OnDragStop>
 	</Scripts>
 <frames>
 
@@ -65,9 +65,24 @@
 
 
 
-
-
-<Frame name="PSFmain" hidden="true" toplevel="true" virtual="true" frameStrata="DIALOG" movable="true" enableMouse="true" parent="UIParent">
+<Frame name="PSFmain" hidden="true" toplevel="true" virtual="true" frameStrata="DIALOG" movable="true" enableMouse="true" parent="UIParent" inherits="BackdropTemplate">
+	<Scripts>
+		<OnLoad>
+					self.background = CreateFrame("Frame", nil, self, "BackdropTemplate")
+					self.background:SetAllPoints()
+					self.background:SetBackdrop(
+						{
+							bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+							edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+							tile = true,
+							tileSize = 16,
+							edgeSize = 8,
+							insets = { left = 3, right = 3, top = 3, bottom = 3, },
+						})
+					self.background:SetBackdropColor(.03, .03, .03, 1)
+					self.background:SetBackdropBorderColor(.4, .4, .4)
+				</OnLoad>
+	</Scripts>
 	<Size x="750" y="400"/>
 	<Anchors>
 	<Anchor point="CENTER"/>
@@ -75,9 +90,9 @@
 
 
 <Scripts>
-	<OnMouseDown>this:StartMoving()</OnMouseDown>
-	<OnMouseUp>this:StopMovingOrSizing()</OnMouseUp>
-	<OnDragStop>this:StopMovingOrSizing()</OnDragStop>
+	<OnMouseDown>PSFmain1:StartMoving()</OnMouseDown>
+	<OnMouseUp>PSFmain1:StopMovingOrSizing()</OnMouseUp>
+	<OnDragStop>PSFmain1:StopMovingOrSizing()</OnDragStop>
 	<OnShow>PSF_showoptions()</OnShow>
 	</Scripts>
 </Frame>
@@ -203,19 +218,19 @@
 <frames>
 <CheckButton name="$parent_CheckButton2" inherits="OptionsCheckButtonTemplate">
 	<Size x="25" y="25"/><Anchors><Anchor point="TOPLEFT"><Offset x="20" y="-15"/></Anchor></Anchors>
-	<Scripts><OnLoad>getglobal(this:GetName().."Text"):SetText(psaddonon)</OnLoad><OnClick>PSFvkladdon()</OnClick></Scripts>
+	<Scripts><OnLoad>getglobal(self:GetName().."Text"):SetText(psaddonon)</OnLoad><OnClick>PSFvkladdon()</OnClick></Scripts>
 	</CheckButton>
 <CheckButton name="$parent_CheckButton1" inherits="OptionsCheckButtonTemplate">
 	<Size x="25" y="25"/><Anchors><Anchor point="TOPLEFT"><Offset x="20" y="-35"/></Anchor></Anchors>
-	<Scripts><OnLoad>getglobal(this:GetName().."Text"):SetText(psaddonrepon)</OnLoad><OnClick>PSFifreporton()</OnClick></Scripts>
+	<Scripts><OnLoad>getglobal(self:GetName().."Text"):SetText(psaddonrepon)</OnLoad><OnClick>PSFifreporton()</OnClick></Scripts>
 	</CheckButton>
 <CheckButton name="$parent_CheckButton4" inherits="OptionsCheckButtonTemplate">
 	<Size x="25" y="25"/><Anchors><Anchor point="TOPLEFT"><Offset x="20" y="-55"/></Anchor></Anchors>
-	<Scripts><OnLoad>getglobal(this:GetName().."Text"):SetText(psminibuttset)</OnLoad><OnClick>PSFminimaponoff()</OnClick></Scripts>
+	<Scripts><OnLoad>getglobal(self:GetName().."Text"):SetText(psminibuttset)</OnLoad><OnClick>PSFminimaponoff()</OnClick></Scripts>
 	</CheckButton>
 <CheckButton name="$parent_CheckButton3" inherits="OptionsCheckButtonTemplate">
 	<Size x="25" y="25"/><Anchors><Anchor point="TOPLEFT"><Offset x="20" y="-95"/></Anchor></Anchors>
-	<Scripts><OnLoad>getglobal(this:GetName().."Text"):SetText(psaddonrepnoprom)</OnLoad><OnClick>PSFrepnopromchange()</OnClick></Scripts>
+	<Scripts><OnLoad>getglobal(self:GetName().."Text"):SetText(psaddonrepnoprom)</OnLoad><OnClick>PSFrepnopromchange()</OnClick></Scripts>
 	</CheckButton>
 <Button name="$parent_Button1" inherits="UIPanelButtonTemplate" text="pschatchopt">
 	<Size x="170" y="24"/><Anchors><Anchor point="TOPLEFT"><Offset x="20" y="-118"/></Anchor></Anchors>
@@ -376,7 +391,7 @@
 	</Button>
 <CheckButton name="$parent_RadioButton251" inherits="SendMailRadioButtonTemplate">
 	<Anchors><Anchor point="TOPLEFT"><Offset x="315" y="-134"/></Anchor></Anchors>
-	<Scripts><OnLoad>getglobal(this:GetName().."Text"):SetText(psminut) PSFmain5_RadioButton251:SetChecked(1)</OnLoad>
+	<Scripts><OnLoad>getglobal(self:GetName().."Text"):SetText(psminut) PSFmain5_RadioButton251:SetChecked(1)</OnLoad>
 	<OnClick>
 	PSFmain5_RadioButton252:SetChecked(nil)
 	PSFmain5_RadioButton251:SetChecked(1)
@@ -385,7 +400,7 @@
 	</CheckButton>
 <CheckButton name="$parent_RadioButton252" inherits="SendMailRadioButtonTemplate">
 	<Anchors><Anchor point="TOPLEFT"><Offset x="315" y="-149"/></Anchor></Anchors>
-	<Scripts><OnLoad>getglobal(this:GetName().."Text"):SetText(pssecund) PSFmain5_RadioButton252:SetChecked(nil)</OnLoad>
+	<Scripts><OnLoad>getglobal(self:GetName().."Text"):SetText(pssecund) PSFmain5_RadioButton252:SetChecked(nil)</OnLoad>
 	<OnClick>
 	PSFmain5_RadioButton251:SetChecked(nil)
 	PSFmain5_RadioButton252:SetChecked(1)
@@ -396,7 +411,7 @@
 	<Anchors><Anchor point="TOPLEFT"><Offset x="341" y="-185"/></Anchor></Anchors>
 	<Scripts>
 	<OnLoad>
-	getglobal(this:GetName().."Text"):SetText(psminut)
+	getglobal(self:GetName().."Text"):SetText(psminut)
 	PSFmain5_RadioButton253:SetChecked(1) 
 	</OnLoad>
 	<OnClick>
@@ -409,7 +424,7 @@
 	<Anchors><Anchor point="TOPLEFT"><Offset x="341" y="-200"/></Anchor></Anchors>
 	<Scripts>
 	<OnLoad>
-	getglobal(this:GetName().."Text"):SetText(pssecund)
+	getglobal(self:GetName().."Text"):SetText(pssecund)
 	PSFmain5_RadioButton254:SetChecked(nil)
 	</OnLoad>
 	<OnClick>
@@ -538,7 +553,7 @@
 	</Anchor>
 	</Anchors>
 	<Scripts>
-	<OnLoad>getglobal(this:GetName().."Text"):SetText(rsclocrlslak)</OnLoad>
+	<OnLoad>getglobal(self:GetName().."Text"):SetText(rsclocrlslak)</OnLoad>
 	<OnClick>rscchange()</OnClick>
 	</Scripts>
 	</CheckButton>
@@ -550,7 +565,7 @@
 	</Anchor>
 	</Anchors>
 	<Scripts>
-	<OnLoad>getglobal(this:GetName().."Text"):SetText(rscloccolor)</OnLoad>
+	<OnLoad>getglobal(self:GetName().."Text"):SetText(rscloccolor)</OnLoad>
 	<OnClick>rscchange2()</OnClick>
 	</Scripts>
 	</CheckButton>
@@ -872,8 +887,8 @@
 	<HighlightTexture alphaMode="ADD" file="Interface\Minimap\UI-Minimap-ZoomButton-Highlight"/>
 	<Scripts>
 	<OnLoad>
-	this:RegisterForClicks("LeftButtonUp","RightButtonUp")
-	this:RegisterForDrag("LeftButton","RightButton")
+	self:RegisterForClicks('LeftButtonUp','RightButtonUp')
+	self:RegisterForDrag('LeftButton','RightButton')
 	</OnLoad>
 	<OnEnter>
 	if (not self.dragging) then
@@ -882,24 +897,32 @@
 	</OnEnter>
 	<OnLeave>
 	GameTooltip:Hide()
+	tpsicon:SetPoint("TOPLEFT",7,-6)
 	</OnLeave>
 	<OnDragStart>
+	tpsicon:SetPoint("TOPLEFT",7,-6)
 	self.dragging = true
 	GameTooltip:Hide()
-	this:LockHighlight()
+	
 	PS_MinimapButton_DraggingFrame:Show()
 	</OnDragStart>
 	<OnDragStop>
+	tpsicon:SetPoint("TOPLEFT",7,-6)
 	self.dragging = false
-	this:UnlockHighlight()
+	
 	PS_MinimapButton_DraggingFrame:Hide()
 	</OnDragStop>
 	<OnClick>
 	PS_MinimapButton_OnClick()
 	</OnClick>
+	<OnMouseDown>
+		tpsicon:SetPoint("TOPLEFT",8,-8)
+	</OnMouseDown>
+	<OnMouseUp>
+		tpsicon:SetPoint("TOPLEFT",7,-6)
+	</OnMouseUp>
 	</Scripts>
 </Button>
-
 
 
 
