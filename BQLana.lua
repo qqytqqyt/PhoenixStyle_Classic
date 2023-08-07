@@ -402,12 +402,12 @@ function psicclanafoodmark()
                         GetRaidRosterInfo(i)
                     if (subgroup <= psgropcheck and online and isDead == nil) then
                         local bililinet = 0
-                        if UnitDebuff(name, psdeb1) then
+                        if psf_unitaura(name, psdeb1) then
                             bezum = bezum + 1
                             bililinet = 1
                         end
 
-                        if UnitDebuff(name, psdeb2) then
+                        if psf_unitaura(name, psdeb2) then
                             bililinet = 1
                             table.insert(pstable1, name)
                         end

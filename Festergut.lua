@@ -162,9 +162,9 @@ function psiccfestergutaoealarm()
                 GetRaidRosterInfo(i)
             if (subgroup <= psgropcheck and online and isDead == nil and
                 UnitIsDeadOrGhost(name) == nil) then
-                local _, _, _, stack = UnitDebuff(name, psdebname)
+                local _, _, stack = psf_unitaura(name, psdebname)
                 if stack == nil then stack = 0 end
-                if UnitDebuff(name, psdebname2) then
+                if psf_unitaura(name, psdebname2) then
                     stack = stack + 1
                 end
 
@@ -207,9 +207,9 @@ function psiccfestergutaoealarm()
                 GetRaidRosterInfo(i)
             if (subgroup <= psgropcheck and online and isDead == nil and
                 UnitIsDeadOrGhost(name) == nil) then
-                local _, _, _, stack = UnitDebuff(name, psdebname)
+                local _, _, stack = psf_unitaura(name, psdebname)
                 if stack == nil then stack = 0 end
-                if UnitDebuff(name, psdebname2) then
+                if psf_unitaura(name, psdebname2) then
                     stack = stack + 1
                 end
 

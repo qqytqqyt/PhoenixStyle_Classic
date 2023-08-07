@@ -1,5 +1,14 @@
 ﻿-- Author: Shurshik
 -- http://phoenix-wow.ru
+function GetInstanceDifficulty()
+    local name, instanceType, difficultyID = GetInstanceInfo()
+    return difficultyID - 2 
+end
+
+function GetRaidDifficulty()
+    return GetInstanceDifficulty()
+end
+
 function psficecrown()
 
     pslocaleicecrownuim()
@@ -165,13 +174,13 @@ function psficecrown()
     end
 
     if GetRealZoneText() == pszoneicecrowncit then
-        this:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+        PhoenixStyleMod_Icecrown:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
     end
-    this:RegisterEvent("PLAYER_REGEN_DISABLED")
-    this:RegisterEvent("PLAYER_REGEN_ENABLED")
-    this:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-    this:RegisterEvent("ADDON_LOADED")
-    this:RegisterEvent("CHAT_MSG_MONSTER_YELL")
+    PhoenixStyleMod_Icecrown:RegisterEvent("PLAYER_REGEN_DISABLED")
+    PhoenixStyleMod_Icecrown:RegisterEvent("PLAYER_REGEN_ENABLED")
+    PhoenixStyleMod_Icecrown:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+    PhoenixStyleMod_Icecrown:RegisterEvent("ADDON_LOADED")
+    PhoenixStyleMod_Icecrown:RegisterEvent("CHAT_MSG_MONSTER_YELL")
 
 end
 
@@ -198,7 +207,7 @@ function pscicconupdate(curtime)
         -- deathwisper
         if psicchunterdiedelayboss == 1 then
             for tyu = 1, #psicchunterdiedelaytable do
-                for euu = 1, GetNumRaidMembers() do
+                for euu = 1, GetNumGroupMembers() do
                     local name, _, _, _, _, _, _, _, isDead = GetRaidRosterInfo(
                                                                   euu)
                     if (name == psicchunterdiedelaytable[tyu] and isDead) then
@@ -228,8 +237,8 @@ function pscicconupdate(curtime)
             psiccprofmigatmark1 = nil
             psiccprofwispchuma22 = nil
         else
-            if IsRaidOfficer() == 1 and psiccprofwispchuma22 and
-                UnitExists(psiccprofwispchuma22) then
+            if (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) and
+                psiccprofwispchuma22 and UnitExists(psiccprofwispchuma22) then
                 if psiccprofmigatmark2 == 1 or psiccprofmigatmark2 == 3 or
                     psiccprofmigatmark2 == 5 or psiccprofmigatmark2 == 7 or
                     psiccprofmigatmark2 == 9 then
@@ -268,10 +277,10 @@ function pscicconupdate(curtime)
             pstempvalitpull30 = nil
         else
             local bilbaf = 0
-            for i = 1, GetNumRaidMembers() do
+            for i = 1, GetNumGroupMembers() do
                 if UnitName("raid" .. i .. "-target") and
                     UnitName("raid" .. i .. "-target") == psiccvalithria then
-                    if UnitBuff("raid" .. i .. "-target", GetSpellInfo(43017)) then
+                    if psf_unitaura("raid" .. i .. "-target", GetSpellInfo(43017)) then
                         i = 41
                         bilbaf = 1
                         pstempvalitpull30 = nil
@@ -283,7 +292,7 @@ function pscicconupdate(curtime)
 
             if bilbaf == 2 then
                 local bilmag = 0
-                for ii = 1, GetNumRaidMembers() do
+                for ii = 1, GetNumGroupMembers() do
                     local name, _, _, _, _, claass = GetRaidRosterInfo(ii)
                     if claass == "MAGE" and UnitIsDeadOrGhost(name) == nil and
                         UnitAffectingCombat(name) then
@@ -315,7 +324,8 @@ function pscicconupdate(curtime)
 
     -- держу марки свои
 
-    if (psiccsauractiv and IsRaidOfficer() == 1 and
+    if (psiccsauractiv and
+        (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) and
         (isbattlev == 1 or (isbattlev == 0 and UnitIsDead("player")))) then
 
         if psicnextupdsaur == nil then psicnextupdsaur = curtime + 2 end
@@ -344,7 +354,7 @@ function pscicconupdate(curtime)
 
             if psiccmarkinsnospam == nil then
                 local i = 1
-                while i <= GetNumRaidMembers() do
+                while i <= GetNumGroupMembers() do
                     if UnitName("raid" .. i .. "-target") == psiccsaurfang then
                         -- получает инфо о его раге, если больше 80 проверяем мертвых хилеров и репортим
                         if UnitPower("raid" .. i .. "-target", 3) > 79 and
@@ -363,7 +373,8 @@ function pscicconupdate(curtime)
 
     end
 
-    if psicclanatimer and psicclanatimer > GetTime() and IsRaidOfficer() == 1 and
+    if psicclanatimer and psicclanatimer > GetTime() and
+        (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) and
         #psicclanamarkref > 0 then
         if psicnextupdlana == nil then psicnextupdlana = curtime + 2 end
 
@@ -556,7 +567,7 @@ function pscicconupdate(curtime)
         if pstempdelayval and curtime > pstempdelayval then
             pstempdelayval = curtime + 0.5
 
-            for i = 1, GetNumRaidMembers() do
+            for i = 1, GetNumGroupMembers() do
                 if UnitInVehicle("raid" .. i) then
                     local bil = 0
                     if #psiccvalktimertargtabl > 0 then
@@ -622,7 +633,7 @@ function pscicconupdate(curtime)
         if psdelayhpcheck == nil then psdelayhpcheck = curtime + 0.3 end
         if curtime > psdelayhpcheck then
             psdelayhpcheck = curtime + 0.3
-            for ttg = 1, GetNumRaidMembers() do
+            for ttg = 1, GetNumGroupMembers() do
                 if UnitName("raid" .. ttg .. "-target") == psicclkvalkname then
                     local percenthp = UnitHealth("raid" .. ttg .. "-target") *
                                           100 /
@@ -851,15 +862,17 @@ function pscicconupdate(curtime)
             psiccchatfiltime = GetTime()
         end
         local cchat = "raid"
-        if IsRaidOfficer() == 1 then cchat = "raid_warning" end
+        if (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) then
+            cchat = "raid_warning"
+        end
         psiccprofwispchuma22 = psiccprofwispchuma2
         psiccprofmigatmark1 = GetTime()
         psiccprofmigatmark2 = 0
         local plagueleft = ""
         local psdeb1 = GetSpellInfo(70911)
 
-        if UnitDebuff(psiccprofwispchuma2, psdeb1) then
-            local _, _, _, _, _, _, expirationTime = UnitDebuff(
+        if psf_unitaura(psiccprofwispchuma2, psdeb1) then
+            local _, _, _, _, _, expirationTime = psf_unitaura(
                                                          psiccprofwispchuma2,
                                                          psdeb1)
             plagueleft = "(" .. psiccleft .. ": " ..
@@ -919,12 +932,14 @@ function pscicconupdate(curtime)
 
         local psdeb1 = GetSpellInfo(70911)
 
-        if UnitDebuff(psiccprofwispchuma2, psdeb1) then
-            local name, _, _, _, _, _, expirationTime = UnitDebuff(
+        if psf_unitaura(psiccprofwispchuma2, psdeb1) then
+            local name, _, _, _, _, expirationTime = psf_unitaura(
                                                             psiccprofwispchuma2,
                                                             psdeb1)
             local cchat = "raid"
-            if IsRaidOfficer() == 1 then cchat = "raid_warning" end
+            if (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) then
+                cchat = "raid_warning"
+            end
             if expirationTime and expirationTime - GetTime() > 3 then
 
                 if psiccprofgal2 or psiccprofgal22 or psiccprofgal23 then
@@ -1143,7 +1158,7 @@ function pscicconupdate(curtime)
             psiccotloj = psiccotloj + 0.15
 
             local i = 1
-            while i <= GetNumRaidMembers() do
+            while i <= GetNumGroupMembers() do
                 if UnitName("raid" .. i .. "-target") == psicclichking then
                     if UnitName("raid" .. i .. "-target-target") then
                         psicclichdelfireon =
@@ -1293,8 +1308,8 @@ function pscicconupdate(curtime)
 
 end
 
-function psficecrownonevent()
-
+function psficecrownonevent(self, event, ...)
+    local arg1, arg2, arg3, arg4, arg5, arg6, _, _, _, _, _, _, arg13 = ...
     if event == "PLAYER_REGEN_DISABLED" then
         if psbilresnut == 1 then
         else
@@ -1699,7 +1714,30 @@ function psficecrownonevent()
         end
     end
 
-    if GetNumRaidMembers() > 0 and event == "COMBAT_LOG_EVENT_UNFILTERED" then
+    if GetNumGroupMembers() > 0 and event == "COMBAT_LOG_EVENT_UNFILTERED" then
+
+        local arg1, arg2, argNEW1, arg3, arg4, arg5, argNEW2, arg6, arg7, arg8,
+              argNEW3, arg9, arg10, arg11, arg12, arg13, arg14, arg15, arg16,
+              arg17, arg18, arg19 = CombatLogGetCurrentEventInfo()
+
+        -- print(event)
+        -- print(arg1) -- timestamp
+        -- print(arg2) -- subevent
+        -- print(argNEW1) -- hideCaster
+        -- print(arg3) -- sourceGUID
+        -- print(arg4) -- sourceName
+        -- print(arg5) -- sourcFlags
+        -- print(argNEW2) -- sourceRaidFlags
+        -- print(arg6) -- destinationGUID
+        -- print(arg7) -- destName
+        -- print(arg8) -- destFlags
+        -- print(argNEW3) -- destRaidFlags
+        -- print(arg9) -- spellId
+        -- print(arg10) -- spellName
+        -- print(arg11) -- spellSchool
+        -- print(arg12) -- amount
+        -- print(arg13) -- destFlags
+        -- print(arg14) -- destFlags
 
         -- прерваные бои
 
@@ -1804,7 +1842,7 @@ function psficecrownonevent()
                 timetocheck = arg1 + 8
             elseif (arg1 > timetocheck) then
                 local iccbuffvalitria = GetSpellInfo(70766)
-                if UnitDebuff(UnitName("player"), iccbuffvalitria) then
+                if psf_unitaura(UnitName("player"), iccbuffvalitria) then
                     timetocheck = arg1 + 8
                 else
                     psiccwipereport()
@@ -2339,7 +2377,8 @@ function psficecrownonevent()
                 psiccprofmigatmark2 = nil
                 psiccprofwispchuma22 = nil
                 -- psprofbaaaaddebuf=nil
-                if (IsRaidOfficer() == 1) then
+                if ((UnitIsGroupAssistant("player") or
+                    UnitIsGroupLeader("player"))) then
                     SetRaidTarget(arg7, 0)
                     -- psdelayprofmod=GetTime()-1
                 end
@@ -2352,7 +2391,7 @@ function psficecrownonevent()
 
             end
 
-            for i = 1, GetNumRaidMembers() do
+            for i = 1, GetNumGroupMembers() do
                 local name = GetRaidRosterInfo(i)
                 if UnitExists(name) and GetRaidTargetIndex(name) and
                     GetRaidTargetIndex(name) > 0 and GetRaidTargetIndex(name) ~=
@@ -2369,7 +2408,8 @@ function psficecrownonevent()
                 psiccprofsendonemes = 1
                 psprofbaaaaddebuf = nil
                 psiccfirstmarkprofwisp = nil
-                if (IsRaidOfficer() == 1) then
+                if ((UnitIsGroupAssistant("player") or
+                    UnitIsGroupLeader("player"))) then
                     SetRaidTarget(arg7, 8)
                 end
             end
@@ -2388,13 +2428,18 @@ function psficecrownonevent()
                     "Шурши" then
                     nam = "00" .. UnitName("player")
                 end
-                if IsRaidOfficer() == 1 then nam = "0" .. nam end
-                SendAddonMessage("PSiccprof", nam, "RAID")
+                if (UnitIsGroupAssistant("player") or
+                    UnitIsGroupLeader("player")) then
+                    nam = "0" .. nam
+                end
+                C_ChatInfo.SendAddonMessage("PSiccprof", nam, "RAID")
             end
 
             psdelayprofmod = GetTime()
 
-            if (IsRaidOfficer() == 1) then SetRaidTarget(arg7, 1) end
+            if ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then
+                SetRaidTarget(arg7, 1)
+            end
 
             if psiccprofgal2 == true or psiccprofgal22 == true or psiccprofgal23 ==
                 true then
@@ -2403,13 +2448,13 @@ function psficecrownonevent()
             end
 
             local psdeb1 = GetSpellInfo(70911) -- безуд
-            local _, _, _, _, _, _, expirati3 =
-                UnitDebuff(psiccprofwispchuma2, psdeb1)
+            local _, _, _, _, _, expirati3 =
+                psf_unitaura(psiccprofwispchuma2, psdeb1)
 
             if psiccprofgal23 and psiccproftimer > 5 and expirati3 and expirati3 -
                 GetTime() > 5 then
                 local psdeb2 = GetSpellInfo(70953) -- острая
-                local _, _, _, _, _, _, expirati2 = UnitDebuff(
+                local _, _, _, _, _, expirati2 = psf_unitaura(
                                                         psiccprofwispchuma2,
                                                         psdeb2)
 
@@ -2431,15 +2476,15 @@ function psficecrownonevent()
                 local psdebsliz1 = GetSpellInfo(70447) -- зеленый
                 local psdebsliz2 = GetSpellInfo(70672) -- оранж слизь
 
-                local _, _, _, _, _, _, expirati = UnitDebuff(
+                local _, _, _, _, _, expirati = psf_unitaura(
                                                        psiccfirstmarkprofwisp,
                                                        psdeb2)
                 if UnitIsDeadOrGhost(psiccfirstmarkprofwisp) == nil and
-                    (UnitDebuff(psiccfirstmarkprofwisp, psdeb2) == nil or
+                    (psf_unitaura(psiccfirstmarkprofwisp, psdeb2) == nil or
                         (expirati and expirati - GetTime() < 5)) and
-                    UnitDebuff(psiccfirstmarkprofwisp, psdeb1) == nil and
-                    UnitDebuff(psiccfirstmarkprofwisp, psdebsliz1) == nil and
-                    UnitDebuff(psiccfirstmarkprofwisp, psdebsliz2) == nil then
+                    psf_unitaura(psiccfirstmarkprofwisp, psdeb1) == nil and
+                    psf_unitaura(psiccfirstmarkprofwisp, psdebsliz1) == nil and
+                    psf_unitaura(psiccfirstmarkprofwisp, psdebsliz2) == nil then
                 else
                     psdelayprofmod = GetTime() - 40
                 end
@@ -2450,7 +2495,8 @@ function psficecrownonevent()
                 (GetRaidTargetIndex(psiccprofwispchuma2) == nil or
                     (GetRaidTargetIndex(psiccprofwispchuma2) and
                         GetRaidTargetIndex(psiccprofwispchuma2) ~= 8)) then
-                if (IsRaidOfficer() == 1) then
+                if ((UnitIsGroupAssistant("player") or
+                    UnitIsGroupLeader("player"))) then
                     SetRaidTarget(psiccprofwispchuma2, 8)
                 end
             end
@@ -2555,8 +2601,8 @@ function psficecrownonevent()
                 local psdeb = GetSpellInfo(70953)
                 local psstack = 0
 
-                if UnitDebuff(arg7, psdeb) then
-                    local name, _, _, count, _, _, expirationTime = UnitDebuff(
+                if psf_unitaura(arg7, psdeb) then
+                    local name, _, count, _, _, expirationTime = psf_unitaura(
                                                                         arg7,
                                                                         psdeb)
                     if expirationTime and expirationTime - GetTime() > 5 then
@@ -3006,7 +3052,8 @@ function psficecrownonevent()
 
                 end
 
-                if (IsRaidOfficer() == 1) then
+                if ((UnitIsGroupAssistant("player") or
+                    UnitIsGroupLeader("player"))) then
                     if psicclanaga == false then
                         psicczapusk10 = nil
                     end
@@ -3791,7 +3838,7 @@ function pszapuskmenuic()
     end
 
     if psicgalochki[icbossselected][1] == 1 then
-        psiccchbtfr[1]:SetChecked()
+        psiccchbtfr[1]:SetChecked(true)
         psiccchbtfr[1]:Show()
     elseif psicgalochki[icbossselected][1] == 0 then
         psiccchbtfr[1]:SetChecked(false)
@@ -3806,7 +3853,7 @@ function pszapuskmenuic()
             if psicgalochki[icbossselected][i] and
                 psicgalochki[icbossselected][i] == 1 then
 
-                psiccchbtfr[i]:SetChecked()
+                psiccchbtfr[i]:SetChecked(true)
                 psiccchbtfr[i]:Show()
 
                 if psicchatchoose[icbossselected][i] == 0 then
@@ -3816,13 +3863,13 @@ function pszapuskmenuic()
                     psicctableradiobut2[i]:Show()
                     if psicchatchoose[icbossselected][i] == 1 then
                         psicctablecifr[i]:SetText("|cff00ff001|r")
-                        psicctableradiobut1[i]:SetChecked()
+                        psicctableradiobut1[i]:SetChecked(true)
                         psicctableradiobut2[i]:SetChecked(false)
                     end
                     if psicchatchoose[icbossselected][i] == 2 then
                         psicctablecifr[i]:SetText("|cffff00002|r")
                         psicctableradiobut1[i]:SetChecked(false)
-                        psicctableradiobut2[i]:SetChecked()
+                        psicctableradiobut2[i]:SetChecked(true)
                     end
                 end
             elseif psicgalochki[icbossselected][i] and
@@ -4033,13 +4080,13 @@ function psiccradiobuttchange(tt, jj)
 
     if psicchatchoose[icbossselected][jj] == 1 then
         psicctablecifr[jj]:SetText("|cff00ff001|r")
-        psicctableradiobut1[jj]:SetChecked()
+        psicctableradiobut1[jj]:SetChecked(true)
         psicctableradiobut2[jj]:SetChecked(false)
     end
     if psicchatchoose[icbossselected][jj] == 2 then
         psicctablecifr[jj]:SetText("|cffff00002|r")
         psicctableradiobut1[jj]:SetChecked(false)
-        psicctableradiobut2[jj]:SetChecked()
+        psicctableradiobut2[jj]:SetChecked(true)
     end
 
 end
@@ -4054,6 +4101,7 @@ function psiccallrezet()
         out("|cff99ffffPhoenixStyle|r - " .. psiccrezcompl)
 
         whererepiccchat = {"raid", "sebe"}
+        print("psicgalochkidef")
         psicgalochki = psicgalochkidef
         psicchatchoose = psicchatchosdef
         psicdopmodchat = psicdopmodchatdef

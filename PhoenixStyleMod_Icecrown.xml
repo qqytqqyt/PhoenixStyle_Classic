@@ -2,7 +2,7 @@
 <Frame name="PhoenixStyleMod_Icecrown">
 	<Scripts>
 	<OnLoad>psficecrown()</OnLoad>
-	<OnEvent>if(thisaddonwork and (psicgalochki==nil or psicgalochki[1][1]==1)) then psficecrownonevent() end</OnEvent>
+	<OnEvent>if(thisaddonwork and (psicgalochki==nil or psicgalochki[1][1]==1)) then psficecrownonevent(self, event, ...) end</OnEvent>
 	<OnUpdate>if(thisaddonwork and (psicgalochki==nil or psicgalochki[1][1]==1)) then pscicconupdate(GetTime()) end</OnUpdate>
 	</Scripts>
 </Frame>
@@ -241,7 +241,7 @@
 	</EditBox>
 <CheckButton name="$parent_CheckButtonorig" inherits="OptionsCheckButtonTemplate">
 	<Size x="25" y="25"/><Anchors><Anchor point="TOPLEFT"><Offset x="20" y="-100"/></Anchor></Anchors>
-	<Scripts><OnLoad>getglobal(self:GetName().."Text"):SetText(psiccprofmodoptstand) PSFiccprofframe_CheckButtonorig:SetChecked()</OnLoad><OnClick>PSFiccprofframe_CheckButtonorig:SetChecked()</OnClick></Scripts>
+	<Scripts><OnLoad>getglobal(self:GetName().."Text"):SetText(psiccprofmodoptstand) PSFiccprofframe_CheckButtonorig:SetChecked(true)</OnLoad><OnClick>PSFiccprofframe_CheckButtonorig:SetChecked(true)</OnClick></Scripts>
 	</CheckButton>
 <CheckButton name="$parent_CheckButton1" inherits="OptionsCheckButtonTemplate">
 	<Size x="25" y="25"/><Anchors><Anchor point="TOPLEFT"><Offset x="20" y="-120"/></Anchor></Anchors>

@@ -571,7 +571,7 @@ function psiccprofmodwork()
 
         if psiccprofwispchuma2 then
             local psideb1 = GetSpellInfo(70911)
-            local _, _, _, _, _, _, expirationTime = UnitDebuff(
+            local _, _, _, _, _, expirationTime = psf_unitaura(
                                                          psiccprofwispchuma2,
                                                          psideb1)
             local timean = 5
@@ -624,7 +624,7 @@ function psiccprofmodwork()
                                 GetRaidRosterInfo(i)
                             if (subgroup <= psgropcheck and online and isDead ==
                                 nil and UnitIsDeadOrGhost(name) == nil) then
-                                if UnitDebuff(name, psdeb1) then
+                                if psf_unitaura(name, psdeb1) then
 
                                     if UnitExists(name) and
                                         (GetRaidTargetIndex(name) == nil or
@@ -638,8 +638,8 @@ function psiccprofmodwork()
 
                                 end
 
-                                if UnitDebuff(name, psdebsliz1) or
-                                    UnitDebuff(name, psdebsliz2) then
+                                if psf_unitaura(name, psdebsliz1) or
+                                    psf_unitaura(name, psdebsliz2) then
                                     if UnitExists(name) and
                                         GetRaidTargetIndex(name) and
                                         GetRaidTargetIndex(name) > 0 then
@@ -667,15 +667,15 @@ function psiccprofmodwork()
                                     end
                                 end
                                 if bililinet == 1 then
-                                    local _, _, _, _, _, _, expirati =
-                                        UnitDebuff(name, psdeb2)
-                                    if (UnitDebuff(name, psdeb2) == nil or
+                                    local _, _, _, _, _, expirati =
+                                        psf_unitaura(name, psdeb2)
+                                    if (psf_unitaura(name, psdeb2) == nil or
                                         (expirati and expirati - GetTime() < 5)) and
-                                        UnitDebuff(name, psdeb1) == nil and
-                                        UnitDebuff(name, psdebsliz1) == nil and
+                                        psf_unitaura(name, psdeb1) == nil and
+                                        psf_unitaura(name, psdebsliz1) == nil and
                                         (pspaabom == nil or
                                             (pspaabom and name ~= pspaabom)) and
-                                        UnitDebuff(name, psdebsliz2) == nil then
+                                        psf_unitaura(name, psdebsliz2) == nil then
                                         -- метим если j меньше табл
 
                                         if j <= #usemarks then
@@ -727,7 +727,7 @@ function psiccprofmodwork()
                             GetRaidRosterInfo(i)
                         if (subgroup <= psgropcheck and online and isDead == nil and
                             UnitIsDeadOrGhost(name) == nil) then
-                            if UnitDebuff(name, psdeb1) then
+                            if psf_unitaura(name, psdeb1) then
                                 locx1, locy1 = GetPlayerMapPosition(name)
 
                                 if UnitExists(name) and
@@ -742,8 +742,8 @@ function psiccprofmodwork()
 
                             end
 
-                            if UnitDebuff(name, psdebsliz1) or
-                                UnitDebuff(name, psdebsliz2) then
+                            if psf_unitaura(name, psdebsliz1) or
+                                psf_unitaura(name, psdebsliz2) then
                                 if UnitExists(name) and GetRaidTargetIndex(name) and
                                     GetRaidTargetIndex(name) > 0 then
                                     if usemarks and #usemarks > 0 then
@@ -761,15 +761,15 @@ function psiccprofmodwork()
                                 end
                             end
 
-                            local _, _, _, _, _, _, expirati = UnitDebuff(name,
+                            local _, _, _, _, _, expirati = psf_unitaura(name,
                                                                           psdeb2)
-                            if (UnitDebuff(name, psdeb2) == nil or
+                            if (psf_unitaura(name, psdeb2) == nil or
                                 (expirati and expirati - GetTime() < 5)) and
-                                UnitDebuff(name, psdeb1) == nil and
-                                UnitDebuff(name, psdebsliz1) == nil and
+                                psf_unitaura(name, psdeb1) == nil and
+                                psf_unitaura(name, psdebsliz1) == nil and
                                 (pspaabom == nil or
                                     (pspaabom and name ~= pspaabom)) and
-                                UnitDebuff(name, psdebsliz2) == nil then
+                                psf_unitaura(name, psdebsliz2) == nil then
 
                                 local bililinet = 0
                                 for yy = 1, #psiccprofignorlist1 do
@@ -874,7 +874,7 @@ function psiccprofmodwork()
                             GetRaidRosterInfo(i)
                         if (subgroup <= psgropcheck and online and isDead == nil and
                             UnitIsDeadOrGhost(name) == nil) then
-                            if UnitDebuff(name, psdeb1) then
+                            if psf_unitaura(name, psdeb1) then
 
                                 if UnitExists(name) and
                                     (GetRaidTargetIndex(name) == nil or
@@ -888,8 +888,8 @@ function psiccprofmodwork()
 
                             end
 
-                            if UnitDebuff(name, psdebsliz1) or
-                                UnitDebuff(name, psdebsliz2) then
+                            if psf_unitaura(name, psdebsliz1) or
+                                psf_unitaura(name, psdebsliz2) then
                                 if UnitExists(name) and GetRaidTargetIndex(name) and
                                     GetRaidTargetIndex(name) > 0 then
                                     if usemarks and #usemarks > 0 then
@@ -907,15 +907,15 @@ function psiccprofmodwork()
                                 end
                             end
 
-                            local _, _, _, _, _, _, expirati = UnitDebuff(name,
+                            local _, _, _, _, _, expirati = psf_unitaura(name,
                                                                           psdeb2)
-                            if (UnitDebuff(name, psdeb2) == nil or
+                            if (psf_unitaura(name, psdeb2) == nil or
                                 (expirati and expirati - GetTime() < 5)) and
-                                UnitDebuff(name, psdeb1) == nil and
-                                UnitDebuff(name, psdebsliz1) == nil and
+                                psf_unitaura(name, psdeb1) == nil and
+                                psf_unitaura(name, psdebsliz1) == nil and
                                 (pspaabom == nil or
                                     (pspaabom and name ~= pspaabom)) and
-                                UnitDebuff(name, psdebsliz2) == nil then
+                                psf_unitaura(name, psdebsliz2) == nil then
 
                                 local bililinet = 0
                                 for yy = 1, #psiccprofignorlist1 do
