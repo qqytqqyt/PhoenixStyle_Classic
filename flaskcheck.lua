@@ -101,7 +101,7 @@
                 rsccheckflaskbutchanged3(ii)
             end)
             if rscflaskcheckb[ii] == 1 then
-                rsccheckbox1:SetChecked()
+                rsccheckbox1:SetChecked(true)
             else
                 rsccheckbox1:SetChecked(false)
             end
@@ -198,7 +198,7 @@ function rsccheckflaskbutchanged3(nr)
         rscflaskcheckb[nr] = 1
     end
     if rscflaskcheckb[nr] == 1 then
-        rscflaskcheckbox3[nr]:SetChecked()
+        rscflaskcheckbox3[nr]:SetChecked(true)
     else
         rscflaskcheckbox3[nr]:SetChecked(false)
     end
@@ -371,7 +371,7 @@ end
 -- апрейд инфо о фласках
 
 function rscupdateflask()
-    if GetNumRaidMembers() > 0 then
+    if GetNumGroupMembers() > 0 then
         local rscgropcheck = 2
         if GetRaidDifficulty() == 2 or GetRaidDifficulty() == 4 then
             rscgropcheck = 5
@@ -387,7 +387,7 @@ function rscupdateflask()
         local rscelixtabl2 = {}
 
         -- кого проверяю кого нет, делю по таблицам
-        for ii = 1, GetNumRaidMembers() do
+        for ii = 1, GetNumGroupMembers() do
             local name, _, subgroup, _, _, _, _, online, isDead =
                 GetRaidRosterInfo(ii)
             if (subgroup <= rscgropcheck) then
@@ -404,9 +404,9 @@ function rscupdateflask()
             for yy = 1, #rscwillcheckthem do
                 local byl = 0
                 for uu = 1, #rscfoodtable do
-                    if UnitAura(rscwillcheckthem[yy],
+                    if psf_unitaura(rscwillcheckthem[yy],
                                 GetSpellInfo(rscfoodtable[uu])) then
-                        local _, _, _, _, _, _, expirationTime = UnitAura(
+                        local _, _, _, _, _, expirationTime = psf_unitaura(
                                                                      rscwillcheckthem[yy],
                                                                      GetSpellInfo(
                                                                          rscfoodtable[uu]))
@@ -437,9 +437,9 @@ function rscupdateflask()
             for yy = 1, #rscwillcheckthem do
                 local byl = 0
                 for uu = 1, #rscflasktable do
-                    if UnitAura(rscwillcheckthem[yy],
+                    if psf_unitaura(rscwillcheckthem[yy],
                                 GetSpellInfo(rscflasktable[uu])) then
-                        local _, _, _, _, _, _, expirationTime = UnitAura(
+                        local _, _, _, _, _, expirationTime = psf_unitaura(
                                                                      rscwillcheckthem[yy],
                                                                      GetSpellInfo(
                                                                          rscflasktable[uu]))
@@ -470,9 +470,9 @@ function rscupdateflask()
             for yy = 1, #rscnoflask do
                 local byl = 0
                 for uu = 1, #rscelixirtable1 do
-                    if UnitAura(rscnoflask[yy],
+                    if psf_unitaura(rscnoflask[yy],
                                 GetSpellInfo(rscelixirtable1[uu])) then
-                        local _, _, _, _, _, _, expirationTime = UnitAura(
+                        local _, _, _, _, _, expirationTime = psf_unitaura(
                                                                      rscnoflask[yy],
                                                                      GetSpellInfo(
                                                                          rscelixirtable1[uu]))
@@ -496,9 +496,9 @@ function rscupdateflask()
             for yy = 1, #rscnoflask do
                 local byl = 0
                 for uu = 1, #rscelixirtable2 do
-                    if UnitAura(rscnoflask[yy],
+                    if psf_unitaura(rscnoflask[yy],
                                 GetSpellInfo(rscelixirtable2[uu])) then
-                        local _, _, _, _, _, _, expirationTime = UnitAura(
+                        local _, _, _, _, _, expirationTime = psf_unitaura(
                                                                      rscnoflask[yy],
                                                                      GetSpellInfo(
                                                                          rscelixirtable2[uu]))
@@ -738,7 +738,7 @@ end
 function rscsendflaskmanual() rscreportslackwithflask("manual", rscflaskchat[2]) end
 
 function rscreportslackwithflask(manual, chat)
-    if GetNumRaidMembers() > 0 then
+    if GetNumGroupMembers() > 0 then
         rscupdateflask()
 
         local stringa1 = ""
@@ -1004,7 +1004,7 @@ function rscreportslackwithflask(manual, chat)
         end
 
         if manual == "manual" or (manual == "auto" and
-            (IsRaidOfficer() == 1 or rscflaskcheckb[5] == 1 or psfnopromrep) and
+            ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) or rscflaskcheckb[5] == 1 or psfnopromrep) and
             (GetTime() > rscflaskdelayrep[2] or
                 (GetTime() > rscflaskdelayrep[2] - 37 and GetTime() <
                     rscwasyellpull + 4))) then
@@ -1040,7 +1040,7 @@ function rscreportslackwithflask(manual, chat)
                 if slak == 0 and rscwasyellpull and GetTime() < rscwasyellpull +
                     4 then
                 else
-                    SendAddonMessage("RSCfs1", 50, "RAID")
+                    C_ChatInfo.SendAddonMessage("RSCfs1", 50, "RAID")
                     if #rscwillnotbechecked > 4 and
                         (#rscwillnotbechecked >= #rscwillcheckthem or
                             #rscwillnotbechecked > 10) then
@@ -1059,14 +1059,14 @@ function rscreportslackwithflask(manual, chat)
         -- whisper send
         if rscflaskcheckb[4] == 1 and GetTime() - rscflaskimportchat2[1] > 100 and
             #whisper1 > 0 and manual == "auto" and
-            (IsRaidOfficer() == 1 or rscflaskcheckb[5] == 1 or psfnopromrep) and
+            ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) or rscflaskcheckb[5] == 1 or psfnopromrep) and
             (GetTime() > rscflaskdelayrep[1] or
                 (GetTime() > rscflaskdelayrep[1] - 37 and GetTime() <
                     rscwasyellpull + 4)) then
             rscflaskdelayrep[1] = GetTime() + 50
             rscchatfiltimefunc()
 
-            SendAddonMessage("RSCfs2", 50, "RAID")
+            C_ChatInfo.SendAddonMessage("RSCfs2", 50, "RAID")
             for i = 1, #whisper1 do
 
                 local name2 = whisper1[i]
@@ -1134,14 +1134,14 @@ function rscflaskcheckgo()
             local tttxt = UnitName("player")
             if UnitName("player") == "Шуршик" or UnitName("player") ==
                 "Шурши" then tttxt = "0" .. tttxt end
-            if (IsRaidOfficer() == 1) then tttxt = "0" .. tttxt end
+            if ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then tttxt = "0" .. tttxt end
 
             local strtosend = ""
 
             if (GetTime() > rscflaskdelayrep[2] or
                 (GetTime() > rscflaskdelayrep[2] - 37 and GetTime() <
                     rscwasyellpull + 4)) and
-                (IsRaidOfficer() == 1 or rscflaskcheckb[5] == 1 or psfnopromrep) then
+                ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) or rscflaskcheckb[5] == 1 or psfnopromrep) then
 
                 local byl = 0
                 if rscflaskchat[1] == "raid" or rscflaskchat[1] ==
@@ -1170,15 +1170,15 @@ function rscflaskcheckgo()
             if (GetTime() > rscflaskdelayrep[1] or
                 (GetTime() > rscflaskdelayrep[1] - 37 and GetTime() <
                     rscwasyellpull + 4)) and
-                (IsRaidOfficer() == 1 or rscflaskcheckb[5] == 1 or psfnopromrep) and
+                ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) or rscflaskcheckb[5] == 1 or psfnopromrep) and
                 rscflaskcheckb[4] == 1 then
                 if GetTime() - rscflaskimportchat2[1] > 100 then
                     strtosend = strtosend .. "whisp:yes!"
                 end
-            end
-
+			end
+			
             if string.len(strtosend) > 1 then
-                SendAddonMessage("RSCf", strtosend .. "nyyyck" .. tttxt, "RAID")
+                C_ChatInfo.SendAddonMessage("RSCf", strtosend .. "nyyyck" .. tttxt, "RAID")
             end
 
         end

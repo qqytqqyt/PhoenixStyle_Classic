@@ -77,7 +77,7 @@
                 rsccheckbutchanged5(ii)
             end)
             if rscbuffcheckb[ii] == 1 then
-                rsccheckbox1:SetChecked()
+                rsccheckbox1:SetChecked(true)
             else
                 rsccheckbox1:SetChecked(false)
             end
@@ -98,7 +98,7 @@
         rsccheckbox1:SetScript("OnClick",
                                function(self) rsccheckbutchanged5(6) end)
         if rscbuffcheckb[6] == 1 then
-            rsccheckbox1:SetChecked()
+            rsccheckbox1:SetChecked(true)
         else
             rsccheckbox1:SetChecked(false)
         end
@@ -188,7 +188,7 @@
             end)
             table.insert(rsccheckbuttable, c)
             if rscbuffwhichtrack[i] == 1 then
-                rsccheckbuttable[i]:SetChecked()
+                rsccheckbuttable[i]:SetChecked(true)
             else
                 rsccheckbuttable[i]:SetChecked(false)
             end
@@ -248,7 +248,7 @@ function rsccheckbutchanged(nr)
         rscbuffwhichtrack[nr] = 1
     end
     if rscbuffwhichtrack[nr] == 1 then
-        rsccheckbuttable[nr]:SetChecked()
+        rsccheckbuttable[nr]:SetChecked(true)
     else
         rsccheckbuttable[nr]:SetChecked(false)
     end
@@ -261,7 +261,7 @@ function rsccheckbutchanged5(nr)
         rscbuffcheckb[nr] = 1
     end
     if rscbuffcheckb[nr] == 1 then
-        rsccheckboxtabl5[nr]:SetChecked()
+        rsccheckboxtabl5[nr]:SetChecked(true)
     else
         rsccheckboxtabl5[nr]:SetChecked(false)
     end

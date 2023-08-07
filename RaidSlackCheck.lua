@@ -1,6 +1,11 @@
 ﻿-- Author: Shurshik
 -- version: 1.112
 -- http://phoenix-wow.ru
+function GetRaidDifficulty()
+    local name, instanceType, difficultyID = GetInstanceInfo()
+    return difficultyID - 2 
+end
+
 function rsc_onload()
 
     rsclocale()
@@ -174,9 +179,9 @@ end
 
 function rsc_OnUpdate(curtime)
 
-    -- flask report
+	-- flask report
     if rscdelayreportstart and curtime > rscdelayreportstart + 1.5 then
-        rscdelayreportstart = nil
+		rscdelayreportstart = nil
         rscreportslackwithflask("auto", rscflaskchat[1])
     end
 
@@ -492,8 +497,9 @@ function rsc_OnUpdate(curtime)
 
 end -- onupd
 
-function rsc_OnEvent()
+function rsc_OnEvent(self,event,...)
 
+    local arg1, arg2, arg3, arg4, arg5, arg6, _, _, _, _, _, _, arg13 = ...
     if event == "PLAYER_REGEN_DISABLED" then
         rscboy = 1
 
@@ -584,7 +590,7 @@ function rsc_OnEvent()
 
     if event == "PLAYER_ALIVE" then rscbilresnut = 1 end
 
-    if event == "READY_CHECK" then
+	if event == "READY_CHECK" then
         if rscflaskcheckb[3] == 1 then rscflaskcheckgo() end
     end
 
@@ -617,7 +623,7 @@ function rsc_OnEvent()
                 rscflaskcheckb[7] = 1
             end
 
-            if psversion then
+			if psversion then
                 rscout1 = psreportframe1
                 rscout2 = psreportframe2
                 rscout3 = psreportframe3
@@ -635,14 +641,15 @@ function rsc_OnEvent()
     end
 
     if event == "CHAT_MSG_ADDON" then
-        -- buffs
+		-- buffs
+		if (string.find(arg4, "-")) then arg4, _ = strsplit( "-", arg4, 2 ) end
         if arg1 == "RSCb" then
 
             local tbl = {}
             local tttxt = UnitName("player")
             if UnitName("player") == "Шуршик" or UnitName("player") ==
                 "Шурши" then tttxt = "0" .. UnitName("player") end
-            if (IsRaidOfficer() == 1) then tttxt = "0" .. tttxt end
+            if ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then tttxt = "0" .. tttxt end
             table.insert(tbl, tttxt)
             table.insert(tbl, arg2)
             table.sort(tbl)
@@ -664,7 +671,7 @@ function rsc_OnEvent()
                     "Шурши" then
                     tttxt = "0" .. UnitName("player")
                 end
-                if (IsRaidOfficer() == 1) then
+                if ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then
                     tttxt = "0" .. tttxt
                 end
                 table.insert(tbl, tttxt)
@@ -703,7 +710,7 @@ function rsc_OnEvent()
                     "Шурши" then
                     tttxt = "0" .. UnitName("player")
                 end
-                if (IsRaidOfficer() == 1) then
+                if ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then
                     tttxt = "0" .. tttxt
                 end
                 table.insert(tbl, tttxt)
@@ -718,7 +725,7 @@ function rsc_OnEvent()
             end
 
             -- вижу в чате свои месаги
-            if arg4 == UnitName("player") then
+			if arg4 == UnitName("player") then
                 rscdelayreportstart = GetTime()
             end
 
@@ -739,6 +746,32 @@ function rsc_OnEvent()
 
     if GetNumGroupMembers() > 0 and event == "COMBAT_LOG_EVENT_UNFILTERED" then
 
+		local arg1, arg2, argNEW1, arg3, arg4, arg5, argNEW2, arg6, arg7, arg8, argNEW3, arg9,
+              arg10, arg11, arg12, arg13, arg14, arg15, arg16, arg17,
+              arg18, arg19 = CombatLogGetCurrentEventInfo()
+
+        --print(event)
+        --print(arg1) -- timestamp
+        --print(arg2) -- subevent
+        --print(argNEW1) -- hideCaster
+        --print(arg3) -- sourceGUID
+        --print(arg4) -- sourceName
+        --print(arg5) -- sourcFlags
+        --print(argNEW2) -- sourceRaidFlags
+        --print(arg6) -- destinationGUID
+        --print(arg7) -- destName
+        --print(arg8) -- destFlags
+        --print(argNEW3) -- destRaidFlags
+        --print(arg9) -- spellId
+        --print(arg10) -- spellName
+        --print(arg11) -- spellSchool
+        --print(arg12) -- amount/ABSORB
+        --print(arg13) -- overkill
+        --print(arg14) -- school/ABSORBED
+        --print(arg15) -- resisted
+        --print(arg16) -- blocked
+		--print(arg17) -- absorbed
+		
         -- обнуление после реса
         if rscbilresnut == 1 then
             if rsctimeresnut == nil then rsctimeresnut = arg1 + 3 end
@@ -748,7 +781,7 @@ function rsc_OnEvent()
             end
         end
 
-        if (rscboy == 1 or (rscboy == 0 and UnitIsDead("player"))) then
+		if (rscboy == 1 or (rscboy == 0 and UnitIsDead("player"))) then
             -- мы в бою
             if arg2 == "SPELL_CAST_SUCCESS" then
                 for i, usedpotion in ipairs(rscpotiontable) do
@@ -813,11 +846,11 @@ function rsc_OnEvent()
                 end
             end
 
-        else
+		else
             -- не в бою
             if arg2 == "SPELL_CAST_SUCCESS" then
                 for i, usedpotion in ipairs(rscpotiontable) do
-                    if usedpotion == arg9 then
+					if usedpotion == arg9 then
                         if UnitInRaid(arg4) then
                             rscclasscheck(arg4)
                             table.insert(rscpotionnotincombat, 1, GetTime() ..
@@ -838,7 +871,7 @@ function rsc_OnEvent()
         -- RSC buffs check
 
         if arg2 == "SPELL_RESURRECT" and rscbuffcheckb[1] == 1 and
-            (rscbuffcheckb[6] == 1 or IsRaidOfficer() == 1 or psfnopromrep) and
+            (rscbuffcheckb[6] == 1 or (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) or psfnopromrep) and
             (arg9 == 48477 or arg9 == 20484 or arg9 == 20742 or arg9 == 20739 or
                 arg9 == 20747 or arg9 == 20748 or arg9 == 26994) and
             UnitAffectingCombat(arg4) and (rscbcanannounce == nil or
@@ -881,10 +914,10 @@ function rsc_OnEvent()
                             if stxt == "Шуршик" or stxt == "Шурши" then
                                 stxt = "0" .. stxt
                             end
-                            if (IsRaidOfficer() == 1) then
+                            if ((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then
                                 stxt = "0" .. stxt
                             end
-                            SendAddonMessage("RSCb", stxt, "RAID")
+                            C_ChatInfo.SendAddonMessage("RSCb", stxt, "RAID")
                         end
 
                     end
@@ -989,23 +1022,23 @@ function rsc_showoptions()
 
     if psversion then
         if (rscraidlrep) then
-            PSFpotioncheckframe_CheckButton1:SetChecked()
+            PSFpotioncheckframe_CheckButton1:SetChecked(true)
         else
             PSFpotioncheckframe_CheckButton1:SetChecked(false)
         end
         if (rsccolornick) then
-            PSFpotioncheckframe_CheckButton2:SetChecked()
+            PSFpotioncheckframe_CheckButton2:SetChecked(true)
         else
             PSFpotioncheckframe_CheckButton2:SetChecked(false)
         end
     else
         if (rscraidlrep) then
-            rscmain3_CheckButton1:SetChecked()
+            rscmain3_CheckButton1:SetChecked(true)
         else
             rscmain3_CheckButton1:SetChecked(false)
         end
         if (rsccolornick) then
-            rscmain3_CheckButton2:SetChecked()
+            rscmain3_CheckButton2:SetChecked(true)
         else
             rscmain3_CheckButton2:SetChecked(false)
         end
@@ -1023,13 +1056,13 @@ function rscchange()
 
     if psversion then
         if (rscraidlrep) then
-            PSFpotioncheckframe_CheckButton1:SetChecked()
+            PSFpotioncheckframe_CheckButton1:SetChecked(true)
         else
             PSFpotioncheckframe_CheckButton1:SetChecked(false)
         end
     else
         if (rscraidlrep) then
-            rscmain3_CheckButton1:SetChecked()
+            rscmain3_CheckButton1:SetChecked(true)
         else
             rscmain3_CheckButton1:SetChecked(false)
         end
@@ -1047,13 +1080,13 @@ function rscchange2()
 
     if psversion then
         if (rsccolornick) then
-            PSFpotioncheckframe_CheckButton2:SetChecked()
+            PSFpotioncheckframe_CheckButton2:SetChecked(true)
         else
             PSFpotioncheckframe_CheckButton2:SetChecked(false)
         end
     else
         if (rsccolornick) then
-            rscmain3_CheckButton2:SetChecked()
+            rscmain3_CheckButton2:SetChecked(true)
         else
             rscmain3_CheckButton2:SetChecked(false)
         end
@@ -1966,7 +1999,7 @@ end
 
 function rscchatsendreports(chat, nnn1, nnn2, nnn3, nnn4, nnn5, nnn6, nnn7,
                             nnn8, nnn9, nnn10)
-    if chat == "raid_warning" and IsRaidOfficer() == nil then chat = "raid" end
+    if chat == "raid_warning" and (not UnitIsGroupAssistant("player") and not UnitIsGroupLeader("player")) then chat = "raid" end
     if nnn2 == nil then nnn2 = " " end
     if nnn3 == nil then nnn3 = " " end
     if nnn4 == nil then nnn4 = " " end
