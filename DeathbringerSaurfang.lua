@@ -65,7 +65,7 @@ c:SetHeight("25")
 c:SetPoint("TOPLEFT", 240, -130-i*30)
 c:SetScript("OnClick", function(self) psfsaurfgalki(i) end )
 if psicsaurfgalk[i]==1 then
-c:SetChecked()
+c:SetChecked(true)
 end
 
 --текст
@@ -199,7 +199,7 @@ function psficcsaurfon()
 psiccsaurfsave()
 psiccsauredcclfocus()
 
-if(IsRaidOfficer()==1) then
+if((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then
 
 local psiccerr=0
 local psiccschet=0
@@ -587,7 +587,7 @@ for i=1,8 do
 if psicsaufmmarkshas[i]==im then
 
 
-for uu = 1,GetNumRaidMembers() do local name, _, _, _, _, _, _, _, isDead = GetRaidRosterInfo(uu)
+for uu = 1,GetNumGroupMembers() do local name, _, _, _, _, _, _, _, isDead = GetRaidRosterInfo(uu)
 
 	if (name==im and isDead) then
 
@@ -722,7 +722,7 @@ end
 
 function psiccsaurfallonlineorno()
 
-for i = 1,GetNumRaidMembers() do
+for i = 1,GetNumGroupMembers() do
 local psnname, _, _, _, _, _, _, pssonline = GetRaidRosterInfo(i)
 	for j=1,8 do
 		if psiccsaurf[j]==psnname then
