@@ -1,5 +1,6 @@
 ﻿-- Author: Shurshik
 -- http://phoenix-wow.ru
+
 function psfColiseum()
 
     pslocalecoliseum()
@@ -234,7 +235,7 @@ function PSFcoli_OnUpdate()
                         if psvalbitnada == pscotwinsvalkyr2 then
                             pstwdebcheck = GetSpellInfo(67224)
                         end
-                        if UnitDebuff(pstwraidroster[i], pstwdebcheck) then
+                        if psf_unitaura(pstwraidroster[i], pstwdebcheck) then
                             -- считаем время
                             local psswichspeed =
                                 math.ceil((GetTime() - psvaltimebcastGT) * 10) /
@@ -266,7 +267,7 @@ function PSFcoli_OnUpdate()
                         if psvalbitnada == pscotwinsvalkyr2 then
                             pstwdebcheck = GetSpellInfo(67224)
                         end
-                        if UnitDebuff(pstwraidroster[i], pstwdebcheck) == nil then
+                        if psf_unitaura(pstwraidroster[i], pstwdebcheck) == nil then
                             pstwtimeswitch[i] = "--"
                         end
                     end
@@ -1593,8 +1594,8 @@ function pstwsozdtabltime(psboss)
                     local pstwdebcheck = GetSpellInfo(67178)
                     if psboss == pscotwinsvalkyr2 then
                         pstwdebcheck = GetSpellInfo(67224)
-                    end
-                    if UnitDebuff(psname, pstwdebcheck) == nil then
+                    end                    
+                    if psf_unitaura(psname, pstwdebcheck) == nil then
                         table.insert(pstwtimeswitch, "--")
                     else
                         table.insert(pstwtimeswitch, 0)
