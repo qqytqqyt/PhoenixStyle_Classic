@@ -48,13 +48,13 @@ function psfColiseum()
     if (psgalochki == nil) then psgalochki = {"yes", "yes", "yes"} end
 
     if GetRealZoneText() == pszonecoliseum then
-        PhoenixStyleMod_Coliseum:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-        PhoenixStyleMod_Coliseum:RegisterEvent("PLAYER_TARGET_CHANGED")
+        PhoenixStyleMod_Coliseum_Classic:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+        PhoenixStyleMod_Coliseum_Classic:RegisterEvent("PLAYER_TARGET_CHANGED")
     end
-    PhoenixStyleMod_Coliseum:RegisterEvent("PLAYER_REGEN_DISABLED")
-    PhoenixStyleMod_Coliseum:RegisterEvent("PLAYER_REGEN_ENABLED")
-    PhoenixStyleMod_Coliseum:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-    PhoenixStyleMod_Coliseum:RegisterEvent("ADDON_LOADED")
+    PhoenixStyleMod_Coliseum_Classic:RegisterEvent("PLAYER_REGEN_DISABLED")
+    PhoenixStyleMod_Coliseum_Classic:RegisterEvent("PLAYER_REGEN_ENABLED")
+    PhoenixStyleMod_Coliseum_Classic:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+    PhoenixStyleMod_Coliseum_Classic:RegisterEvent("ADDON_LOADED")
 
 end
 
@@ -322,7 +322,7 @@ function psfColiseumonevent(self,event,...)
     end
 
     if event == "ADDON_LOADED" then
-        if arg1 == "PhoenixStyleMod_Coliseum" then
+        if arg1 == "PhoenixStyleMod_Coliseum_Classic" then
 
             if 3 - pscoltekver > 0 then
                 if pscoltekver > 0 then
@@ -364,12 +364,12 @@ function psfColiseumonevent(self,event,...)
         end
 
         if GetRealZoneText() == pszonecoliseum then
-            PhoenixStyleMod_Coliseum:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
-            PhoenixStyleMod_Coliseum:RegisterEvent("PLAYER_TARGET_CHANGED")
+            PhoenixStyleMod_Coliseum_Classic:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+            PhoenixStyleMod_Coliseum_Classic:RegisterEvent("PLAYER_TARGET_CHANGED")
         else
-            PhoenixStyleMod_Coliseum:UnregisterEvent(
+            PhoenixStyleMod_Coliseum_Classic:UnregisterEvent(
                 "COMBAT_LOG_EVENT_UNFILTERED")
-            PhoenixStyleMod_Coliseum:UnregisterEvent("PLAYER_TARGET_CHANGED")
+            PhoenixStyleMod_Coliseum_Classic:UnregisterEvent("PLAYER_TARGET_CHANGED")
         end
 
     end

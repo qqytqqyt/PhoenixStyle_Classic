@@ -1,10 +1,10 @@
-﻿## Interface: 30402
-## Title: Phoenix|cff7fff7fStyle|r - Coliseum
-## Title-ruRU: Phoenix|cff7fff7fStyle|r - Колизей
-## Author: Shurshik
+﻿## Interface: 30403
+## Title: Phoenix|cff7fff7fStyle|r - Coliseum - Classic
+## Title-ruRU: Phoenix|cff7fff7fStyle|r - Колизей - Classic
+## Author: Shurshik (WotLK version modified by qqytqqyt)
 ## Notes: PhoenixStyle Coliseum Module
 ## Notes-ruRU: Модуль PhoenixStyle - Колизей
-## Dependencies: PhoenixStyle
+## Dependencies: PhoenixStyle_Classic
 ## LoadOnDemand: 1
 ## SavedVariablesPerCharacter: wherereporttwins, twinspart, twinspart2, twinspart3, twinspart4, zveripart, wherereportzveri, pswelwidth, pswelheight, psgalochki, wherereportinfshield, wherereportjarax, jaraxpart, jaraxpart2, pscoltekver, psanubheal, wherereportanub,wherereportanub2, psanubbop
 Localization\localization-enEN.lua
