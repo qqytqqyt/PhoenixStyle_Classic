@@ -1,8 +1,8 @@
-﻿## Interface: 30300
-## Title: Raid|cff7fff7fSlack|rCheck
-## Title-ruRU: Raid|cff7fff7fSlack|rCheck
-## Author: Shurshik
-## Version: 1.112
+﻿## Interface: 30403
+## Title: Raid|cff7fff7fSlack|rCheck - Classic
+## Title-ruRU: Raid|cff7fff7fSlack|rCheck - Classic
+## Author: Shurshik (WotLK modified by qqytqqyt)
+## Version: 3.4.3.0
 ## Notes: /rsc or /raidslackcheck for more info
 ## Notes-ruRU: /rsc или /слак - для открытия инфо
 ## URL: http://phoenix-wow.ru/
