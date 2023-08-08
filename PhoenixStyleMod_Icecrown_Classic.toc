@@ -1,10 +1,10 @@
 ﻿## Interface: 30403
-## Title: Phoenix|cff7fff7fStyle|r - Icecrown
-## Title-ruRU: Phoenix|cff7fff7fStyle|r - Цитадель
-## Author: Shurshik
+## Title: Phoenix|cff7fff7fStyle|r - Icecrown - Classic
+## Title-ruRU: Phoenix|cff7fff7fStyle|r - Цитадель - Classic
+## Author: Shurshik (WotLK version modified by qqytqqyt)
 ## Notes: PhoenixStyle Icecrown Module
 ## Notes-ruRU: Модуль PhoenixStyle - Цитадель
-## Dependencies: PhoenixStyle
+## Dependencies: PhoenixStyle_Classic
 ## LoadOnDemand: 1
 ## SavedVariablesPerCharacter: whererepiccchat,psicgalochki,psicchatchoose,psicdopmodchat,psicsaurfgalk,psiccsaurf,psicctekver, psicclanaignorlist,psicclanaignorlist2,psiccdmg3,psicclanaga,psiccprofgal1,psiccprofgal2,psiccprofgal3,psiccprofgal5,psiccprofignorlist1,psiccprofignorlist2,psiccprofchb,psiccproftimer,psiccsavedfails,psiccprofgal22,psiccprofgal23,psicccombatsvqu
 Localization\localization-enEN.lua

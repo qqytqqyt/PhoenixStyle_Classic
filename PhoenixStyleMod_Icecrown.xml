@@ -1,5 +1,5 @@
 ﻿<Ui xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.blizzard.com/wow/ui/">
-<Frame name="PhoenixStyleMod_Icecrown">
+<Frame name="PhoenixStyleMod_Icecrown_Classic">
 	<Scripts>
 	<OnLoad>psficecrown()</OnLoad>
 	<OnEvent>if(thisaddonwork and (psicgalochki==nil or psicgalochki[1][1]==1)) then psficecrownonevent(self, event, ...) end</OnEvent>

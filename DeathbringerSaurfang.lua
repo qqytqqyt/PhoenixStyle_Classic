@@ -220,8 +220,8 @@ if psiccerr==0 then
 
 --включается модуль
 
-PhoenixStyleMod_Icecrown:RegisterEvent("CHAT_MSG_CHANNEL_LEAVE")
-PhoenixStyleMod_Icecrown:RegisterEvent("CHAT_MSG_CHANNEL_JOIN")
+PhoenixStyleMod_Icecrown_Classic:RegisterEvent("CHAT_MSG_CHANNEL_LEAVE")
+PhoenixStyleMod_Icecrown_Classic:RegisterEvent("CHAT_MSG_CHANNEL_JOIN")
 psiccsauractiv=1
 
 psmarksoff("raid")
@@ -289,8 +289,8 @@ for yy=1,8 do
 psicsaurfedittable[yy]:SetScript("OnTextChanged", function(self) end )
 end
 
-PhoenixStyleMod_Icecrown:UnregisterEvent("CHAT_MSG_CHANNEL_LEAVE")
-PhoenixStyleMod_Icecrown:UnregisterEvent("CHAT_MSG_CHANNEL_JOIN")
+PhoenixStyleMod_Icecrown_Classic:UnregisterEvent("CHAT_MSG_CHANNEL_LEAVE")
+PhoenixStyleMod_Icecrown_Classic:UnregisterEvent("CHAT_MSG_CHANNEL_JOIN")
 
 PSFiccsaurf_Textmark22:Hide()
 PSFiccsaurf_Button22:Hide()

@@ -174,13 +174,13 @@ function psficecrown()
     end
 
     if GetRealZoneText() == pszoneicecrowncit then
-        PhoenixStyleMod_Icecrown:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+        PhoenixStyleMod_Icecrown_Classic:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
     end
-    PhoenixStyleMod_Icecrown:RegisterEvent("PLAYER_REGEN_DISABLED")
-    PhoenixStyleMod_Icecrown:RegisterEvent("PLAYER_REGEN_ENABLED")
-    PhoenixStyleMod_Icecrown:RegisterEvent("ZONE_CHANGED_NEW_AREA")
-    PhoenixStyleMod_Icecrown:RegisterEvent("ADDON_LOADED")
-    PhoenixStyleMod_Icecrown:RegisterEvent("CHAT_MSG_MONSTER_YELL")
+    PhoenixStyleMod_Icecrown_Classic:RegisterEvent("PLAYER_REGEN_DISABLED")
+    PhoenixStyleMod_Icecrown_Classic:RegisterEvent("PLAYER_REGEN_ENABLED")
+    PhoenixStyleMod_Icecrown_Classic:RegisterEvent("ZONE_CHANGED_NEW_AREA")
+    PhoenixStyleMod_Icecrown_Classic:RegisterEvent("ADDON_LOADED")
+    PhoenixStyleMod_Icecrown_Classic:RegisterEvent("CHAT_MSG_MONSTER_YELL")
 
 end
 
@@ -1618,9 +1618,9 @@ function psficecrownonevent(self, event, ...)
         end
 
         if GetRealZoneText() == pszoneicecrowncit then
-            PhoenixStyleMod_Icecrown:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
+            PhoenixStyleMod_Icecrown_Classic:RegisterEvent("COMBAT_LOG_EVENT_UNFILTERED")
         else
-            PhoenixStyleMod_Icecrown:UnregisterEvent(
+            PhoenixStyleMod_Icecrown_Classic:UnregisterEvent(
                 "COMBAT_LOG_EVENT_UNFILTERED")
         end
 
@@ -1628,7 +1628,7 @@ function psficecrownonevent(self, event, ...)
 
     if event == "ADDON_LOADED" then
 
-        if arg1 == "PhoenixStyleMod_Icecrown" then
+        if arg1 == "PhoenixStyleMod_Icecrown_Classic" then
 
             if psicobnovperemen == nil then
                 psicobnovperemen = 1
