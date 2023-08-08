@@ -373,7 +373,7 @@ end
 function rscupdateflask()
     if GetNumGroupMembers() > 0 then
         local rscgropcheck = 2
-        if GetRaidDifficulty() == 2 or GetRaidDifficulty() == 4 then
+        if psf_getRaidDifficulty() == 2 or psf_getRaidDifficulty() == 4 then
             rscgropcheck = 5
         end
 

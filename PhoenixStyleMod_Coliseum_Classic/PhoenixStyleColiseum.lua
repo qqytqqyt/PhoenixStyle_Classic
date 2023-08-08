@@ -213,7 +213,7 @@ function PSFcoli_OnUpdate()
             -- анонс
 
             if (twinspart) then
-                if (wherereporttwins == "raid" and IsRaidOfficer() == 1) then
+                if (wherereporttwins == "raid" and psf_isRaidOfficer() == 1) then
                     pszapuskanonsa("raid_warning", psvalannouncenextabsh)
                 else
                     pszapuskanonsa(wherereporttwins, psvalannouncenextabsh)
@@ -632,7 +632,7 @@ function psfColiseumonevent(self,event,...)
                     psschitupal = 0
                     psnoobibiyut = pscotwinsvalkyr
                     
-                    local difficultyID = GetInstanceDifficulty()
+                    local difficultyID = psf_getInstanceDifficulty()
                     if (difficultyID == 4) then
                         psshieldamount = 1200000
                     end
@@ -657,7 +657,7 @@ function psfColiseumonevent(self,event,...)
                     psvalbitnada = arg4
                     psschitupal = 0
                     psnoobibiyut = pscotwinsvalkyr2
-                    local difficultyID = GetInstanceDifficulty()
+                    local difficultyID = psf_getInstanceDifficulty()
                     if (difficultyID == 4) then
                         psshieldamount = 1200000
                     end
@@ -818,7 +818,7 @@ function psfColiseumonevent(self,event,...)
             if arg2 == "SPELL_AURA_APPLIED" and
                 (arg9 == 66237) then
 
-                local difficultyID = GetInstanceDifficulty()
+                local difficultyID = psf_getInstanceDifficulty()
                 if difficultyID == 4 then
                     psshieldamount = 85000
                     psjxshieldtime = 12
@@ -1562,11 +1562,6 @@ function pscreatedropmcol(aa, bb, cc, dd, ee, nn)
     UIDropDownMenu_JustifyText(aa, "LEFT")
 end
 
-function GetInstanceDifficulty()
-    local name, instanceType, difficultyID = GetInstanceInfo()
-    return difficultyID - 2 
-end
-
 -- создание таблиц времени и проверка таргетов всего рейда, +0.2 сек к след проверке
 function pstwsozdtabltime(psboss)
     if (pstwraidroster == nil or pstwraidroster == {}) then
@@ -1579,7 +1574,7 @@ function pstwsozdtabltime(psboss)
     table.wipe(pstwtimeswitch)
 
     local psgrups = 5
-    if GetInstanceDifficulty() == 1 or GetInstanceDifficulty() == 3 then
+    if psf_getInstanceDifficulty() == 1 or psf_getInstanceDifficulty() == 3 then
         psgrups = 2
     end
 

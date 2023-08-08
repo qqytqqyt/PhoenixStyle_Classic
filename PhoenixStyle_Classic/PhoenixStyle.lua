@@ -5,6 +5,21 @@ function psf_unitaura(name, spellInfo)
     return AuraUtil.FindAuraByName(spellInfo,name)
 end
 
+function psf_getRaidDifficulty()
+    local name, instanceType, difficultyID = GetInstanceInfo()
+    return difficultyID - 2 
+end
+
+function psf_getInstanceDifficulty()
+    local name, instanceType, difficultyID = GetInstanceInfo()
+    return difficultyID - 2 
+end
+
+function psf_isRaidOfficer()
+    if (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) then return 1 end
+    return 0
+end
+
 function PhoenixStyle_OnLoad()
     pslocalem()
     pslocaleuim()
@@ -997,15 +1012,15 @@ end
 function PSF_buttonulda()
     PSF_closeallpr()
     if (thisaddonwork) then
-        if IsAddOnLoaded("PhoenixStyleMod_Ulduar") == false then
-            LoadAddOn("PhoenixStyleMod_Ulduar")
-            if IsAddOnLoaded("PhoenixStyleMod_Ulduar") then
+        if IsAddOnLoaded("PhoenixStyleMod_Ulduar_Classic") == false then
+            LoadAddOn("PhoenixStyleMod_Ulduar_Classic")
+            if IsAddOnLoaded("PhoenixStyleMod_Ulduar_Classic") then
                 print("|cff99ffffPhoenixStyle|r - " .. psmoduleload .. " " ..
                           psleftmenu5 .. "!")
             end
         end
 
-        if IsAddOnLoaded("PhoenixStyleMod_Ulduar") then
+        if IsAddOnLoaded("PhoenixStyleMod_Ulduar_Classic") then
             PSF_buttonulda2()
         else
             PSF_closeallpr()
@@ -1118,7 +1133,7 @@ function PSF_closeallpr()
     if IsAddOnLoaded("PhoenixStyleMod_Coliseum_Classic") then
         PSF_closeallprColiseum()
     end
-    if IsAddOnLoaded("PhoenixStyleMod_Ulduar") then PSF_closeallprUlduar() end
+    if IsAddOnLoaded("PhoenixStyleMod_Ulduar_Classic") then PSF_closeallprUlduar() end
     if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") then
         PSF_closeallpricecrown()
     end
@@ -1521,7 +1536,7 @@ function pscheckwipe1(numd10, numd25)
         pswipecheckdelay = GetTime()
 
         local psnumgrup = 2
-        if GetRaidDifficulty() == 2 or GetRaidDifficulty() == 4 then
+        if psf_getRaidDifficulty() == 2 or psf_getRaidDifficulty() == 4 then
             psnumgrup = 5
         end
         for i = 1, GetNumGroupMembers() do
@@ -1607,10 +1622,10 @@ function chechtekzone()
     -- ульдуар
 
     if GetRealZoneText() == pszoneulduar then
-        if IsAddOnLoaded("PhoenixStyleMod_Ulduar") == nil and wasuldatryload ==
+        if IsAddOnLoaded("PhoenixStyleMod_Ulduar_Classic") == nil and wasuldatryload ==
             nil then
             wasuldatryload = 1
-            local loaded, reason = LoadAddOn("PhoenixStyleMod_Ulduar")
+            local loaded, reason = LoadAddOn("PhoenixStyleMod_Ulduar_Classic")
             if loaded then
                 print("|cff99ffffPhoenixStyle|r - " .. psmoduleload .. " " ..
                           psleftmenu5 .. "!")

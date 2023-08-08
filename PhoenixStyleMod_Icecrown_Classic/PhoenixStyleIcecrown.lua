@@ -1,14 +1,5 @@
 ﻿-- Author: Shurshik
 -- http://phoenix-wow.ru
-function GetInstanceDifficulty()
-    local name, instanceType, difficultyID = GetInstanceInfo()
-    return difficultyID - 2 
-end
-
-function GetRaidDifficulty()
-    return GetInstanceDifficulty()
-end
-
 function psficecrown()
 
     pslocaleicecrownuim()
@@ -515,7 +506,7 @@ function pscicconupdate(curtime)
                         local psiccostalos =
                             math.ceil(GetTime() - psiccozzetimebegin)
 
-                        if GetRaidDifficulty() == 1 or GetRaidDifficulty() == 3 then
+                        if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
                             psicceventsnames[1][#psicceventsnames[1]] =
                                 psicceventsnames[1][#psicceventsnames[1]] ..
                                     ", " .. psiccozzen4 .. " " .. psiccostalos ..
@@ -611,7 +602,7 @@ function pscicconupdate(curtime)
                 if string.len(texx) > 1 then texx = texx .. " " end
                 texx = texx .. psiccvalktimertargtabl[i]
             end
-            if GetRaidDifficulty() == 1 or GetRaidDifficulty() == 3 then
+            if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
                 psicceventsnames[1][#psicceventsnames[1]] = psicclkvalkir ..
                                                                 " #" ..
                                                                 psiccschet5 ..
@@ -724,7 +715,7 @@ function pscicconupdate(curtime)
 
                 local psiccostalos = math.ceil(GetTime() - psiccozzetimebegin)
 
-                if GetRaidDifficulty() == 1 or GetRaidDifficulty() == 3 then
+                if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
                     psicceventsnames[1][#psicceventsnames[1]] =
                         psicceventsnames[1][#psicceventsnames[1]] .. ", " ..
                             psiccozzen4 .. " " .. psiccostalos .. " " .. pssec
@@ -2136,7 +2127,7 @@ function psficecrownonevent(self, event, ...)
             table.insert(psiccdamagevalues[1], {})
 
             -- запись эвента
-            if GetRaidDifficulty() == 1 or GetRaidDifficulty() == 3 then
+            if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
                 psiccschet4 = 2
             else
                 psiccschet4 = 5
@@ -3318,7 +3309,7 @@ function psficecrownonevent(self, event, ...)
                 table.insert(psiccdamagevalues[1], {})
 
                 -- запись эвента
-                if GetRaidDifficulty() == 1 or GetRaidDifficulty() == 3 then
+                if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
                     psiccschet = 1
                     table.insert(psicceventsnames[1],
                                  psicclkvalkir .. " #" .. psiccschet5)
@@ -3420,7 +3411,7 @@ function psficecrownonevent(self, event, ...)
                             local psiccostalos =
                                 math.ceil(GetTime() - psiccozzetimebegin)
 
-                            if GetRaidDifficulty() == 1 or GetRaidDifficulty() ==
+                            if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() ==
                                 3 then
                                 psicceventsnames[1][#psicceventsnames[1]] =
                                     psicceventsnames[1][#psicceventsnames[1]] ..

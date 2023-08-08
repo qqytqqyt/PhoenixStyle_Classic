@@ -1,7 +1,7 @@
 ﻿-- Author: Shurshik
 -- version: 1.112
 -- http://phoenix-wow.ru
-function GetRaidDifficulty()
+function psf_getRaidDifficulty()
     local name, instanceType, difficultyID = GetInstanceInfo()
     return difficultyID - 2 
 end
@@ -257,7 +257,7 @@ function rsc_OnUpdate(curtime)
                                     local byl = 0
                                     for z = 1, #tablid[x] do
 
-                                        if UnitBuff(rscrebirth2[yy],
+                                        if psf_unitaura(rscrebirth2[yy],
                                                     GetSpellInfo(tablid[x][z])) then
                                             byl = 1
                                         end
@@ -421,7 +421,7 @@ function rsc_OnUpdate(curtime)
                                 if rscbuffwhichtrack[x] == 1 then
                                     local byl = 0
                                     for z = 1, #tablid[x] do
-                                        if UnitBuff(rscrebirth4[yy],
+                                        if psf_unitaura(rscrebirth4[yy],
                                                     GetSpellInfo(tablid[x][z])) then
                                             byl = 1
                                         end
@@ -547,7 +547,7 @@ function rsc_OnEvent(self,event,...)
                         end
                     end
 
-                    if GetRaidDifficulty() == 1 or GetRaidDifficulty() == 3 then
+                    if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
                         rscskokagrup = 2
                     else
                         rscskokagrup = 5

@@ -138,7 +138,7 @@ end
 function PSF_colanubmark()
     pscolanubsave()
     pscolclearfoc()
-    if (IsRaidOfficer() == 1) then
+    if (psf_isRaidOfficer() == 1) then
         for i = 1, 8 do
             if psanubheal[i] == "" then
             else

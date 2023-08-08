@@ -43,7 +43,7 @@ end
 function psicccheckswitch(psgoodtarget)
 
     local psgrups = 5
-    if GetInstanceDifficulty() == 1 or GetInstanceDifficulty() == 3 then
+    if psf_getInstanceDifficulty() == 1 or psf_getInstanceDifficulty() == 3 then
         psgrups = 2
     end
 
@@ -170,7 +170,7 @@ function psicccheckswitch2(psgoodtarget, psdelay)
     end
 
     local psgrups = 5
-    if GetInstanceDifficulty() == 1 or GetInstanceDifficulty() == 3 then
+    if psf_getInstanceDifficulty() == 1 or psf_getInstanceDifficulty() == 3 then
         psgrups = 2
     end
 

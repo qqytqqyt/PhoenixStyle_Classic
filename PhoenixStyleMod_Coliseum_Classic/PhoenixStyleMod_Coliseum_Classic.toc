@@ -1,7 +1,7 @@
 ﻿## Interface: 30403
 ## Title: Phoenix|cff7fff7fStyle|r - Coliseum - Classic
 ## Title-ruRU: Phoenix|cff7fff7fStyle|r - Колизей - Classic
-## Author: Shurshik (WotLK version modified by qqytqqyt)
+## Author: Shurshik (modified by qqytqqyt for WotLK Classic)
 ## Notes: PhoenixStyle Coliseum Module
 ## Notes-ruRU: Модуль PhoenixStyle - Колизей
 ## Dependencies: PhoenixStyle_Classic

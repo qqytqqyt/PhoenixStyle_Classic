@@ -593,7 +593,7 @@ function psiccprofmodwork()
             firstmarkset = 1
 
             local psgropcheck = 2
-            if GetInstanceDifficulty() == 2 or GetInstanceDifficulty() == 4 then
+            if psf_getInstanceDifficulty() == 2 or psf_getInstanceDifficulty() == 4 then
                 psgropcheck = 5
             end
 
