@@ -745,7 +745,7 @@ function PhoenixStyle_OnEvent(self, event, ...)
 
         -- инфо о профе
         if arg1 == "PSiccprof" and arg4 ~= UnitName("player") then
-            if IsAddOnLoaded("PhoenixStyleMod_Icecrown") then
+            if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") then
                 psiccprofcheckspam(arg2)
             end
         end
@@ -788,7 +788,7 @@ function PhoenixStyle_OnEvent(self, event, ...)
                 end
 
                 if psgood == 1 then
-                    if IsAddOnLoaded("PhoenixStyleMod_Icecrown") then
+                    if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") then
                         psiccwipereport()
                     end
                 end
@@ -801,7 +801,7 @@ function PhoenixStyle_OnEvent(self, event, ...)
     if event == "ZONE_CHANGED_NEW_AREA" then pszonechangedalldel = GetTime() end
 
     if event == "ADDON_LOADED" then
-        if arg1 == "PhoenixStyle" then
+        if arg1 == "PhoenixStyle_Classic" then
             if psoldvern > psversion then PSFmain3_Textoldv:Show() end
 
             PSFmain3_Textver:SetText("ver-" .. psversion .. " (release)")
@@ -911,7 +911,7 @@ function PhoenixStyleFailbot_Command(msg)
         string.lower(cmd) == "результат" or string.lower(cmd) == "dfqg" or
         string.lower(cmd) == "цшзу" or string.lower(cmd) == "ваип") then
 
-        if IsAddOnLoaded("PhoenixStyleMod_Icecrown") then
+        if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") then
             psiccwipereport()
         end
 
@@ -922,7 +922,7 @@ function PhoenixStyleFailbot_Command(msg)
         string.lower(cmd) == "вампир" or string.lower(cmd) ==
         "вампиры") then
 
-        if IsAddOnLoaded("PhoenixStyleMod_Icecrown") then
+        if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") then
             psicclanafoodmark()
         else
             out("|cff99ffffPhoenixStyle|r - |cffff0000" .. pserror .. "|r " ..
@@ -1019,15 +1019,15 @@ end
 function PSF_buttonkolizei()
     PSF_closeallpr()
     if (thisaddonwork) then
-        if IsAddOnLoaded("PhoenixStyleMod_Coliseum") == false then
-            LoadAddOn("PhoenixStyleMod_Coliseum")
-            if IsAddOnLoaded("PhoenixStyleMod_Coliseum") then
+        if IsAddOnLoaded("PhoenixStyleMod_Coliseum_Classic") == false then
+            LoadAddOn("PhoenixStyleMod_Coliseum_Classic")
+            if IsAddOnLoaded("PhoenixStyleMod_Coliseum_Classic") then
                 print("|cff99ffffPhoenixStyle|r - " .. psmoduleload .. " " ..
                           psleftmenu6 .. "!")
             end
         end
 
-        if IsAddOnLoaded("PhoenixStyleMod_Coliseum") then
+        if IsAddOnLoaded("PhoenixStyleMod_Coliseum_Classic") then
             PSF_buttonkolizei2()
         else
             PSF_closeallpr()
@@ -1041,9 +1041,9 @@ end
 function PSF_buttonicecrown()
     PSF_closeallpr()
     if (thisaddonwork) then
-        if IsAddOnLoaded("PhoenixStyleMod_Icecrown") == false then
-            LoadAddOn("PhoenixStyleMod_Icecrown")
-            if IsAddOnLoaded("PhoenixStyleMod_Icecrown") then
+        if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") == false then
+            LoadAddOn("PhoenixStyleMod_Icecrown_Classic")
+            if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") then
                 if psicgalochki[1][1] == 0 then
                 else
                     print(
@@ -1053,7 +1053,7 @@ function PSF_buttonicecrown()
             end
         end
 
-        if IsAddOnLoaded("PhoenixStyleMod_Icecrown") then
+        if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") then
             PSF_buttonicecrown2()
         else
             PSF_closeallpr()
@@ -1115,11 +1115,11 @@ function PSF_potionscheck(nn)
 end
 
 function PSF_closeallpr()
-    if IsAddOnLoaded("PhoenixStyleMod_Coliseum") then
+    if IsAddOnLoaded("PhoenixStyleMod_Coliseum_Classic") then
         PSF_closeallprColiseum()
     end
     if IsAddOnLoaded("PhoenixStyleMod_Ulduar") then PSF_closeallprUlduar() end
-    if IsAddOnLoaded("PhoenixStyleMod_Icecrown") then
+    if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") then
         PSF_closeallpricecrown()
     end
     PSFmain3:Hide()
@@ -1313,7 +1313,7 @@ function PSFvkladdon()
                     psaddonoff .. "|r.")
             thisaddonwork = false
             psmylogin = GetTime()
-            if IsAddOnLoaded("PhoenixStyleMod_Icecrown") then
+            if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") then
                 psiccwipereport()
             end
         end
@@ -1624,10 +1624,10 @@ function chechtekzone()
     -- Испытание крестоносца
 
     if GetRealZoneText() == pszonecoliseum then
-        if IsAddOnLoaded("PhoenixStyleMod_Coliseum") == nil and
+        if IsAddOnLoaded("PhoenixStyleMod_Coliseum_Classic") == nil and
             wascoliseumtryload == nil then
             wascoliseumtryload = 1
-            local loaded, reason = LoadAddOn("PhoenixStyleMod_Coliseum")
+            local loaded, reason = LoadAddOn("PhoenixStyleMod_Coliseum_Classic")
             if loaded then
                 print("|cff99ffffPhoenixStyle|r - " .. psmoduleload .. " " ..
                           psleftmenu6 .. "!")
@@ -1648,10 +1648,10 @@ function chechtekzone()
             end
         end
 
-        if IsAddOnLoaded("PhoenixStyleMod_Icecrown") == nil and
+        if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") == nil and
             wasicecrowntryload == nil then
             wasicecrowntryload = 1
-            local loaded, reason = LoadAddOn("PhoenixStyleMod_Icecrown")
+            local loaded, reason = LoadAddOn("PhoenixStyleMod_Icecrown_Classic")
             if loaded then
                 print("|cff99ffffPhoenixStyle|r - " .. psmoduleload .. " " ..
                           psleftmenu7 .. "!")
@@ -2266,7 +2266,7 @@ function PS_MinimapButton_OnEnter(self)
     PS_MinimapButton_Details(GameTooltip)
 end
 
-function PS_MinimapButton_Details(tt, ldb) tt:SetText("PhoenixStyle") end
+function PS_MinimapButton_Details(tt, ldb) tt:SetText("PhoenixStyle_Classic") end
 
 function psver(cchat)
     psshushinfo = GetTime() + 7
@@ -2302,7 +2302,7 @@ function psmapbuttreflesh()
         pstextffgdgdf = 1
 
         tpsicon = PS_MinimapButton:CreateTexture(nil, 'ARTWORK')
-        tpsicon:SetTexture("Interface\\AddOns\\PhoenixStyle\\icon_phoenix_e")
+        tpsicon:SetTexture("Interface\\AddOns\\PhoenixStyle_Classic\\icon_phoenix_e")
         tpsicon:SetWidth(21)
         tpsicon:SetHeight(21)
         tpsicon:SetPoint("TOPLEFT", 7, -6)
@@ -2318,9 +2318,9 @@ function psmapbuttreflesh()
         end
 
         if thisaddononoff and thisaddonwork then
-            tpsicon:SetTexture("Interface\\AddOns\\PhoenixStyle\\icon_phoenix_e")
+            tpsicon:SetTexture("Interface\\AddOns\\PhoenixStyle_Classic\\icon_phoenix_e")
         else
-            tpsicon:SetTexture("Interface\\AddOns\\PhoenixStyle\\icon_phoenix_d")
+            tpsicon:SetTexture("Interface\\AddOns\\PhoenixStyle_Classic\\icon_phoenix_d")
         end
     else
         PS_MinimapButton:Hide()
