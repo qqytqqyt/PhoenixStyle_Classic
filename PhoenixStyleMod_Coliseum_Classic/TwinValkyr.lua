@@ -1,4 +1,4 @@
-﻿function psftwinseat()
+﻿function psftwinseat(arg6, arg7)
     psunitisplayer(arg6, arg7)
     if psunitplayertrue then
         wasornotwins = 1
@@ -7,7 +7,7 @@
     end
 end
 
-function psftwinseat2()
+function psftwinseat2(arg6, arg7)
     psunitisplayer(arg6, arg7)
     if psunitplayertrue then
         wasornotwins = 1

@@ -331,7 +331,7 @@ function psfUlduaronevent(self,event,...)
 
         if (arg9 == 62169 or arg9 == 62168) and arg2 == "SPELL_AURA_APPLIED" then
             algalonname = arg4
-            if (timealgaloncast == 0) then psfalgalon() end
+            if (timealgaloncast == 0) then psfalgalon(arg6, arg7) end
         end
 
         if (timealgaloncast > 0) then
@@ -339,7 +339,7 @@ function psfUlduaronevent(self,event,...)
         end
 
         -- марка отхила везакса
-        if (arg9 == 63276 or arg9 == 63278) then psfvezaxheal() end
+        if (arg9 == 63276 or arg9 == 63278) then psfvezaxheal(arg1, arg2, arg7, arg12) end
 
         -- проверка таймер на хил Везакса марки
         if (wasornovezax == 1 and timehealvez > 0) then
@@ -349,34 +349,34 @@ function psfUlduaronevent(self,event,...)
         -- Везакс краш
         if arg9 == 62659 and (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) then
-            psfvezaxcrash()
+            psfvezaxcrash(arg4, arg6, arg7, arg9, arg10, arg12)
         end
 
         -- Йогг сарон
         if (arg9 == 63884 or arg9 == 63891) and (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) then
-            psfxtnoob()
+            psfxtnoob(arg6, arg7)
         end
 
         if arg9 == 64168 and arg2 == (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) then
-            psfxtnoob2()
+            psfxtnoob2(arg6, arg7)
         end
 
         if arg9 == 64164 and arg2 == (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) then
-            psfxtnoob3()
+            psfxtnoob3(arg6, arg7)
         end
 
         -- молнии на ториме
         if arg9 == 62466 and (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) then
-            psftorimnoob()
+            psftorimnoob(arg6, arg7)
         end
 
         -- Совет диспел мт
         if (arg9 == 63493 or arg12 == 63493 or arg9 == 61903 or arg12 == 61903) then
-            psfsovetdis()
+            psfsovetdis(arg1, arg2, arg4, arg7)
         end
 
         -- таймер после диспела на совете
@@ -387,7 +387,7 @@ function psfUlduaronevent(self,event,...)
         end
 
         -- МИМИРОН проверка на получение 2+ напалмов
-        if (arg9 == 65026 or arg9 == 63666) then psfmimidetectnoob() end
+        if (arg9 == 65026 or arg9 == 63666) then psfmimidetectnoob(arg1, arg2, arg6, arg7) end
 
         -- часть под мимирона
         if (timenapalm2 > 0) then
@@ -398,7 +398,7 @@ function psfUlduaronevent(self,event,...)
 
         -- ходир попадание в заморозку
         if isbattlev == 1 and (arg9 == 61969 or arg9 == 61990) then
-            psfhodirnoob()
+            psfhodirnoob(arg2, arg6, arg7)
         end
 
         -- йогг счет аддов

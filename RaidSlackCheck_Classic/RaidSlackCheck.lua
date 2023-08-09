@@ -1182,7 +1182,7 @@ function rscpotdrunk(boy, imya, idpot, imyapot)
                     else
                         rscpotinfo = rscpotinfo .. ":" .. rscsec2
                     end
-                    rscclasscheck(arg4)
+                    rscclasscheck(imya)
                     rscpotinfo = rscpotinfo .. imya .. "++" .. rsccodeclass ..
                                      idpot
 

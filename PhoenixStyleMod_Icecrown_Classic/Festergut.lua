@@ -1,4 +1,4 @@
-﻿function psficcfestergutnoobs1()
+﻿function psficcfestergutnoobs1(arg3,arg4,arg6,arg7)
     if psbossblock == nil then
 
         psunitisplayer(arg6, arg7)
@@ -22,7 +22,7 @@
     end
 end
 
-function psficcfestergoo1()
+function psficcfestergoo1(arg6, arg7)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then

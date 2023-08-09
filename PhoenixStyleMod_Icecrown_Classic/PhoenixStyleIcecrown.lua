@@ -1904,14 +1904,14 @@ function psficecrownonevent(self, event, ...)
 
         -- ледишопот
         -- if (arg2=="SPELL_PERIODIC_DAMAGE" or (arg2=="SPELL_PERIODIC_MISSED" and arg12 and arg12=="ABSORB")) and (arg9==71001 or arg9==72108 or arg9==72109 or arg9==72110) then
-        -- psficcladynoobs()
+        -- psficcladynoobs(arg3, arg4)
         -- end
         if arg2 == "SPELL_DISPEL" and arg12 == 71237 then
-            psficcladynoobs()
+            psficcladynoobs(arg3, arg4)
         end
 
         if (arg2 == "SPELL_DISPEL" or arg2 == "SPELL_STOLEN") and arg12 == 70674 then
-            psficcladynoobs3()
+            psficcladynoobs3(arg3, arg4)
         end
 
         if arg2 == "SPELL_AURA_APPLIED" and arg9 == 71289 then
@@ -2090,7 +2090,7 @@ function psficecrownonevent(self, event, ...)
         if (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
             (arg9 == 69687 or arg9 == 69680 or arg9 == 69688 or arg9 == 69689) then
-            psficcgunshipnoobs()
+            psficcgunshipnoobs(arg6, arg7)
         end
 
         -- saurfang adds
@@ -2239,7 +2239,7 @@ function psficecrownonevent(self, event, ...)
         if (arg2 == "SPELL_MISSED" or arg2 == "SPELL_DAMAGE") and
             (arg9 == 72438 or arg9 == 72380 or arg9 == 72439 or arg9 == 72440) and
             psicccouncildebsaur and psicccouncildebsaur > arg1 then
-            psficcsaurfangnoobscircle()
+            psficcsaurfangnoobscircle(arg7)
         end
 
         if psicccouncildebsaur and arg1 > psicccouncildebsaur then
@@ -2250,7 +2250,7 @@ function psficecrownonevent(self, event, ...)
         -- саурфанг адды
         if (arg2 == "SWING_DAMAGE" or arg2 == "SWING_MISSED") and arg4 ==
             psiccsaurfadd and psiccbossblocked == nil then
-            psficcsaurfangnoobs()
+            psficcsaurfangnoobs(arg7)
         end
 
         -- саурфанг метка
@@ -2306,7 +2306,7 @@ function psficecrownonevent(self, event, ...)
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
             (arg9 == 71288 or arg9 == 69244 or arg9 == 72276 or arg9 == 72277 or
                 arg9 == 73173 or arg9 == 73174) and psiccfestertrig then
-            psficcfestergutnoobs1()
+            psficcfestergutnoobs1(arg3,arg4,arg6,arg7)
         end
 
         -- Festergut Vile Gas cast
@@ -2332,14 +2332,14 @@ function psficecrownonevent(self, event, ...)
         if (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
             (arg9 == 69507 or arg9 == 71213 or arg9 == 73189 or arg9 == 73190) then
-            psficcrotfacenoobs1()
+            psficcrotfacenoobs1(arg6, arg7)
         end
 
         -- Rotface2
         if (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
             (arg9 == 71209 or arg9 == 69833 or arg9 == 73029 or arg9 == 73030) then
-            psficcrotfacenoobs2()
+            psficcrotfacenoobs2(arg6, arg7)
         end
 
         -- festergut trigger
@@ -2354,9 +2354,9 @@ function psficecrownonevent(self, event, ...)
             (arg9 == 70853 or arg9 == 72297 or arg9 == 72458 or arg9 == 72548 or
                 arg9 == 72549 or arg9 == 72550 or arg9 == 72873 or arg9 == 72874) then
             if psiccfestertrig then
-                psficcfestergoo1()
+                psficcfestergoo1(arg6, arg7)
             elseif psicclanaisbatle2 then
-                psficcprofnoobs1()
+                psficcprofnoobs1(arg6, arg7)
             end
         end
 
@@ -2690,13 +2690,13 @@ function psficecrownonevent(self, event, ...)
             if (arg2 == "SPELL_DAMAGE" or
                 (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
                 (arg9 == 71279 or arg9 == 72621 or arg9 == 72622 or arg9 ==
-                    72459) then psficcprofnoobs2() end
+                    72459) then psficcprofnoobs2(arg6, arg7) end
 
             -- Putricide3
             if (arg2 == "SPELL_DAMAGE" or
                 (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
                 (arg9 == 72456 or arg9 == 72868 or arg9 == 70346 or arg9 ==
-                    72869) then psficcprofnoobs3() end
+                    72869) then psficcprofnoobs3(arg6, arg7) end
 
             -- whois in abominator
             if (psabomtrack and arg2 == "SPELL_SUMMON" and
@@ -2929,12 +2929,12 @@ function psficecrownonevent(self, event, ...)
         if (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
             (arg9 == 72815 or arg9 == 72816 or arg9 == 72817 or arg9 == 72038) then
-            psficcsovetnoobaoe()
+            psficcsovetnoobaoe(arg3, arg4, arg6, arg7)
         end
 
         if arg2 == "SPELL_AURA_APPLIED_DOSE" and
             (arg9 == 72998 or arg9 == 72999) and psbossblock == nil then
-            psficcsovetdose1()
+            psficcsovetdose1(arg6, arg7, arg13)
             if psbossblock == nil then psficcsovetdose11(arg7, arg13) end
         end
 
@@ -2945,7 +2945,7 @@ function psficecrownonevent(self, event, ...)
             (arg9 == 73001 or arg9 == 72998 or arg9 == 72999) and arg13 and
             arg13 > 0 and arg12 > 1000 and psbossblock == nil then
             psunitisplayer(arg6, arg7)
-            if psunitplayertrue then psiccsovetdose2() end
+            if psunitplayertrue then psiccsovetdose2(arg4,arg7,arg9,arg10,arg12,arg13) end
         end
 
         -- bloodcouncil
@@ -2997,7 +2997,7 @@ function psficecrownonevent(self, event, ...)
             end
 
             if arg2 == "SPELL_AURA_APPLIED" and arg9 == 71340 then
-                icclananoob2()
+                icclananoob2(arg7)
             end
 
             if arg2 == "SPELL_AURA_REMOVED" and arg9 == 71340 then
@@ -3012,7 +3012,7 @@ function psficecrownonevent(self, event, ...)
                 (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
                 (arg9 == 71481 or arg9 == 71482 or arg9 == 71483 or arg9 ==
                     71447) and psicccouncildeb and psicccouncildeb > arg1 then
-                psficclananoobff()
+                psficclananoobff(arg3,arg4,arg6,arg7)
             end
 
             -- mark off from vampyr
@@ -3067,19 +3067,19 @@ function psficecrownonevent(self, event, ...)
         if (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
             (arg9 == 71746 or arg9 == 72019 or arg9 == 72020 or arg9 == 70702) then
-            psficcvalytrianoobs1()
+            psficcvalytrianoobs1(arg6, arg7)
         end
 
         if (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
             (arg9 == 71743 or arg9 == 71086 or arg9 == 72029 or arg9 == 72030) then
-            psficcvalytrianoobs2()
+            psficcvalytrianoobs2(arg6, arg7)
         end
 
         -- bandage healers
         if psiccvalpriest and arg2 == "SPELL_PERIODIC_HEAL" and arg7 ==
             psiccvalithria and arg10 == psiccbandagehealer then
-            psvalytrihealcount()
+            psvalytrihealcount(arg4, arg12)
         end
 
         -- priest spirit
@@ -3091,7 +3091,7 @@ function psficecrownonevent(self, event, ...)
 
         if psiccschet3 > 0 and psiccschet3 > arg1 and psiccvalpriest and arg2 ==
             "SPELL_AURA_APPLIED" and arg9 == 47788 and arg7 == psiccvalithria then
-            psiccvalitriapristnoob()
+            psiccvalitriapristnoob(arg4)
             psiccschet = 0
             psiccschet2 = 0
             psiccschet3 = 0
@@ -3101,7 +3101,7 @@ function psficecrownonevent(self, event, ...)
             arg7 == psiccvalithria then
             psiccschet = arg1
             psiccschet3 = 0
-            psficcvalytrianoobs3()
+            psficcvalytrianoobs3(arg4)
         end
 
         if psiccvalpriest and arg2 == "SPELL_AURA_REMOVED" and arg9 == 47788 and
@@ -3132,7 +3132,7 @@ function psficecrownonevent(self, event, ...)
 
         if arg2 == "SPELL_AURA_APPLIED_DOSE" and
             (arg9 == 70127 or arg9 == 72528 or arg9 == 72529 or arg9 == 72530) then
-            psficcsindranoobs3()
+            psficcsindranoobs3(arg6, arg7, arg13)
         end
 
         if arg2 == "SPELL_CAST_START" and arg9 == 69712 and psbossblock == nil then
@@ -3148,23 +3148,23 @@ function psficecrownonevent(self, event, ...)
 
         if psiccsindmarks and (arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and arg9 ==
-            70157 then psiccsindratoombsnoobs1() end
+            70157 then psiccsindratoombsnoobs1(arg6, arg7) end
 
         if arg2 == "SPELL_AURA_APPLIED_DOSE" and arg9 == 69766 and psbossblock ==
-            nil then psiccsindradebnoob1() end
+            nil then psiccsindradebnoob1(arg1, arg7, arg13) end
 
         if psiccsinddebuf1 and arg2 == "SPELL_DAMAGE" and
             (arg9 == 71044 or arg9 == 69770 or arg9 == 71045 or arg9 == 71046) and
             arg13 and arg13 > 0 and psbossblock == nil then
             psunitisplayer(arg6, arg7)
-            if psunitplayertrue then psiccsindradebnoob2() end
+            if psunitplayertrue then psiccsindradebnoob2(arg1, arg4, arg7, arg9, arg10, arg12, arg13) end
         end
 
         if psiccsinddebufunk1 and #psiccsinddebufunk1 > 0 and arg2 ==
             "SPELL_DAMAGE" and arg9 == 70157 and arg13 and arg13 > 0 and
             psbossblock == nil then
             psunitisplayer(arg6, arg7)
-            if psunitplayertrue then psiccsindradebnoobice2() end
+            if psunitplayertrue then psiccsindradebnoobice2(arg1, arg7, arg9, arg10, arg12, arg13) end
         end
 
         if arg2 == "SPELL_AURA_APPLIED_DOSE" and
@@ -3176,7 +3176,7 @@ function psficecrownonevent(self, event, ...)
         if arg2 == "SPELL_AURA_APPLIED" and
             (arg9 == 72528 or arg9 == 70128 or arg9 == 72529 or arg9 == 72530 or
                 arg9 == 70127) and psbossblock == nil then
-            psiccsindradebtainctv1(arg7, 1, arg1)
+            psiccsindradebtainctv1(arg7, 1, arg1, arg6)
             psiccschet = 5
             psiccschet2 = 20
         end
@@ -3246,9 +3246,9 @@ function psficecrownonevent(self, event, ...)
         if ((arg2 == "SPELL_DAMAGE" or
             (arg2 == "SPELL_MISSED" and arg12 and arg12 == "ABSORB")) and
             (arg9 == 72754 or arg9 == 73708 or arg9 == 73709 or arg9 == 73710)) then
-            psficclknoobs1()
+            psficclknoobs1(arg6, arg7)
             if pslichdefile and GetTime() < pslichdefile then
-                psficclknoobs2()
+                psficclknoobs2(arg1, arg3, arg6, arg7)
             end
         end
 

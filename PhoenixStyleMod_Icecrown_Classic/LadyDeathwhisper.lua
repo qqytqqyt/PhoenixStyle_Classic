@@ -1,4 +1,4 @@
-﻿function psficcladynoobs()
+﻿function psficcladynoobs(arg3, arg4)
     if psbossblock == nil then
         psunitisplayer(arg3, arg4)
         if psunitplayertrue then
@@ -14,7 +14,7 @@
     end
 end
 
-function psficcladynoobs3()
+function psficcladynoobs3(arg3, arg4)
     if psbossblock == nil then
         psunitisplayer(arg3, arg4)
         if psunitplayertrue then

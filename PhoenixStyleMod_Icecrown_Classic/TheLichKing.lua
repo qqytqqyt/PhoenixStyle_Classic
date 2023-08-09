@@ -1,4 +1,4 @@
-﻿function psficclknoobs1()
+﻿function psficclknoobs1(arg6, arg7)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then
@@ -19,7 +19,7 @@
     end
 end
 
-function psficclknoobs2()
+function psficclknoobs2(arg1, arg3, arg6, arg7)
     if psiccidofdefile and psiccidofdefile == arg3 then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then

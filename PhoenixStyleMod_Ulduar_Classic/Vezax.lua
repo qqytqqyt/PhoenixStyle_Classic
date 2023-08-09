@@ -1,4 +1,4 @@
-﻿function psfvezaxheal()
+﻿function psfvezaxheal(arg1, arg2, arg7, arg12)
     if arg2 == "SPELL_AURA_APPLIED" then
         metkaonwho = arg7
         wasornovezax = 1
@@ -70,7 +70,7 @@ function psfvezaxreportheal()
     wasdebuffgena = ""
 end
 
-function psfvezaxcrash()
+function psfvezaxcrash(arg4, arg6, arg7, arg9, arg10, arg12)
     if arg4 == psulgeneralvezax then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then

@@ -2063,8 +2063,7 @@ function pszapuskanonsa(kudarep, chtorep, bojinterr, vajnreport, addicc, norep)
             else
                 -- if((UnitIsGroupAssistant("player") or UnitIsGroupLeader("player")) or psfnopromrep) then
                 if ((kudarep == "raid" or kudarep == "raid_warning") and
-                    (UnitIsGroupAssistant("player") or
-                        UnitIsGroupLeader("player")) and psfnopromrep == false) then
+                    (psf_isRaidOfficer() ~= 1) and psfnopromrep == false) then
                     psfnotofficer()
                 else
 

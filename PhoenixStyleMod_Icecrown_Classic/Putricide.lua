@@ -1,4 +1,4 @@
-function psficcprofnoobs1()
+function psficcprofnoobs1(arg6, arg7)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then
@@ -25,7 +25,7 @@ function psficcprofnoobs1()
     end
 end
 
-function psficcprofnoobs2()
+function psficcprofnoobs2(arg6, arg7)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then
@@ -41,7 +41,7 @@ function psficcprofnoobs2()
     end
 end
 
-function psficcprofnoobs3()
+function psficcprofnoobs3(arg6, arg7)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then

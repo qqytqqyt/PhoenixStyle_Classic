@@ -1,4 +1,4 @@
-﻿function psficcgunshipnoobs()
+﻿function psficcgunshipnoobs(arg6, arg7)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then

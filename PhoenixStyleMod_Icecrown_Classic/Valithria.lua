@@ -1,4 +1,4 @@
-﻿function psficcvalytrianoobs1()
+﻿function psficcvalytrianoobs1(arg6, arg7)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then
@@ -14,7 +14,7 @@
     end
 end
 
-function psficcvalytrianoobs2()
+function psficcvalytrianoobs2(arg6, arg7)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then
@@ -30,7 +30,7 @@ function psficcvalytrianoobs2()
     end
 end
 
-function psficcvalytrianoobs3()
+function psficcvalytrianoobs3(arg4)
     if psbossblock == nil then
         pscheckwipe1(4, 8)
         if pswipetrue then
@@ -42,7 +42,7 @@ function psficcvalytrianoobs3()
     end
 end
 
-function psiccvalitriapristnoob()
+function psiccvalitriapristnoob(arg4)
 
     local bililine = 0
     for i, getcrash in ipairs(psiccvalitrifailspirit1) do
@@ -77,7 +77,7 @@ function psiccvalitriapristnoob()
 
 end
 
-function psvalytrihealcount()
+function psvalytrihealcount(arg4, arg12)
     if psbossblock == nil and arg12 and arg4 then
         addtotwodamagetables3(arg4, arg12)
         psdamagetwotablsort3()

@@ -1,4 +1,4 @@
-﻿function psfhodirnoob()
+﻿function psfhodirnoob(arg2, arg6, arg7)
     if arg2 == "SPELL_AURA_APPLIED" then
 
         psunitisplayer(arg6, arg7)

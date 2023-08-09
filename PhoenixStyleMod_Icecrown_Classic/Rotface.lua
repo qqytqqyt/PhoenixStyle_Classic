@@ -1,4 +1,4 @@
-﻿function psficcrotfacenoobs1()
+﻿function psficcrotfacenoobs1(arg6, arg7)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then
@@ -14,7 +14,7 @@
     end
 end
 
-function psficcrotfacenoobs2()
+function psficcrotfacenoobs2(arg6, arg7)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then

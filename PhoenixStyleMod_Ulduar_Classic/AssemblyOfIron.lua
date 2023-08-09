@@ -1,4 +1,4 @@
-﻿function psfsovetdis()
+﻿function psfsovetdis(arg1, arg2, arg4, arg7)
     if arg2 == "SPELL_AURA_APPLIED" then
         timebuff2 = 0
         timebuff3 = 0

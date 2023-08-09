@@ -450,7 +450,7 @@ function psfColiseumonevent(self,event,...)
 
         -- звери
         if arg9 == 66734 and arg2 == "SPELL_DAMAGE" then
-            zverinoobreport()
+            zverinoobreport(arg7)
         end
 
         if (twinspart) then

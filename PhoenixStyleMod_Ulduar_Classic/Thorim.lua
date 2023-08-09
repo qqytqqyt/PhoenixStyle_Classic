@@ -1,4 +1,4 @@
-﻿function psftorimnoob()
+﻿function psftorimnoob(arg6, arg7)
     psunitisplayer(arg6, arg7)
     if psunitplayertrue then
         wasornotorim = 1

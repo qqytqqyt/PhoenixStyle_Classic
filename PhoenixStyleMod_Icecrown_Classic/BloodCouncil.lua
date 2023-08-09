@@ -36,7 +36,7 @@ function psicccouncilrezet()
     psiccschet2 = 0
 end
 
-function psficcsovetdose1()
+function psficcsovetdose1(arg6, arg7, arg13)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then
@@ -66,7 +66,7 @@ function psficcsovetdose1()
     end
 end
 
-function psficcsovetnoobaoe()
+function psficcsovetnoobaoe(arg3, arg4, arg6, arg7)
     if psbossblock == nil then
 
         psunitisplayer(arg6, arg7)
@@ -105,7 +105,7 @@ function psficcsovetdose11(im, kol)
     end
 end
 
-function psiccsovetdose2()
+function psiccsovetdose2(arg4,arg7,arg9,arg10,arg12,arg13)
     local psstringa = ""
     if UnitSex(arg7) and UnitSex(arg7) == 3 then
         psstringa = "{rt8} " .. arg7 .. " " .. psiccfailtxt11511fem ..

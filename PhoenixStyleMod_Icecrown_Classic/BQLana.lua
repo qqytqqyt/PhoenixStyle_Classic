@@ -13,7 +13,7 @@
     end
 end
 
-function icclananoob2()
+function icclananoob2(arg7)
     if psiccschet == 1 then
         psiccschet2 = psiccschet2 + 1
         psiccschet3 = GetTime()

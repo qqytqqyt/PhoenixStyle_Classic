@@ -147,7 +147,7 @@ function psficcsindranoobs44(nr, yyt)
     end
 end
 
-function psficcsindranoobs3()
+function psficcsindranoobs3(arg6, arg7, arg13)
     if psbossblock == nil then
         psunitisplayer(arg6, arg7)
         if psunitplayertrue then
@@ -172,7 +172,7 @@ function psficcsindranoobs3()
     end
 end
 
-function psiccsindratoombsnoobs1()
+function psiccsindratoombsnoobs1(arg6, arg7)
     psiccsyndratime = GetTime() + 3
     psunitisplayer(arg6, arg7)
     if psunitplayertrue then
@@ -195,7 +195,7 @@ function psiccsindratoombsnoobs1()
     end
 end
 
-function psiccsindradebnoob1()
+function psiccsindradebnoob1(arg1, arg7, arg13)
     if psiccsinddebuf1 == nil then psiccsinddebuf1 = {} end
     if psiccsinddebuf2 == nil then psiccsinddebuf2 = {} end
     if psiccsinddebuf3 == nil then psiccsinddebuf3 = {} end
@@ -216,7 +216,7 @@ function psiccsindradebnoob1()
     end
 end
 
-function psiccsindradebnoob2()
+function psiccsindradebnoob2(arg1, arg4, arg7, arg9, arg10, arg12, arg13)
     local psstringa = ""
     local tainstven = GetSpellInfo(72528)
 
@@ -278,7 +278,7 @@ function psiccsindradebnoob2()
     end
 end
 
-function psiccsindradebnoobice2()
+function psiccsindradebnoobice2(arg1, arg7, arg9, arg10, arg12, arg13)
     local psstringa = ""
     local tainstven = GetSpellInfo(72528)
 
@@ -325,7 +325,7 @@ function psiccsindradebtainctv1(nik, deb, tim, nr)
         wasornosindra = 1
         local bililinet = 0
         for i = 1, #psiccsinddebufunk1 do
-            if psiccsinddebufunk1[i] == arg7 then
+            if psiccsinddebufunk1[i] == nik then
                 bililinet = 1
                 psiccsinddebufunk2[i] = tim
                 psiccsinddebufunk3[i] = deb
