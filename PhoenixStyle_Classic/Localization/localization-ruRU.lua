@@ -6,6 +6,9 @@
         pszoneicecrowncit = "Цитадель Ледяной Короны"
 
     end
+end
+
+if psf_getlocale() == "ruRU" then
 
     function pslocale()
 

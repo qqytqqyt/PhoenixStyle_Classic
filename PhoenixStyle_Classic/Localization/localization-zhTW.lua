@@ -7,6 +7,9 @@
         pszoneicecrowncit = "冰冠城塞"
 
     end
+end
+
+if psf_getlocale() == "zhTW" then
 
     function pslocale()
 

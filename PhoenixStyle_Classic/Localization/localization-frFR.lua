@@ -6,6 +6,9 @@
         pszoneicecrowncit = "Citadelle de la Couronne de glace"
 
     end
+end
+
+if psf_getlocale() == "frFR" then
 
     function pslocale() end
 

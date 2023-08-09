@@ -6,6 +6,9 @@
         pszoneicecrowncit = "얼음왕관 성채"
 
     end
+end
+
+if psf_getlocale() == "koKR" then
 
     function pslocale() end
 

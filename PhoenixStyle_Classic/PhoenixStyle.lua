@@ -1,18 +1,17 @@
-﻿-- Author: Shurshik
+﻿-- Author: Shurshik (Modified by qqytqqyt)
 -- version: 1.4961
 -- http://phoenix-wow.ru
 function psf_unitaura(name, spellInfo)
     return AuraUtil.FindAuraByName(spellInfo,name)
 end
 
-function psf_getRaidDifficulty()
+function psf_getInstanceDifficulty()
     local name, instanceType, difficultyID = GetInstanceInfo()
     return difficultyID - 2 
 end
 
-function psf_getInstanceDifficulty()
-    local name, instanceType, difficultyID = GetInstanceInfo()
-    return difficultyID - 2 
+function psf_getRaidDifficulty()
+    return psf_getInstanceDifficulty()
 end
 
 function psf_isRaidOfficer()
@@ -24,12 +23,12 @@ function PhoenixStyle_OnLoad()
     pslocalem()
     pslocaleuim()
     pslocalezonem()
-    if GetLocale() == "deDE" or GetLocale() == "ruRU" or GetLocale() == "zhTW" or
-        GetLocale() == "frFR" or GetLocale() == "koKR" or GetLocale() == "esES" or
-        GetLocale() == "esMX" then
+    if psf_getlocale() == "deDE" or psf_getlocale() == "ruRU" or psf_getlocale() == "zhTW" or
+        psf_getlocale() == "frFR" or psf_getlocale() == "koKR" or psf_getlocale() == "esES" or
+        psf_getlocale() == "esMX" or psf_getlocale() == "zhCN" then
         pslocale()
         pslocaleui()
-        pslocalezone()
+        if pslocalezone then pslocalezone() end
     end
 
     PSFprepareUI()
@@ -882,9 +881,9 @@ function PhoenixStyleFailbot_Command(msg)
 
                 end
                 pslocaletimersm()
-                if GetLocale() == "deDE" or GetLocale() == "ruRU" or GetLocale() ==
-                    "zhTW" or GetLocale() == "frFR" or GetLocale() == "koKR" or
-                    GetLocale() == "esES" or GetLocale() == "esMX" then
+                if psf_getlocale() == "deDE" or psf_getlocale() == "ruRU" or psf_getlocale() ==
+                    "zhTW" or psf_getlocale() == "frFR" or psf_getlocale() == "koKR" or
+                    psf_getlocale() == "esES" or psf_getlocale() == "esMX" or psf_getlocale() == "zhCN" then
                     pslocaletimers()
                 end
                 psfpullbegin()
@@ -996,9 +995,9 @@ function PSF_buttontimers()
     PSF_closeallpr()
     if (thisaddonwork) then
         pslocaletimersm()
-        if GetLocale() == "deDE" or GetLocale() == "ruRU" or GetLocale() ==
-            "zhTW" or GetLocale() == "frFR" or GetLocale() == "koKR" or
-            GetLocale() == "esES" or GetLocale() == "esMX" then
+        if psf_getlocale() == "deDE" or psf_getlocale() == "ruRU" or psf_getlocale() ==
+            "zhTW" or psf_getlocale() == "frFR" or psf_getlocale() == "koKR" or
+            psf_getlocale() == "esES" or psf_getlocale() == "esMX" or psf_getlocale() == "zhCN" then
             pslocaletimers()
         end
         PSFmain5:Show()
@@ -2543,7 +2542,7 @@ end
 function psslidertimerefmark()
     secrefmark = PSFmain4_Timerref:GetValue()
     local text = ""
-    if GetLocale() == "ruRU" then
+    if psf_getlocale() == "ruRU" then
         text = psmarkinfo1 .. " " .. secrefmark .. " " .. pssec
     else
         text = psmarkinfo1 .. " " .. secrefmark

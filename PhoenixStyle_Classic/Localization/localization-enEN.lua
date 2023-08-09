@@ -1,4 +1,14 @@
-﻿function pslocalezonem()
+﻿function psf_getlocale()
+    --return "zhCN" 
+    --if (psf_locale and psf_locale ~= nil) then return psf_locale end
+    return GetLocale()
+end
+
+function psf_setlocale(locale)
+    psf_locale = locale
+end
+
+function pslocalezonem()
     pszonecoliseum = "Trial of the Crusader"
     pszoneulduar = "Ulduar"
     pszoneicecrowncit = "Icecrown Citadel"

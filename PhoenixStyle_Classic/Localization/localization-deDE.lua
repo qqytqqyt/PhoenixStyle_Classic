@@ -7,6 +7,9 @@
         pszoneicecrowncit = "Eiskronenzitadelle"
 
     end
+end
+
+if psf_getlocale() == "deDE" then
 
     function pslocale()
 

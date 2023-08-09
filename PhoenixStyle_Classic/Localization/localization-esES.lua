@@ -6,6 +6,9 @@
         pszoneicecrowncit = "Ciudadela de la Corona de Hielo"
 
     end
+end
+
+if psf_getlocale() == "esES" then
 
     function pslocale() end
 

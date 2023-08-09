@@ -8,6 +8,7 @@
 ## URL: http://phoenix-wow.ru/
 ## DefaultState: Enabled
 ## LoadOnDemand: 0
+## SavedVariables: psf_locale
 ## SavedVariablesPerCharacter: thisaddononoff, thisaddonwork, secrefmark, pssetmarknew, psfnopromrep, PS_Settings, psminibutenabl, psfchatadd, psoldvern,psversionday
 Localization\localization-enEN.lua
 Localization\localization-ruRU.lua

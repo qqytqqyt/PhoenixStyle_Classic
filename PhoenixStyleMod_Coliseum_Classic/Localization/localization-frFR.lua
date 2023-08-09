@@ -1,13 +1,11 @@
 ﻿if GetLocale() == "frFR" then
 
-function pslocalecoliseumboss()
+    function pslocalecoliseumboss()
 
-pscotwinsvalkyr				= "Fjola Plaie-lumineuse"
-pscotwinsvalkyr2			= "Eydis Plaie-sombre"
-pscojaraboss				= "Seigneur Jaraxxus"
+        pscotwinsvalkyr = "Fjola Plaie-lumineuse"
+        pscotwinsvalkyr2 = "Eydis Plaie-sombre"
+        pscojaraboss = "Seigneur Jaraxxus"
 
-end
-
-
+    end
 
 end
