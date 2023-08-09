@@ -146,7 +146,7 @@ if psf_getcorelocale() == "ruRU" then
             "Вы можете скачать его с сайтов curse.com или wowinterface.com"
         pscolshieldannonce = "сообщ. в чат"
         pscolcast11 = "время каста"
-        pswebsite = "www.blacklotus.ru & www.phoenix-wow.ru"
+        pswebsite = "www.phoenixstyle.com & www.phoenix-wow.ru"
         pschatmaxchan =
             "Максимально можно добавить 5 персональных каналов."
         pschataddsuc =

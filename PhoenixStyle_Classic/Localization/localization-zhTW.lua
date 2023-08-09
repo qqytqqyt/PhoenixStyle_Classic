@@ -128,7 +128,7 @@ if psf_getcorelocale() == "zhTW" then
             "你可以在 curse.com 或 wowinterface.com 站點下載到"
         pscolshieldannonce = "訊息給聊天頻道"
         pscolcast11 = "施放"
-        pswebsite = "www.blacklotus.ru"
+        pswebsite = "www.phoenixstyle.com"
         pschatmaxchan = "你無法添加超過5個的私人頻道."
         pschataddsuc = "已被成功添加."
         pschatremsuc = "已被成功移除."

@@ -131,7 +131,7 @@ if psf_getcorelocale() == "deDE" then
             "Sie k\195\182nnen es auf curse.com oder wowinterface.com runterladen."
         pscolshieldannonce = "Info in den Chat"
         pscolcast11 = "cast"
-        pswebsite = "www.blacklotus.ru"
+        pswebsite = "www.phoenixstyle.com"
         pschatmaxchan =
             "Sie k\195\182nnen nicht mehr als 5 pers\195\182nliche Channel hinzuf\195\188gen."
         pschataddsuc = "wurde erfolgreich hinzugef\195\188gt."

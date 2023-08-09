@@ -132,7 +132,7 @@ function pslocaleuim()
     psraaddonanet2 = "You can download it on curse.com or wowinterface.com"
     pscolshieldannonce = "info to chat"
     pscolcast11 = "cast"
-    pswebsite = "www.blacklotus.ru"
+    pswebsite = "www.phoenixstyle.com"
     pschatmaxchan = "You cannot add more then 5 personal channels."
     pschataddsuc = "has been added successfully."
     pschatremsuc = "has been removed successfully."
