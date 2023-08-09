@@ -26,7 +26,7 @@
     end
 end
 
-if psf_getlocale() == "frFR" then
+if psf_getmodlocale() == "frFR" then
 
     function pslocaleicecrownui() end
 

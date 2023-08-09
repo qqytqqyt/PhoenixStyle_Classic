@@ -8,7 +8,7 @@
     end
 end
 
-if psf_getlocale() == "frFR" then
+if psf_getcorelocale() == "frFR" then
 
     function pslocale() end
 

@@ -8,7 +8,7 @@
     end
 end
 
-if psf_getlocale() == "esES" then
+if psf_getcorelocale() == "esES" then
 
     function pslocale() end
 

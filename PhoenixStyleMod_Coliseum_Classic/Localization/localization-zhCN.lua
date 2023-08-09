@@ -10,7 +10,7 @@
     end
 end
 
-if psf_getlocale() == "zhCN" then
+if psf_getmodllocale() == "zhCN" then
 
     function pslocalecoliseum()
 

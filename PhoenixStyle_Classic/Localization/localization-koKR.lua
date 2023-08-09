@@ -8,7 +8,7 @@
     end
 end
 
-if psf_getlocale() == "koKR" then
+if psf_getcorelocale() == "koKR" then
 
     function pslocale() end
 

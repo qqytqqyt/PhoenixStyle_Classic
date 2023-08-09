@@ -28,7 +28,7 @@
     end
 end
 
-if psf_getlocale() == "esMX" then
+if psf_getmodlocale() == "esMX" then
 
     function pslocaleicecrownui() end
 

@@ -16,7 +16,7 @@
     end
 end
 
-if psf_getlocale() == "zhCN" then
+if psf_getmodlocale() == "zhCN" then
 
     function pslocaleulduar()
 

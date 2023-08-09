@@ -5,9 +5,9 @@ function psficecrown()
     pslocaleicecrownuim()
     pslocaleicecrownbossm()
 
-    if psf_getlocale() == "deDE" or psf_getlocale() == "ruRU" or psf_getlocale() == "zhTW" or
-        psf_getlocale() == "frFR" or psf_getlocale() == "koKR" or psf_getlocale() == "esES" or
-        psf_getlocale() == "esMX" or psf_getlocale() == "zhCN" then
+    if psf_getmodlocale() == "deDE" or psf_getmodlocale() == "ruRU" or psf_getmodlocale() == "zhTW" or
+        psf_getmodlocale() == "frFR" or psf_getmodlocale() == "koKR" or psf_getmodlocale() == "esES" or
+        psf_getmodlocale() == "esMX" or psf_getmodlocale() == "zhCN" then
         pslocaleicecrownui()
         if pslocaleicecrownboss then pslocaleicecrownboss() end
     end
@@ -1434,7 +1434,7 @@ function psficecrownonevent(self, event, ...)
     if event == "CHAT_MSG_MONSTER_YELL" then
         -- prof pull
         if ((arg1 == psiccputricidepully or
-            ((psf_getlocale() == "deDE" or psf_getlocale() == "frFR") and arg1 and
+            ((psf_getmodlocale() == "deDE" or psf_getmodlocale() == "frFR") and arg1 and
                 string.find(string.lower(arg1),
                             string.lower(psiccputricidepully)))) and arg2 ==
             psiccputricide) then
@@ -1459,7 +1459,7 @@ function psficecrownonevent(self, event, ...)
         end
 
         -- valitria pull
-        if arg1 == psiccvalitriapull or (psf_getlocale() == "frFR" and arg1 and
+        if arg1 == psiccvalitriapull or (psf_getmodlocale() == "frFR" and arg1 and
             string.find(string.lower(arg1), string.lower(psiccvalitriapull))) then
             wasornovalytria = 1
             psiccvalitrifailspirit1 = {}
@@ -4054,7 +4054,7 @@ function pssozdanietextic()
 end
 
 function psicdrowbuttx(aa, bb)
-    if psf_getlocale() == "deDE" then
+    if psf_getmodlocale() == "deDE" then
         aa:SetFont(GameFontNormal:GetFont(), 10)
     else
         aa:SetFont(GameFontNormal:GetFont(), 10)

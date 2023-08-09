@@ -8,7 +8,7 @@
     end
 end
 
-if psf_getlocale() == "ruRU" then
+if psf_getcorelocale() == "ruRU" then
 
     function pslocale()
 

@@ -29,7 +29,7 @@
     
 end
 
-if psf_getlocale() == "koKR" then
+if psf_getmodlocale() == "koKR" then
 
     function pslocaleicecrownui() end
 

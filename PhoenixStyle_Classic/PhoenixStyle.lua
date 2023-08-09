@@ -23,9 +23,9 @@ function PhoenixStyle_OnLoad()
     pslocalem()
     pslocaleuim()
     pslocalezonem()
-    if psf_getlocale() == "deDE" or psf_getlocale() == "ruRU" or psf_getlocale() == "zhTW" or
-        psf_getlocale() == "frFR" or psf_getlocale() == "koKR" or psf_getlocale() == "esES" or
-        psf_getlocale() == "esMX" or psf_getlocale() == "zhCN" then
+    if psf_getcorelocale() == "deDE" or psf_getcorelocale() == "ruRU" or psf_getcorelocale() == "zhTW" or
+        psf_getcorelocale() == "frFR" or psf_getcorelocale() == "koKR" or psf_getcorelocale() == "esES" or
+        psf_getcorelocale() == "esMX" or psf_getcorelocale() == "zhCN" then
         pslocale()
         pslocaleui()
         if pslocalezone then pslocalezone() end
@@ -881,9 +881,9 @@ function PhoenixStyleFailbot_Command(msg)
 
                 end
                 pslocaletimersm()
-                if psf_getlocale() == "deDE" or psf_getlocale() == "ruRU" or psf_getlocale() ==
-                    "zhTW" or psf_getlocale() == "frFR" or psf_getlocale() == "koKR" or
-                    psf_getlocale() == "esES" or psf_getlocale() == "esMX" or psf_getlocale() == "zhCN" then
+                if psf_getcorelocale() == "deDE" or psf_getcorelocale() == "ruRU" or psf_getcorelocale() ==
+                    "zhTW" or psf_getcorelocale() == "frFR" or psf_getcorelocale() == "koKR" or
+                    psf_getcorelocale() == "esES" or psf_getcorelocale() == "esMX" or psf_getcorelocale() == "zhCN" then
                     pslocaletimers()
                 end
                 psfpullbegin()
@@ -995,9 +995,9 @@ function PSF_buttontimers()
     PSF_closeallpr()
     if (thisaddonwork) then
         pslocaletimersm()
-        if psf_getlocale() == "deDE" or psf_getlocale() == "ruRU" or psf_getlocale() ==
-            "zhTW" or psf_getlocale() == "frFR" or psf_getlocale() == "koKR" or
-            psf_getlocale() == "esES" or psf_getlocale() == "esMX" or psf_getlocale() == "zhCN" then
+        if psf_getcorelocale() == "deDE" or psf_getcorelocale() == "ruRU" or psf_getcorelocale() ==
+            "zhTW" or psf_getcorelocale() == "frFR" or psf_getcorelocale() == "koKR" or
+            psf_getcorelocale() == "esES" or psf_getcorelocale() == "esMX" or psf_getcorelocale() == "zhCN" then
             pslocaletimers()
         end
         PSFmain5:Show()
@@ -2542,7 +2542,7 @@ end
 function psslidertimerefmark()
     secrefmark = PSFmain4_Timerref:GetValue()
     local text = ""
-    if psf_getlocale() == "ruRU" then
+    if psf_getcorelocale() == "ruRU" then
         text = psmarkinfo1 .. " " .. secrefmark .. " " .. pssec
     else
         text = psmarkinfo1 .. " " .. secrefmark

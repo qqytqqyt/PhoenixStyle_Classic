@@ -29,7 +29,7 @@
     
 end
 
-if psf_getlocale() == "esES" then
+if psf_getmodlocale() == "esES" then
 
     function pslocaleicecrownui() end
 

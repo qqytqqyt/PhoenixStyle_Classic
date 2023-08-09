@@ -10,7 +10,7 @@
     
 end
 
-if psf_getlocale() == "ruRU" then
+if psf_getmodllocale() == "ruRU" then
 
     function pslocalecoliseum()
 

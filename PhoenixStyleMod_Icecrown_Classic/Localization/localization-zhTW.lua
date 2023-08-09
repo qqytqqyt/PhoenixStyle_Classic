@@ -29,7 +29,7 @@
     end
 end
 
-if psf_getlocale() == "zhTW" then
+if psf_getmodlocale() == "zhTW" then
 
     function pslocaleicecrownui()
 

@@ -16,7 +16,7 @@
     end
 end
 
-if psf_getlocale() == "deDE" then
+if psf_getmodlocale() == "deDE" then
 
     function pslocaleulduar()
 

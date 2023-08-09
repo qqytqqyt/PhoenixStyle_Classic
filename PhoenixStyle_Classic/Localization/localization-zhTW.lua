@@ -9,7 +9,7 @@
     end
 end
 
-if psf_getlocale() == "zhTW" then
+if psf_getcorelocale() == "zhTW" then
 
     function pslocale()
 

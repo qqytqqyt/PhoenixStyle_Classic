@@ -8,7 +8,7 @@
     end
 end
 
-if psf_getlocale() == "esMX" then
+if psf_getcorelocale() == "esMX" then
 
     function pslocale() end
 

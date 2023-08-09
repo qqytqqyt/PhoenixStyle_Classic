@@ -9,7 +9,7 @@
     end
 end
 
-if psf_getlocale() == "zhCN" then
+if psf_getcorelocale() == "zhCN" then
     function pslocale()
 
         pserror = "出错!"

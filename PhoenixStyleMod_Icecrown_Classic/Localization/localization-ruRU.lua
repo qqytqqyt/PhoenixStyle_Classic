@@ -29,7 +29,7 @@
     end
 end
 
-if psf_getlocale() == "ruRU" then
+if psf_getmodlocale() == "ruRU" then
 
     function pslocaleicecrownui()
 

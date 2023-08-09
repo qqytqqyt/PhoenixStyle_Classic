@@ -1,11 +1,16 @@
-﻿function psf_getlocale()
+﻿function psf_getmodlocale()
+    if (psf_modlocale and psf_modlocale ~= nil) then return psf_modlocale end
+    return GetLocale()
+end
+
+function psf_getcorelocale()
     --return "zhCN" 
     --if (psf_locale and psf_locale ~= nil) then return psf_locale end
     return GetLocale()
 end
 
-function psf_setlocale(locale)
-    psf_locale = locale
+function psf_setmodlocale(locale)
+    psf_modlocale = locale
 end
 
 function pslocalezonem()
