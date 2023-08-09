@@ -10,7 +10,7 @@
     end
 end
 
-if psf_getmodllocale() == "deDE" then
+if psf_getmodlocale() == "deDE" then
 
     function pslocalecoliseum()
 
