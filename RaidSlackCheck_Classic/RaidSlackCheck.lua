@@ -731,7 +731,7 @@ function rsc_OnEvent(self,event,...)
 
         end -- "RSCf"
 
-        if arg1 == "PhoenixStyle-pull" and rscflaskcheckb[2] and
+        if arg1 == "PS-pull" and rscflaskcheckb[2] and
             rscflaskcheckb[2] == 1 then rscflaskcheckgo() end
 
         if arg1 == "RSCfs1" and arg4 ~= UnitName("player") then

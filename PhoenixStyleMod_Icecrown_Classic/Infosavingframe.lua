@@ -44,7 +44,7 @@ function psiccaftcombop()
         psiccinfframe:SetPoint("BOTTOMLEFT", psiccinfscroll, "BOTTOMLEFT", 0, 0)
         psiccinfframe:SetScript("onescapepressed",
                                 function(self) psiccinfframe:ClearFocus() end)
-        psiccinfframe:SetFont(GameFontNormal:GetFont(), 12)
+        psiccinfframe:SetFont(GameFontNormal:GetFont(), 12, "")
         psiccinfframe:SetMultiLine()
         psiccinfframe:SetAutoFocus(false)
         psiccinfframe:SetHeight(555)

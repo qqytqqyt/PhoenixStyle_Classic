@@ -115,6 +115,18 @@ function PhoenixStyle_OnLoad()
     PhoenixStyleFailbot:RegisterEvent("CHAT_MSG_OFFICER")
     PhoenixStyleFailbot:RegisterEvent("CHAT_MSG_GUILD")
 
+    C_ChatInfo.RegisterAddonMessagePrefix("PS-pull")
+    C_ChatInfo.RegisterAddonMessagePrefix("PhoenixStyle")
+    C_ChatInfo.RegisterAddonMessagePrefix("PS-info2")
+    C_ChatInfo.RegisterAddonMessagePrefix("PSverwhips2")
+    C_ChatInfo.RegisterAddonMessagePrefix("PS-myvers")
+    C_ChatInfo.RegisterAddonMessagePrefix("PS-info")
+    C_ChatInfo.RegisterAddonMessagePrefix("PS-marksoff")
+    C_ChatInfo.RegisterAddonMessagePrefix("PSiccprof")
+    C_ChatInfo.RegisterAddonMessagePrefix("RSCfs1")
+    C_ChatInfo.RegisterAddonMessagePrefix("RSCfs2")
+    C_ChatInfo.RegisterAddonMessagePrefix("RSCf")
+    C_ChatInfo.RegisterAddonMessagePrefix("RSCb")
 end
 
 function PSF_OnUpdate()
@@ -644,7 +656,7 @@ function PhoenixStyle_OnEvent(self, event, ...)
         -- конец
 
         -- получение инфы о запуске таймера
-        if arg1 == "PhoenixStyle-pull" then
+        if arg1 == "PS-pull" then
             if arg4 == UnitName("player") then
             else
 
@@ -655,7 +667,7 @@ function PhoenixStyle_OnEvent(self, event, ...)
         -- конец
 
         -- отправка моей инфы
-        if arg1 == "PhoenixStyle_info" and arg2 == "info" then
+        if arg1 == "PS-info" and arg2 == "info" then
             local psa1 = 0
             local psa2 = 0
             local psa3 = 0
@@ -674,7 +686,7 @@ function PhoenixStyle_OnEvent(self, event, ...)
             if psa4 == 0 or psa4 == 1 then
                 psa6 = "-" .. whererepiccchat[1] .. "," .. whererepiccchat[2]
             end
-            C_ChatInfo.SendAddonMessage("PhoenixStyle_info2",
+            C_ChatInfo.SendAddonMessage("PS-info2",
                                         UnitName("player") .. " v." .. psversion ..
                                             " " .. psa1 .. psa2 .. psa3 ..
                                             " rsc:" .. psa5 .. " icc:" .. psa4 ..
@@ -710,7 +722,7 @@ function PhoenixStyle_OnEvent(self, event, ...)
         if arg1 == "PSverwhips2" and arg3 == "WHISPER" then print(arg2) end
 
         -- получение моей инфы
-        if arg1 == "PhoenixStyle_info2" and psshushinfo then
+        if arg1 == "PS-info2" and psshushinfo then
             if arg4 == UnitName("player") then
             else
                 print(arg2)
@@ -2304,9 +2316,9 @@ function psver(cchat)
     print(UnitName("player") .. " v." .. psversion .. " " .. psa1 .. psa2 ..
               psa3 .. " rsc:" .. psa5 .. " icc:" .. psa4 .. psa6)
     if cchat == nil then
-        C_ChatInfo.SendAddonMessage("PhoenixStyle_info", "info", "raid")
+        C_ChatInfo.SendAddonMessage("PS-info", "info", "raid")
     else
-        C_ChatInfo.SendAddonMessage("PhoenixStyle_info", "info", cchat)
+        C_ChatInfo.SendAddonMessage("PS-info", "info", cchat)
     end
 end
 

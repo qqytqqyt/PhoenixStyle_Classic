@@ -6,7 +6,7 @@
                 if GetTime() > pstimeruraid then
 
                     pspullactiv = 1
-                    C_ChatInfo.SendAddonMessage("PhoenixStyle-pull",
+                    C_ChatInfo.SendAddonMessage("PS-pull",
                                                 timertopull, "RAID")
 
                     pstimermake(psattack, timertopull)
