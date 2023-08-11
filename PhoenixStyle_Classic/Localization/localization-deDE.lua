@@ -123,7 +123,7 @@ if psf_getcorelocale() == "deDE" then
         psulchatch = "Chat Channel:"
         psulonlyattheend = "- nur nach dem Kampf anzeigen."
         psulonlyattheendstal = "- nur anzeigen, wenn zeit > 1 Sek."
-        psfserver = "ru-Gordunni"
+        psfserver = "ru-Gordunni (WotLK ver. EU-Earthshaker-Nekomio)"
         psaddonrepnoprom = "Raidwarnungen ohne Bef\195\182rderungen ausgeben"
         psraaddonanet =
             "Fehler! Das Addon 'RaidAchievement' ist nicht installiert."

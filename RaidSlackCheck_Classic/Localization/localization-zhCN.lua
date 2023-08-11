@@ -111,6 +111,10 @@
 		rscbuttonztext3 = "显示区域列表"
 		rscbuttonztext4 = "重置区域列表"
 		rsclocrlslak = "举报团长划水"
+		rscbuffspart3 =
+        "您可以为增益效果设置负责人（例如：如果您的团队中没有圣骑士 - 输入使用战鼓的人的名字），然后如果他们在团队中还活着，第一次检查时只会私聊他们，否则会私聊所有可以施放增益的玩家。"
+    
+		rscpartwhobuff1 = "BUFF的负责人:"
     end
 
 end

@@ -126,7 +126,7 @@ function pslocaleuim()
     psulchatch = "chat channel:"
     psulonlyattheend = "- announce after the fight only"
     psulonlyattheendstal = "- announce only if time > 1 sec."
-    psfserver = "ru-Gordunni"
+    psfserver = "ru-Gordunni (WotLK ver. EU-Earthshaker-Nekomio)"
     psaddonrepnoprom = "announce warnings without promote"
     psraaddonanet = "Error! Addon 'RaidAchievement' is not installed"
     psraaddonanet2 = "You can download it on curse.com or wowinterface.com"

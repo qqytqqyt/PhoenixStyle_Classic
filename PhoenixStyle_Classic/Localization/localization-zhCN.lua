@@ -124,7 +124,7 @@ if psf_getcorelocale() == "zhCN" then
         psulchatch = "聊天频道："
         psulonlyattheend = "- 仅在战斗结束后发布通告"
         psulonlyattheendstal = "- 仅在时间超过1秒时发布通告。"
-        psfserver = "ru-Gordunni"
+        psfserver = "ru-Gordunni (WotLK适配 EU-Earthshaker-Nekomio)"
         psaddonrepnoprom = "没有权限也强制发布通告"
         psraaddonanet = "出错！ 插件 'RaidAchievement' 没有安装"
         psraaddonanet2 =

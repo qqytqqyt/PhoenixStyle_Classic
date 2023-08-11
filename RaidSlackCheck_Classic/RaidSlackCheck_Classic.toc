@@ -7,6 +7,7 @@
 ## Notes-ruRU: /rsc или /слак - для открытия инфо
 ## URL: http://phoenix-wow.ru/
 ## DefaultState: Enabled
+## Dependencies: PhoenixStyle_Classic
 ## LoadOnDemand: 0
 ## SavedVariablesPerCharacter: rscchatrep,rscraidlrep,rsccolornick,rscwhomustbufflist,rscbuffschat,rscbuffcheckb,rscbuffwhichtrack,rscbufftimers,rscflaskcheckb,rscflaskchat, rscpotionscombatsaves,rscminflaskgood,rscignorzone
 Localization\localization-enEN.lua
