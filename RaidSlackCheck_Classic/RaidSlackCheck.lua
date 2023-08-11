@@ -26,6 +26,8 @@ function rsc_onload()
         53908, -- Potion of Speed
         53750, -- Crazy Alchemist's Potion
         53761, -- Powerful Rejuvenation Potion
+        41166, -- Runic Healing Injector
+        42545, -- Runic Mana Injector
         43185, -- Healing Potion
         43186, -- Restore Mana
         53753, -- Nightmare Slumber

@@ -834,6 +834,12 @@ function PhoenixStyle_OnEvent(self, event, ...)
 
             psmapbuttreflesh()
 
+            psreportframe1:SetFont(GameFontNormal:GetFont(), 12, '')
+            psreportframe2:SetFont(GameFontNormal:GetFont(), 12, '')
+            psreportframe3:SetFont(GameFontNormal:GetFont(), 12, '')
+            psreportframe1:SetFading(false)
+            psreportframe2:SetFading(false)
+            psreportframe3:SetFading(false)
         end
     end
 
