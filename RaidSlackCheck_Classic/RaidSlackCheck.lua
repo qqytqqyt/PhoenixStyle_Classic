@@ -9,9 +9,9 @@ end
 function rsc_onload()
 
     rsclocale()
-    if GetLocale() == "deDE" or GetLocale() == "ruRU" or GetLocale() == "zhTW" or
-        GetLocale() == "frFR" or GetLocale() == "koKR" or GetLocale() == "esES" or
-        GetLocale() == "esMX" then rsclocalel() end
+    if psf_getmodlocale() == "deDE" or psf_getmodlocale() == "ruRU" or psf_getmodlocale() == "zhTW" or
+        psf_getmodlocale() == "frFR" or psf_getmodlocale() == "koKR" or psf_getmodlocale() == "esES" or
+        psf_getmodlocale() == "esMX" or psf_getmodlocale() == "zhCN" then rsclocalel() end
 
     rscversion = 1.112
 
@@ -1350,12 +1350,16 @@ function openrscchoosbattle()
             rscmain3_Button11:Hide()
             rscmain3_Button30:Show()
             rscmain3_Button40:Show()
+            rscmain3_Button30Text:SetText(rsclocpot10)
+            rscmain3_Button30Text:SetText(rsclocpot11)
             if rscreporttxt2 then rscreporttxt2:Show() end
             if psversion then
                 PSFpotioncheckframe_Button10:Hide()
                 PSFpotioncheckframe_Button11:Hide()
                 PSFpotioncheckframe_Button30:Show()
                 PSFpotioncheckframe_Button40:Show()
+                PSFpotioncheckframe_Button30Text:SetText(rsclocpot10)
+                PSFpotioncheckframe_Button40Text:SetText(rsclocpot11)
                 if rscreporttxt2 then rscreporttxt2:Show() end
             end
 
@@ -1363,12 +1367,16 @@ function openrscchoosbattle()
             -- просмотр
             rscmain3_Button10:Show()
             rscmain3_Button11:Show()
+            rscmain3_Button10Text:SetText(rsclocpot11)
+            rscmain3_Button11Text:SetText(rsclocpot10)
             rscmain3_Button30:Hide()
             rscmain3_Button40:Hide()
             if rscreporttxt2 then rscreporttxt2:Hide() end
             if psversion then
                 PSFpotioncheckframe_Button10:Show()
                 PSFpotioncheckframe_Button11:Show()
+                PSFpotioncheckframe_Button10Text:SetText(rsclocpot11)
+                PSFpotioncheckframe_Button11Text:SetText(rsclocpot10)
                 PSFpotioncheckframe_Button30:Hide()
                 PSFpotioncheckframe_Button40:Hide()
                 if rscreporttxt2 then rscreporttxt2:Hide() end

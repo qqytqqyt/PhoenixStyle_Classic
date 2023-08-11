@@ -2488,9 +2488,12 @@ function psfpotioncheckshow()
     PSFpotioncheckframe_Text2:Hide()
     PSFpotioncheckframe_Text3:Hide()
     PSFpotioncheckframe_CheckButton1:Show()
+    PSFpotioncheckframe_CheckButton1Text:SetText(rsclocrlslak)
     PSFpotioncheckframe_CheckButton2:Show()
+    PSFpotioncheckframe_CheckButton2Text:SetText(rscloccolor)
     if rscversion and rscversion > 1.004 then
         PSFpotioncheckframe_Buttonrezet:Show()
+        PSFpotioncheckframe_ButtonrezetText:SetText(psbuttonreset)
     end
     rsc_showoptions()
     rscrefleshinfo(1)

@@ -1,4 +1,4 @@
-﻿if GetLocale() == "koKR" then
+﻿if psf_getmodlocale() == "koKR" then
 
 function rsclocalel()
 

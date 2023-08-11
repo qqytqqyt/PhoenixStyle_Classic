@@ -17,6 +17,7 @@ Localization\localization-esES.lua
 Localization\localization-esMX.lua
 Localization\localization-koKR.lua
 Localization\localization-zhTW.lua
+Localization\localization-zhCN.lua
 RaidSlackCheck.lua
 RaidSlackCheck.xml
 buffrebith.lua

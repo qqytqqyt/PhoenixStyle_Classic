@@ -1,4 +1,4 @@
-﻿if GetLocale() == "ruRU" then
+﻿if psf_getmodlocale() == "ruRU" then
 
 
 function rsclocalel()

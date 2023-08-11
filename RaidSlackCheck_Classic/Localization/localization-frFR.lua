@@ -1,4 +1,4 @@
-﻿if GetLocale() == "frFR" then
+﻿if psf_getmodlocale() == "frFR" then
 
 function rsclocalel()
 

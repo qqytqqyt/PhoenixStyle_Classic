@@ -1,4 +1,4 @@
-﻿if GetLocale() == "esMX" then
+﻿if psf_getmodlocale() == "esMX" then
 
 function rsclocalel()
 

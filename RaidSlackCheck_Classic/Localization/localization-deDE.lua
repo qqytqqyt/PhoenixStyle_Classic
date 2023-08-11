@@ -1,4 +1,4 @@
-﻿if GetLocale() == "deDE" then
+﻿if psf_getmodlocale() == "deDE" then
 --translated: EaDx
 
 function rsclocalel()

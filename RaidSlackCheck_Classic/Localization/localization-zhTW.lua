@@ -1,4 +1,4 @@
-﻿if GetLocale() == "zhTW" then
+﻿if psf_getmodlocale() == "zhTW" then
 
     function rsclocalel()
 

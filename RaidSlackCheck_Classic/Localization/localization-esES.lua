@@ -1,4 +1,4 @@
-﻿if GetLocale() == "esES" then
+﻿if psf_getmodlocale() == "esES" then
 
 function rsclocalel()
 

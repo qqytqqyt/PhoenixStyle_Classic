@@ -113,8 +113,8 @@
         -- 7 text
         local t1 = rscframetoshowall4:CreateFontString()
         t1:SetFont(GameFontNormal:GetFont(), 11)
-        if GetLocale() == "ruRU" or GetLocale() == "enEN" or GetLocale() ==
-            "enUS" or GetLocale() == "deDE" then
+        if psf_getmodlocale() == "ruRU" or psf_getmodlocale() == "enEN" or psf_getmodlocale() ==
+            "enUS" or psf_getmodlocale() == "deDE" then
             t1:SetText(rscflasktextc11)
         else
             t1:SetText(rscflasktextc11 .. " |cffff0000not localizated|r")
