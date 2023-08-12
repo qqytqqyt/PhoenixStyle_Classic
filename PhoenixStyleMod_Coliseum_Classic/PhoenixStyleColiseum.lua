@@ -436,7 +436,6 @@ function psfColiseumonevent(self,event,...)
             elseif (arg7 == pscojaraboss or arg4 == pscojaraboss) then
                 timetocheck = arg1 + 5
             elseif (arg1 > timetocheck) then
-                print("jarax after fight")
                 psfjaraxafterf()
                 psfjaraxrezetall()
             end

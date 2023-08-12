@@ -20,22 +20,22 @@
         PSFmain11_primyogg:SetText(primyogg)
 
         portalboss = {
-            "        1", "     2    6", "   3        7",
-            " 4 " .. psulyoggboss .. " 8", "   5       9", "      10"
+            "-        1", "-     2    6", "-   3        7",
+            "- 4 " .. psulyoggboss .. " 8", "-   5       9", "-      10"
         }
         portal1 = {
-            "{rt8}" .. psulyoggimg2, "      4      5", "  3              6",
-            "  2              7", "      1      8", "         ↑↑"
+            "-{rt8}" .. psulyoggimg2, "-      4      5", "-  3              6",
+            "-  2              7", "-      1      8", "-         ↑↑"
         }
         portal2 = {
-            "{rt7}" .. psulyoggimg3, "             6", "           4 5",
-            "   3     .     .      8", " 1 2    .     .    7 9", " ",
-            "           ↑↑"
+            "-{rt7}" .. psulyoggimg3, "-             6", "-           4 5",
+            "-   3     .     .      8", "- 1 2    .     .    7 9", "- ",
+            "-           ↑↑"
         }
         portal3 = {
-            "{rt4}" .. psulyoggimg4, "          4  5", "       3        6",
-            "    2              7", " ", "       1        8",
-            "           ↑↑"
+            "-{rt4}" .. psulyoggimg4, "-          4  5", "-       3        6",
+            "-    2              7", "- ", "-       1        8",
+            "-           ↑↑"
         }
         yoggspisokraid = {psulyoggempty}
         for i, mnogogrup2 in ipairs(yoggspisokp) do
