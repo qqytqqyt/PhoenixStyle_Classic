@@ -5,7 +5,6 @@ end
 
 function psf_getcorelocale()
     --return "zhCN" 
-    --if (psf_locale and psf_locale ~= nil) then return psf_locale end
     return GetLocale()
 end
 

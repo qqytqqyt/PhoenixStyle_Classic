@@ -1617,7 +1617,6 @@ function psfcolshopen12()
         TWINVALKYRMFRAME_Command()
     else
         PSF_colshieldminiopen()
-        out("|cff99ffffPhoenixStyle|r - |cffff0000" .. psattention .. "|r " ..
-                pscoltwinvaladd)
+        --out("|cff99ffffPhoenixStyle|r - |cffff0000" .. psattention .. "|r " .. pscoltwinvaladd)
     end
 end

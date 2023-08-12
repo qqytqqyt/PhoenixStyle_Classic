@@ -619,7 +619,7 @@ function rsc_OnEvent(self,event,...)
     end
 
     if event == "ADDON_LOADED" then
-        if arg1 == "RaidSlackCheck_Classic" then
+        if arg1 == "PhoenixStyleMod_RSC_Classic" then
 
             if rscflaskcheckb and rscflaskcheckb[7] == nil then
                 rscflaskcheckb[7] = 1

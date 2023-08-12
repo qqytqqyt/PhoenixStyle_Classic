@@ -882,8 +882,10 @@ end -- конец основной функции аддона
 
 function PhoenixStyleFailbot_Command(msg)
     local cmd, subCmd = PhoenixStyleFailbot_GetCmd(msg)
-
-    if (string.lower(cmd) == "пулл" or string.lower(cmd) == "pull" or
+    if (string.lower(cmd) == "locale") then
+        psf_setmodlocale(subCmd)
+        print("Locale has been changed. Please /reload to take effect.")
+    elseif (string.lower(cmd) == "пулл" or string.lower(cmd) == "pull" or
         string.lower(cmd) == "атака" or string.lower(cmd) == "ataka" or
         string.lower(cmd) == "attack" or string.lower(cmd) == "pul" or
         string.lower(cmd) == "пул") then
@@ -1384,7 +1386,7 @@ end
 
 function PSF_RAaddon()
     PSF_closeallpr()
-    if IsAddOnLoaded("RaidAchievement") == nil then
+    if IsAddOnLoaded("RaidAchievement")  == false then
         -- нету аддона
         PSFmainrano:Show()
 
@@ -1639,7 +1641,7 @@ function chechtekzone()
     -- ульдуар
 
     if GetRealZoneText() == pszoneulduar then
-        if IsAddOnLoaded("PhoenixStyleMod_Ulduar_Classic") == nil and wasuldatryload ==
+        if IsAddOnLoaded("PhoenixStyleMod_Ulduar_Classic") == false and wasuldatryload ==
             nil then
             wasuldatryload = 1
             local loaded, reason = LoadAddOn("PhoenixStyleMod_Ulduar_Classic")
@@ -1656,7 +1658,7 @@ function chechtekzone()
     -- Испытание крестоносца
 
     if GetRealZoneText() == pszonecoliseum then
-        if IsAddOnLoaded("PhoenixStyleMod_Coliseum_Classic") == nil and
+        if IsAddOnLoaded("PhoenixStyleMod_Coliseum_Classic") == false and
             wascoliseumtryload == nil then
             wascoliseumtryload = 1
             local loaded, reason = LoadAddOn("PhoenixStyleMod_Coliseum_Classic")
@@ -1680,7 +1682,7 @@ function chechtekzone()
             end
         end
 
-        if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") == nil and
+        if IsAddOnLoaded("PhoenixStyleMod_Icecrown_Classic") == false and
             wasicecrowntryload == nil then
             wasicecrowntryload = 1
             local loaded, reason = LoadAddOn("PhoenixStyleMod_Icecrown_Classic")

@@ -86,7 +86,7 @@
         rscpartanons33 = "当1选择的时候发送密语"
 		rscpartanons34 = "当2选择的时候发送密语"
 		rscpartanons35 = "没有助理权限也发送公告"
-        rscpartanons36 = "如果使用了药剂，检查两个而不是一个"
+        rscpartanons36 = "如果使用了药剂，要求同时使用两种"
 		rscparton3 = "开启"
         -- rscpartwhobuff1 = ""
         rscreleasedtxt1 = "被战复了"
