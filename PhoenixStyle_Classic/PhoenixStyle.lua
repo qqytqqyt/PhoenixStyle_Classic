@@ -33,7 +33,7 @@ function PhoenixStyle_OnLoad()
 
     PSFprepareUI()
 
-    psversion = 3.430
+    psversion = 3.422
     if PS_Settings == nil then PS_Settings = {PSMinimapPos = -16} end
     if psminibutenabl == nil then psminibutenabl = true end
     timertopull = 0
