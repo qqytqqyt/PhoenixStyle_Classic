@@ -2,7 +2,6 @@
 ## Title: Phoenix|cff7fff7fStyle|r Raid|cff7fff7fSlack|rCheck - Classic
 ## Title-ruRU: Phoenix|cff7fff7fStyle|r Raid|cff7fff7fSlack|rCheck - Classic
 ## Author: Shurshik (WotLK modified by qqytqqyt)
-## Version: 3.4.2.0-Wotlk
 ## Notes: /rsc or /raidslackcheck for more info
 ## Notes-ruRU: /rsc или /слак - для открытия инфо
 ## URL: http://phoenix-wow.ru/

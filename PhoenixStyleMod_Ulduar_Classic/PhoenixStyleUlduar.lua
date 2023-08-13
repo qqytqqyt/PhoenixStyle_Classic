@@ -498,12 +498,12 @@ function psfUlduaronevent(self,event,...)
                     psyoggfail3 then psyoggstrajtime = 0
                 elseif arg1 > psyoggstrtime2 then
                     psyoggstrajtime = 0
-                    if (whererepbossulda[6] == "raid" and (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then
-                        pszapuskanonsa("raid_warning", "{rt8}" .. psulyoggguard3)
-                    else
-                        pszapuskanonsa(whererepbossulda[6],
-                                       "{rt8}" .. psulyoggguard3)
-                    end            
+                --    if (whererepbossulda[6] == "raid" and (UnitIsGroupAssistant("player") or UnitIsGroupLeader("player"))) then
+                --        pszapuskanonsa("raid_warning", "{rt8}" .. psulyoggguard3)
+                --    else
+                --        pszapuskanonsa(whererepbossulda[6],
+                --                       "{rt8}" .. psulyoggguard3)
+                --    end            
                 end
 
             end
