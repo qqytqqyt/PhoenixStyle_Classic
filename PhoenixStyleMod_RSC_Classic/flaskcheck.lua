@@ -996,11 +996,11 @@ function rscreportslackwithflask(manual, chat)
         end
 
         if string.len(stringa1) > 2 then
-            stringa1 = "RSC > " .. stringa1
+            stringa1 = "PhoenixStyle > " .. stringa1
         elseif string.len(stringa2) > 2 then
-            stringa2 = "RSC > " .. stringa2
+            stringa2 = "PhoenixStyle > " .. stringa2
         elseif string.len(stringa1) > 3 then
-            stringa3 = "RSC > " .. stringa3
+            stringa3 = "PhoenixStyle > " .. stringa3
         end
 
         if manual == "manual" or (manual == "auto" and
@@ -1044,7 +1044,7 @@ function rscreportslackwithflask(manual, chat)
                     if #rscwillnotbechecked > 4 and
                         (#rscwillnotbechecked >= #rscwillcheckthem or
                             #rscwillnotbechecked > 10) then
-                        rscchatsendreports(chat, "RSC > " .. rscflasktext12)
+                        rscchatsendreports(chat, "PhoenixStyle > " .. rscflasktext12)
                     else
                         rscchatsendreports(chat, stringa1, stringa11, stringa2,
                                            stringa21, stringa22, stringa3,

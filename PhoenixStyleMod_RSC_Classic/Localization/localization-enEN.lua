@@ -1,5 +1,7 @@
 ﻿function rsclocale()
 
+    rscdefaultzone1 = "Naxxramas"
+    rscdefaultzone2 = "Vault of Archavon"
     -- BOSS TRIGGERS PHRASES
     rscbosstrigger1 =
         "The Scourge will wash over this world as a swarm of death and destruction!"
@@ -119,11 +121,11 @@
     rscflasktext12 = "No data. There are many died/offline"
     rscflasktxtgroup5 = "groups"
     rscflasktxtgroup2 = "groups"
-    rscflaskwhisptxt1 = "RSC > You have no Food Buff!"
-    rscflaskwhisptxt2 = "RSC > You have used only 1 Elixir!"
-    rscflaskwhisptxt3 = "RSC > You have no Flask or Elixir!"
-    rscflaskwhisptxt4 = "RSC > You have no Food Buff and only 1 elixir!"
-    rscflaskwhisptxt5 = "RSC > You have no Flask and Food Buff!"
+    rscflaskwhisptxt1 = "PhoenixStyle > You have no Food Buff!"
+    rscflaskwhisptxt2 = "PhoenixStyle > You have used only 1 Elixir!"
+    rscflaskwhisptxt3 = "PhoenixStyle > You have no Flask or Elixir!"
+    rscflaskwhisptxt4 = "PhoenixStyle > You have no Food Buff and only 1 elixir!"
+    rscflaskwhisptxt5 = "PhoenixStyle > You have no Flask and Food Buff!"
     rscpartanons36 = "if elixirs are using - check for 2, not only 1"
     rscflasktext1part2 =
         "Buff is not considered if it duration is below |cffff0000%s|r min."
@@ -132,8 +134,6 @@
     rscbuttonztext3 = "Show list"
     rscbuttonztext4 = "Reset list"
     rscaddonnotworkinz = "Addon is disabled in some zones:"
-    rscdefaultzone1 = "Naxxramas"
-    rscdefaultzone2 = "Vault of Archavon"
     rsczonereport1 = "Addon is disabled in: "
     rsczonereport2 = "Addon will not more work in zone: "
     rsczonereport3 = "Removed from black list: "
@@ -144,14 +144,14 @@
     rsczonereport8 =
         "|cffff0000Error!|r Current zone was not found in a black list!"
     rsczonereport9 = "To reset black list - click the button |cffff0000TWICE|r"
-    rscflaskwhisptxt11 = "RSC > Your Food Buff will soon expire."
-    rscflaskwhisptxt33 = "RSC > Your Flask will soon expire."
+    rscflaskwhisptxt11 = "PhoenixStyle > Your Food Buff will soon expire."
+    rscflaskwhisptxt33 = "PhoenixStyle > Your Flask will soon expire."
     rscflaskwhisptxt40 =
-        "RSC > You have no Food Buff and Flask will soon expire."
+        "PhoenixStyle > You have no Food Buff and Flask will soon expire."
     rscflaskwhisptxt44 =
-        "RSC > Your Food Buff will soon expire and you have only 1 elixir!"
+        "PhoenixStyle > Your Food Buff will soon expire and you have only 1 elixir!"
     rscflaskwhisptxt55 =
-        "RSC > You have no Flask and your Food Buff will soon expire!"
-    rscflaskwhisptxt56 = "RSC > Your Flask and Food Buff will soon expire."
+        "PhoenixStyle > You have no Flask and your Food Buff will soon expire!"
+    rscflaskwhisptxt56 = "PhoenixStyle > Your Flask and Food Buff will soon expire."
 
 end

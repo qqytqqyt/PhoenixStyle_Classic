@@ -2,7 +2,7 @@
 ## Title: Phoenix|cff7fff7fStyle|r   Core - Classic
 ## Title-ruRU: Phoenix|cff7fff7fStyle|r   Основной - Classic
 ## Author: Shurshik (modified by qqytqqyt for WotLK Classic)
-## Version: 3.4.2.2-Wotlk
+## Version: 3.4.3.2-Wotlk
 ## Notes: /fen for more info
 ## Notes-ruRU: /фен - для открытия настроек
 ## URL: http://www.phoenixstyle.com/

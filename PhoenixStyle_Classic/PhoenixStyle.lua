@@ -1,6 +1,6 @@
 ﻿-- Author: Shurshik (Modified by qqytqqyt)
--- version: 1.4961
--- http://phoenix-wow.ru
+-- version: 3.432
+-- http://www.phoenixstyle.com
 function psf_unitaura(name, spellInfo)
     return AuraUtil.FindAuraByName(spellInfo,name)
 end
@@ -33,7 +33,7 @@ function PhoenixStyle_OnLoad()
 
     PSFprepareUI()
 
-    psversion = 3.422
+    psversion = 3.432
     if PS_Settings == nil then PS_Settings = {PSMinimapPos = -16} end
     if psminibutenabl == nil then psminibutenabl = true end
     timertopull = 0
@@ -735,7 +735,6 @@ function PhoenixStyle_OnEvent(self, event, ...)
         end
 
         if arg1 == "PS-myvers" then
-
             if tonumber(arg2) > psversion then
 
                 if tonumber(arg2) - psversion > 0.0007 then
