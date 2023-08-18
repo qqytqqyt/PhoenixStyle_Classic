@@ -1,5 +1,5 @@
 ﻿-- Author: Shurshik (Modified by qqytqqyt)
--- version: 3.432
+-- version: 3.433
 -- http://www.phoenixstyle.com
 function psf_unitaura(name, spellInfo)
     return AuraUtil.FindAuraByName(spellInfo,name)
@@ -33,7 +33,7 @@ function PhoenixStyle_OnLoad()
 
     PSFprepareUI()
 
-    psversion = 3.432
+    psversion = 3.433
     if PS_Settings == nil then PS_Settings = {PSMinimapPos = -16} end
     if psminibutenabl == nil then psminibutenabl = true end
     timertopull = 0
@@ -748,7 +748,8 @@ function PhoenixStyle_OnEvent(self, event, ...)
                             print("|cff99ffffPhoenixStyle|r - " ..
                                       psnewversfound2)
                         else
-                            local _, _, day = CalendarGetDate()
+                            local dt = C_DateAndTime.GetCurrentCalendarTime();
+                            local day = dt.monthDay
                             if psversionday == day then
                             else
                                 print("|cff99ffffPhoenixStyle|r - " ..

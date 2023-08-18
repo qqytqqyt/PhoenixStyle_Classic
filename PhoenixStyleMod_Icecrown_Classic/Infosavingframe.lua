@@ -114,7 +114,10 @@ function openiccbosschsv()
     else
 
         local text = ""
-        local _, month, day, year = CalendarGetDate()
+        local dt = C_DateAndTime.GetCurrentCalendarTime()
+        local month = dt.month
+        local day = dt.monthDay
+        local year = dt.year
         if month < 10 then month = "0" .. month end
         if day < 10 then day = "0" .. day end
         if year > 2000 then year = year - 2000 end
@@ -229,7 +232,10 @@ function psiccsavinginf(bosss)
     table.insert(psiccsavedfails[1], 1, bosss)
 
     local text2 = ""
-    local _, month, day, year = CalendarGetDate()
+    local dt = C_DateAndTime.GetCurrentCalendarTime()
+    local month = dt.month
+    local day = dt.monthDay
+    local year = dt.year
     if month < 10 then month = "0" .. month end
     if day < 10 then day = "0" .. day end
     if year > 2000 then year = year - 2000 end
@@ -324,7 +330,10 @@ function psiccsavedinforeport(nn)
         local txtboss = psiccinfoabsv .. " "
 
         local text = ""
-        local _, month, day, year = CalendarGetDate()
+        local dt = C_DateAndTime.GetCurrentCalendarTime()
+        local month = dt.month
+        local day = dt.monthDay
+        local year = dt.year
         if month < 10 then month = "0" .. month end
         if day < 10 then day = "0" .. day end
         if year > 2000 then year = year - 2000 end
@@ -394,7 +403,10 @@ function pssvinfoalltog(onlytoday)
 
         for i = 1, #psiccsavedfails[1] do
             local text = ""
-            local _, month, day, year = CalendarGetDate()
+            local dt = C_DateAndTime.GetCurrentCalendarTime()
+            local month = dt.month
+            local day = dt.monthDay
+            local year = dt.year
             if month < 10 then month = "0" .. month end
             if day < 10 then day = "0" .. day end
             if year > 2000 then year = year - 2000 end
