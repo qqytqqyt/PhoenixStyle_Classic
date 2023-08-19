@@ -66,9 +66,9 @@ function pslocalem()
     psnotfoundinr = "not found in your raid."
     pscolnewveranonce1 = "Module has been |cff00ff00updated succesfully|r, new:"
     psnewversfound =
-        "|cff00ff00Attention!|r New version of |cff00ff00'PhoenixStyle'|r addon was found in your raid/guild, it's recommended to update it from curse.com or wowinterface.com"
+        "|cff00ff00Attention!|r New version of |cff00ff00'PhoenixStyle'|r addon was found in your raid/guild, it's recommended to update it from curseforge.com"
     psnewversfound2 =
-        "|cff00ff00Attention!|r New version of |cff00ff00'PhoenixStyle'|r addon was found in your raid/guild, |cffff0000your version is very old|r, it's strong recommended to update it from curse.com or wowinterface.com"
+        "|cff00ff00Attention!|r New version of |cff00ff00'PhoenixStyle'|r addon was found in your raid/guild, |cffff0000your version is very old|r, it's strong recommended to update it from curseforge.com"
     psrscoldvers =
         "You have an |cffff0000old version|r of 'RaidSlackCheck'. It's suggested to update it."
     psiccnoloaderr2 = "Module 'Icecrown' is disabled. Try again in Icecrown."
@@ -128,7 +128,7 @@ function pslocaleuim()
     psfserver = "ru-Gordunni (WotLK ver. EU-Earthshaker-Nekomio)"
     psaddonrepnoprom = "announce warnings without promote"
     psraaddonanet = "Error! Addon 'RaidAchievement' is not installed"
-    psraaddonanet2 = "You can download it on curse.com or wowinterface.com"
+    psraaddonanet2 = "You can download it on curseforge.com"
     pscolshieldannonce = "info to chat"
     pscolcast11 = "cast"
     pswebsite = "www.phoenixstyle.com"

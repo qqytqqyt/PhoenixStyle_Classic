@@ -73,7 +73,8 @@ function rsc_onload()
         60347, -- Elixir of Mighty Thoughts
         53764, -- Elixir of Mighty Mageblood
         53751, -- Elixir of Mighty Fortitude
-        60343 -- Elixir of Mighty Defense
+        60343, -- Elixir of Mighty Defense
+        28491 -- Healing Power
     }
 
     -- =============ELIXIRS battle=========
@@ -88,6 +89,7 @@ function rsc_onload()
         60341, -- Elixir of Deadly Strikes
         60345, -- Elixir of Armor Piercing
         60340, -- Elixir of Accuracy
+        39627, -- Elixir of Draenic Wisdom
         33721 -- Spellpower Elixir
     }
 

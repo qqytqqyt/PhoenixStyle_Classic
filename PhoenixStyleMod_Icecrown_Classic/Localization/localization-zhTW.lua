@@ -417,7 +417,7 @@ if psf_getmodlocale() == "zhTW" then
         psiccnewveranoncet1 =
             "|cff00ff00RaidSlackCheck|r > 版本 1.1 已提供下載，增加了兩個新的模組: '精煉藥劑檢查', '復活後的增益檢查'."
         psiccnewveranoncet2 =
-            "|cff00ff00普崔希德教授|r - 瘟疫傳遞模塊已完全重寫, 現在使用 |cff00ff00AVR|r (r23+ 來自 wowace.com) 你就能看到指示你跑位方向的箭頭, 新增了一個輔助小插件可以幫助你利用AVR來創建這個跑位箭頭, 團隊中的每個成員都可以安裝它: |cff00ff00PhoenixStylePutricideArrow|r (更多訊息請查閱 curse.com 或 wowinterface.com 站點的普崔希德教授問答部份)"
+            "|cff00ff00普崔希德教授|r - 瘟疫傳遞模塊已完全重寫, 現在使用 |cff00ff00AVR|r (r23+ 來自 wowace.com) 你就能看到指示你跑位方向的箭頭, 新增了一個輔助小插件可以幫助你利用AVR來創建這個跑位箭頭, 團隊中的每個成員都可以安裝它: |cff00ff00PhoenixStylePutricideArrow|r"
         psiccnewveranoncet3 =
             "保存的報告 - 添加了輸出全部戰鬥報告的設定選項."
         psiccbossfail105 = "在戰鬥之後報告誰用了綁帶治療王"

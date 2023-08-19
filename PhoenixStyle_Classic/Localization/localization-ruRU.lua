@@ -63,9 +63,9 @@ if psf_getcorelocale() == "ruRU" then
         pscolnewveranonce1 =
             "Модуль |cff00ff00успешно обновлен|r, последние изменения:"
         psnewversfound =
-            "|cff00ff00ВНИМАНИЕ!|r В Вашем рейде/гильдии обнаружена новая версия аддона |cff00ff00'PhoenixStyle'|r, рекомендуется скачать обновление с curse.com или wowinterface.com"
+            "|cff00ff00ВНИМАНИЕ!|r В Вашем рейде/гильдии обнаружена новая версия аддона |cff00ff00'PhoenixStyle'|r, рекомендуется скачать обновление с curseforge.com"
         psnewversfound2 =
-            "|cff00ff00ВНИМАНИЕ!|r В Вашем рейде/гильдии обнаружена новая версия аддона |cff00ff00'PhoenixStyle'|r, Ваша версия |cffff0000СИЛЬНО УСТАРЕЛА|r, крайне рекомендуется скачать обновление с curse.com или wowinterface.com"
+            "|cff00ff00ВНИМАНИЕ!|r В Вашем рейде/гильдии обнаружена новая версия аддона |cff00ff00'PhoenixStyle'|r, Ваша версия |cffff0000СИЛЬНО УСТАРЕЛА|r, крайне рекомендуется скачать обновление с curseforge.com"
         psrscoldvers =
             "Ваша версия аддона 'RaidSlackCheck' - |cffff0000устарела!|r Скачайте обновление во избежании ошибок."
         psiccnoloaderr2 =
@@ -143,7 +143,7 @@ if psf_getcorelocale() == "ruRU" then
         psraaddonanet =
             "Ошибка! Аддон 'RaidAchievement' не установлен"
         psraaddonanet2 =
-            "Вы можете скачать его с сайтов curse.com или wowinterface.com"
+            "Вы можете скачать его с сайтов curseforge.com"
         pscolshieldannonce = "сообщ. в чат"
         pscolcast11 = "время каста"
         pswebsite = "www.phoenixstyle.com & www.phoenix-wow.ru"

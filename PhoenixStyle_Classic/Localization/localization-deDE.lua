@@ -61,9 +61,9 @@ if psf_getcorelocale() == "deDE" then
         psnotfoundinr = "nicht im Raid gefunden."
         pscolnewveranonce1 = "Modul wurde |cff00ff00erfolgreich geladen|r, neu:"
         psnewversfound =
-            "|cff00ff00Warnung!|r In Ihrem Schlachtzug wurde eine neuere Version von |cff00ff00'PhoenixStyle'|r gefunden. Es wird empfohlen, das AddOn von curse.com oder wowinterface.com zu aktualisieren."
+            "|cff00ff00Warnung!|r In Ihrem Schlachtzug wurde eine neuere Version von |cff00ff00'PhoenixStyle'|r gefunden. Es wird empfohlen, das AddOn von curseforge.com zu aktualisieren."
         psnewversfound2 =
-            "|cff00ff00Warnung!|r In Ihrem Schlachtzug wurde eine neuere Version von |cff00ff00'PhoenixStyle'|r gefunden. |cffff0000Diese Version ist sehr alt|r, Es wird strengstens empfohlen, das AddOn von curse.com oder wowinterface.com zu aktualisieren."
+            "|cff00ff00Warnung!|r In Ihrem Schlachtzug wurde eine neuere Version von |cff00ff00'PhoenixStyle'|r gefunden. |cffff0000Diese Version ist sehr alt|r, Es wird strengstens empfohlen, das AddOn von curseforge.com zu aktualisieren."
         psrscoldvers =
             "Ihre Version des Addons 'RaidSlackCheck' - |cffff0000 ist veraltet!|r Laden Sie eine neue runter, um die Fehler vorzubeugen."
         psiccnoloaderr2 =
@@ -128,7 +128,7 @@ if psf_getcorelocale() == "deDE" then
         psraaddonanet =
             "Fehler! Das Addon 'RaidAchievement' ist nicht installiert."
         psraaddonanet2 =
-            "Sie k\195\182nnen es auf curse.com oder wowinterface.com runterladen."
+            "Sie k\195\182nnen es auf curseforge.com runterladen."
         pscolshieldannonce = "Info in den Chat"
         pscolcast11 = "cast"
         pswebsite = "www.phoenixstyle.com"

@@ -1,5 +1,5 @@
 ﻿-- Author: Shurshik (Modified by qqytqqyt)
--- version: 3.433
+-- version: 3.434
 -- http://www.phoenixstyle.com
 function psf_unitaura(name, spellInfo)
     return AuraUtil.FindAuraByName(spellInfo,name)
@@ -33,7 +33,7 @@ function PhoenixStyle_OnLoad()
 
     PSFprepareUI()
 
-    psversion = 3.433
+    psversion = 3.434
     if PS_Settings == nil then PS_Settings = {PSMinimapPos = -16} end
     if psminibutenabl == nil then psminibutenabl = true end
     timertopull = 0

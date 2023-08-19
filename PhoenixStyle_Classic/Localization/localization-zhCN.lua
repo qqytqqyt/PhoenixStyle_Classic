@@ -60,9 +60,9 @@ if psf_getcorelocale() == "zhCN" then
         psnotfoundinr = "没有在你的团队中找到。"
         pscolnewveranonce1 = "模块已|cff00ff00成功更新|r, 新的："
         psnewversfound =
-            "|cff00ff00注意!|r 在你的团队/公会中发现有更新版本的 |cff00ff00'PhoenixStyle'|r 插件, 建议你从 curse.com 或 wowinterface.com 站点下载并更新最新版本"
+            "|cff00ff00注意!|r 在你的团队/公会中发现有更新版本的 |cff00ff00'PhoenixStyle'|r 插件, 建议你从 curseforge.com 站点下载并更新最新版本"
         psnewversfound2 =
-            "|cff00ff00注意!|r 在你的团队/公会中发现有更新版本的 |cff00ff00'PhoenixStyle'|r 插件, |cffff0000你使用的版本太旧了|r, 强烈建议你从 curse.com 或 wowinterface.com 站点下载并更新最新版本"
+            "|cff00ff00注意!|r 在你的团队/公会中发现有更新版本的 |cff00ff00'PhoenixStyle'|r 插件, |cffff0000你使用的版本太旧了|r, 强烈建议你从 curseforge.com 站点下载并更新最新版本"
         psrscoldvers =
             "你有一个 |cffff0000较旧版本|r 的'RaidSlackCheck'. 建议你赶快更新。"
         psiccnoloaderr2 =
@@ -128,7 +128,7 @@ if psf_getcorelocale() == "zhCN" then
         psaddonrepnoprom = "没有权限也强制发布通告"
         psraaddonanet = "出错！ 插件 'RaidAchievement' 没有安装"
         psraaddonanet2 =
-            "你可以在 curse.com 或 wowinterface.com 站点下载到"
+            "你可以在 curseforge.com 站点下载到"
         pscolshieldannonce = "讯息给聊天频道"
         pscolcast11 = "施放"
         pswebsite = "www.phoenixstyle.com"

@@ -419,7 +419,7 @@ if psf_getmodlocale() == "zhCN" then
         psiccnewveranoncet1 =
             "|cff00ff00RaidSlackCheck|r > 版本 1.1 已提供下载，增加了两个新的模块: '合剂检查', '复活后的增益检查'."
         psiccnewveranoncet2 =
-            "|cff00ff00普崔塞德教授|r - 瘟疫传递模块已完全重写, 现在使用 |cff00ff00AVR|r (r23+ 来自 wowace.com) 你就能看到指示你跑位方向的箭头, 新增了一个辅助小插件可以帮助你利用AVR来创建这个跑位箭头, 团队中的每个成员都可以安装它: |cff00ff00PhoenixStylePutricideArrow|r (更多讯息请查阅 curse.com 或 wowinterface.com 站点的普崔塞德教授问答部份)"
+            "|cff00ff00普崔塞德教授|r - 瘟疫传递模块已完全重写, 现在使用 |cff00ff00AVR|r (r23+ 来自 wowace.com) 你就能看到指示你跑位方向的箭头, 新增了一个辅助小插件可以帮助你利用AVR来创建这个跑位箭头, 团队中的每个成员都可以安装它: |cff00ff00PhoenixStylePutricideArrow|r (更多讯息请查阅 curseforge.com 或 wowinterface.com 站点的普崔塞德教授问答部份)"
         psiccnewveranoncet3 =
             "保存的报告 - 添加了输出全部战斗报告的设定选项."
         psiccbossfail105 = "在战斗之后报告谁用了绑带治疗boss"

@@ -384,7 +384,7 @@ function pslocaleicecrownuim()
     psiccnewveranoncet1 =
         "|cff00ff00RaidSlackCheck|r > version 1.1 is avaible for download with 2 new modules: 'flask check', 'buffs after rebirth check'."
     psiccnewveranoncet2 =
-        "|cff00ff00Putricide|r - plague module redesigned, using |cff00ff00AVR|r (r23+ from wowace.com) you will see an arrow where to run, miniaddon was added that will create this arrow in AVR, everyone in raid can install it: |cff00ff00PhoenixStylePutricideArrow|r (more info in putricide FAQ on curse.com or wowinterface.com)"
+        "|cff00ff00Putricide|r - plague module redesigned, using |cff00ff00AVR|r (r23+ from wowace.com) you will see an arrow where to run, miniaddon was added that will create this arrow in AVR, everyone in raid can install it: |cff00ff00PhoenixStylePutricideArrow|r (more info in putricide FAQ on curseforge.com)"
     psiccnewveranoncet3 =
         "Saved reports - added option to export info for all fights."
     psiccbossfail104 =
