@@ -1,17 +1,18 @@
 ﻿-- Author: Shurshik (Modified by qqytqqyt)
--- version: 3.434
+-- version: 3.435
 -- http://www.phoenixstyle.com
 function psf_unitaura(name, spellInfo)
     return AuraUtil.FindAuraByName(spellInfo,name)
 end
 
+function psf_getInstanceSize()
+    local name, instanceType, difficultyID, _, size = GetInstanceInfo()
+    return size
+end
+
 function psf_getInstanceDifficulty()
     local name, instanceType, difficultyID = GetInstanceInfo()
     return difficultyID - 2 
-end
-
-function psf_getRaidDifficulty()
-    return psf_getInstanceDifficulty()
 end
 
 function psf_isRaidOfficer()
@@ -33,7 +34,7 @@ function PhoenixStyle_OnLoad()
 
     PSFprepareUI()
 
-    psversion = 3.434
+    psversion = 3.435
     if PS_Settings == nil then PS_Settings = {PSMinimapPos = -16} end
     if psminibutenabl == nil then psminibutenabl = true end
     timertopull = 0
@@ -1555,7 +1556,7 @@ function pscheckwipe1(numd10, numd25)
         pswipecheckdelay = GetTime()
 
         local psnumgrup = 2
-        if psf_getRaidDifficulty() == 2 or psf_getRaidDifficulty() == 4 then
+        if psf_getInstanceSize() == 25 then
             psnumgrup = 5
         end
         for i = 1, GetNumGroupMembers() do

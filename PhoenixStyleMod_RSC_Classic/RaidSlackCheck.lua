@@ -1,11 +1,6 @@
 ﻿-- Author: Shurshik
 -- version: 1.112
 -- http://phoenix-wow.ru
-function psf_getRaidDifficulty()
-    local name, instanceType, difficultyID = GetInstanceInfo()
-    return difficultyID - 2 
-end
-
 function rsc_onload()
 
     rsclocale()
@@ -551,7 +546,7 @@ function rsc_OnEvent(self,event,...)
                         end
                     end
 
-                    if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
+                    if psf_getInstanceSize() == 10 then
                         rscskokagrup = 2
                     else
                         rscskokagrup = 5

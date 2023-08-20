@@ -1573,7 +1573,7 @@ function pstwsozdtabltime(psboss)
     table.wipe(pstwtimeswitch)
 
     local psgrups = 5
-    if psf_getInstanceDifficulty() == 1 or psf_getInstanceDifficulty() == 3 then
+    if psf_getInstanceSize() == 10 then
         psgrups = 2
     end
 

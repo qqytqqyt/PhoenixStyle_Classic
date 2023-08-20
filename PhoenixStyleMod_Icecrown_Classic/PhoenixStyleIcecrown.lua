@@ -506,7 +506,7 @@ function pscicconupdate(curtime)
                         local psiccostalos =
                             math.ceil(GetTime() - psiccozzetimebegin)
 
-                        if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
+                        if psf_getInstanceSize() == 10 then
                             psicceventsnames[1][#psicceventsnames[1]] =
                                 psicceventsnames[1][#psicceventsnames[1]] ..
                                     ", " .. psiccozzen4 .. " " .. psiccostalos ..
@@ -602,7 +602,7 @@ function pscicconupdate(curtime)
                 if string.len(texx) > 1 then texx = texx .. " " end
                 texx = texx .. psiccvalktimertargtabl[i]
             end
-            if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
+            if psf_getInstanceSize() == 10 then
                 psicceventsnames[1][#psicceventsnames[1]] = psicclkvalkir ..
                                                                 " #" ..
                                                                 psiccschet5 ..
@@ -715,7 +715,7 @@ function pscicconupdate(curtime)
 
                 local psiccostalos = math.ceil(GetTime() - psiccozzetimebegin)
 
-                if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
+                if psf_getInstanceSize() == 10 then
                     psicceventsnames[1][#psicceventsnames[1]] =
                         psicceventsnames[1][#psicceventsnames[1]] .. ", " ..
                             psiccozzen4 .. " " .. psiccostalos .. " " .. pssec
@@ -2127,7 +2127,7 @@ function psficecrownonevent(self, event, ...)
             table.insert(psiccdamagevalues[1], {})
 
             -- запись эвента
-            if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
+            if psf_getInstanceSize() == 10 then
                 psiccschet4 = 2
             else
                 psiccschet4 = 5
@@ -3309,7 +3309,7 @@ function psficecrownonevent(self, event, ...)
                 table.insert(psiccdamagevalues[1], {})
 
                 -- запись эвента
-                if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() == 3 then
+                if psf_getInstanceSize() == 10 then
                     psiccschet = 1
                     table.insert(psicceventsnames[1],
                                  psicclkvalkir .. " #" .. psiccschet5)
@@ -3411,8 +3411,7 @@ function psficecrownonevent(self, event, ...)
                             local psiccostalos =
                                 math.ceil(GetTime() - psiccozzetimebegin)
 
-                            if psf_getRaidDifficulty() == 1 or psf_getRaidDifficulty() ==
-                                3 then
+                            if psf_getInstanceSize() == 10 then
                                 psicceventsnames[1][#psicceventsnames[1]] =
                                     psicceventsnames[1][#psicceventsnames[1]] ..
                                         ", " .. psiccozzen4 .. " " ..

@@ -57,7 +57,7 @@ function icclananoob3()
     end
 end
 
-function psficclananoobff()
+function psficclananoobff(arg3,arg4,arg6,arg7)
     if psbossblock == nil then
 
         psunitisplayer(arg6, arg7)
@@ -387,7 +387,7 @@ function psicclanafoodmark()
                 psicnextupdlana = GetTime() + 2
 
                 local psgropcheck = 2
-                if psf_getInstanceDifficulty() == 2 or psf_getInstanceDifficulty() == 4 then
+                if psf_getInstanceSize() == 25 then
                     psgropcheck = 5
                 end
 

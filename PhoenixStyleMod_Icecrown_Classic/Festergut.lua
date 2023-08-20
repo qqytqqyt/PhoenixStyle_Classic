@@ -146,7 +146,7 @@ function psiccfestergutaoealarm()
     local pstabl2 = {}
     local pstabl3 = {}
 
-    if psf_getRaidDifficulty() == 2 or psf_getRaidDifficulty() == 4 then
+    if psf_getInstanceSize() == 25 then
         psgropcheck = 5
     end
     local inst = "normal"
