@@ -70,10 +70,6 @@
 	<Size x="188" y="26"/><Anchors><Anchor point="TOPLEFT"><Offset x="197" y="-360"/></Anchor></Anchors>
 	<Scripts><OnClick>psiccaftcombop()</OnClick></Scripts>
 	</Button>
-<Button name="$parent_Buttontombhp" inherits="UIPanelButtonTemplate" text="psiccsindragosa">
-	<Size x="135" y="26"/><Anchors><Anchor point="TOPLEFT"><Offset x="382" y="-360"/></Anchor></Anchors>
-	<Scripts><OnClick>psiccsindraaddon()</OnClick></Scripts>
-	</Button>
 </frames>
 </Frame>
 

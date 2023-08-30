@@ -148,10 +148,9 @@ function psficecrown()
     psficcsaurtxtset6 = nil
 
     psiccnewveranoncet = {
-        psiccnewveranoncet1, psiccnewveranoncet2, psiccnewveranoncet3
+        psiccnewveranoncet1, psiccnewveranoncet3
     }
     psiccnewveranoncet1 = nil
-    psiccnewveranoncet2 = nil
     psiccnewveranoncet3 = nil
 
     if psicccombatsvqu == nil then psicccombatsvqu = 20 end
@@ -4289,38 +4288,6 @@ function psiccwipereport()
 
     psbossblock = GetTime()
 
-end
-
-function psiccsindraaddon()
-    if IsAddOnLoaded("Sindragosa_IceTombMonitor") then
-        SINDRA_Command()
-        PSF_buttonsaveexit()
-        print(
-            "|cff00ff00Sindragosa_IceTombMonitor|r > " .. psiccsindraaddontxt ..
-                ".")
-    else
-        out("|cff00ff00Sindragosa_IceTombMonitor|r > |cffff0000" ..
-                psiccnotinstalled .. "!|r")
-
-        PSF_closeallpr()
-        PSFiccaddonno:Show()
-
-        if ttfggdgvsfar == nil then
-            ttfggdgvsfar = PSFiccaddonno:CreateFontString()
-            ttfggdgvsfar:SetWidth(550)
-            ttfggdgvsfar:SetHeight(150)
-            ttfggdgvsfar:SetFont(GameFontNormal:GetFont(), 12)
-            ttfggdgvsfar:SetPoint("TOPLEFT", 20, -100)
-            ttfggdgvsfar:SetText(psleftmenu1 .. " |cffff0000" ..
-                                     psiccnotinstalled ..
-                                     "!|r\r\n\r\n|cff00ff00Sindragosa_IceTombMonitor|r > " ..
-                                     psiccsindraaddontxt .. ".\r\n\r\n" ..
-                                     psraaddonanet2)
-            ttfggdgvsfar:SetJustifyH("CENTER")
-            ttfggdgvsfar:SetJustifyV("TOP")
-        end
-
-    end
 end
 
 function psiccChatFilter(self, event, msg, author, ...)

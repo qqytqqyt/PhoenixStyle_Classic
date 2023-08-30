@@ -323,7 +323,7 @@ if psf_getmodlocale() == "zhTW" then
         psiccpasmod3tit =
             "    冰冠城塞 - 普崔希德教授, 英雄模式下輔助標記"
         psiccprofmarkinfo =
-            "此模組會把中肆虐瘟疫的隊員標記為頭顱，同時給適合傳遞瘟疫的對象以其他標記. 可以通過設定來選擇3種不同的策略. |cffff0000注意!|r 許多團隊報警插件會在這個王使用多個標記, 所以建議你在其他插件中禁用此模組需要用到的標記. 另外建議隊員安裝其他輔助插件: PhoenixStylePutricideArrow, AVR."
+            "此模組會把中肆虐瘟疫的隊員標記為頭顱，同時給適合傳遞瘟疫的對象以其他標記. 可以通過設定來選擇3種不同的策略. |cffff0000注意!|r 許多團隊報警插件會在這個王使用多個標記, 所以建議你在其他插件中禁用此模組需要用到的標記."
         psiccprofmarkinfo2 =
             "|cff00ff00優先|r名單用於傳遞'肆虐瘟疫':"
         psiccprofmarkinfo3 =
@@ -416,8 +416,6 @@ if psf_getmodlocale() == "zhTW" then
         psiccresetliststxt = "重置名單"
         psiccnewveranoncet1 =
             "|cff00ff00RaidSlackCheck|r > 版本 1.1 已提供下載，增加了兩個新的模組: '精煉藥劑檢查', '復活後的增益檢查'."
-        psiccnewveranoncet2 =
-            "|cff00ff00普崔希德教授|r - 瘟疫傳遞模塊已完全重寫, 現在使用 |cff00ff00AVR|r (r23+ 來自 wowace.com) 你就能看到指示你跑位方向的箭頭, 新增了一個輔助小插件可以幫助你利用AVR來創建這個跑位箭頭, 團隊中的每個成員都可以安裝它: |cff00ff00PhoenixStylePutricideArrow|r"
         psiccnewveranoncet3 =
             "保存的報告 - 添加了輸出全部戰鬥報告的設定選項."
         psiccbossfail105 = "在戰鬥之後報告誰用了綁帶治療王"

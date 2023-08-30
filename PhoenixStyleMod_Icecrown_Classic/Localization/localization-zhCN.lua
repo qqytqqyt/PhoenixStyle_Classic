@@ -325,7 +325,7 @@ if psf_getmodlocale() == "zhCN" then
         psiccpasmod3tit =
             "    冰冠堡垒 - 普崔塞德教授, 英雄模式下辅助标记"
         psiccprofmarkinfo =
-            "此模块会把中肆虐毒疫的队员标记为骷髅，同时给适合传递瘟疫的对象以其它标记. 可以通过设定来选择3种不同的策略. |cffff0000注意!|r 许多团队报警插件会在这个boss使用多个标记, 所以建议你在其它插件中禁用此模块需要用到的标记. 另外建议队员安装其它辅助插件: PhoenixStylePutricideArrow, AVR."
+            "此模块会把中肆虐毒疫的队员标记为骷髅，同时给适合传递瘟疫的对象以其它标记. 可以通过设定来选择3种不同的策略. |cffff0000注意!|r 许多团队报警插件会在这个boss使用多个标记, 所以建议你在其它插件中禁用此模块需要用到的标记。"
         psiccprofmarkinfo2 =
             "|cff00ff00优先|r名单用于传递'肆虐毒疫':"
         psiccprofmarkinfo3 =
@@ -418,8 +418,6 @@ if psf_getmodlocale() == "zhCN" then
         psiccresetliststxt = "重置名单"
         psiccnewveranoncet1 =
             "|cff00ff00RaidSlackCheck|r > 版本 1.1 已提供下载，增加了两个新的模块: '合剂检查', '复活后的增益检查'."
-        psiccnewveranoncet2 =
-            "|cff00ff00普崔塞德教授|r - 瘟疫传递模块已完全重写, 现在使用 |cff00ff00AVR|r (r23+ 来自 wowace.com) 你就能看到指示你跑位方向的箭头, 新增了一个辅助小插件可以帮助你利用AVR来创建这个跑位箭头, 团队中的每个成员都可以安装它: |cff00ff00PhoenixStylePutricideArrow|r (更多讯息请查阅 curseforge.com 或 wowinterface.com 站点的普崔塞德教授问答部份)"
         psiccnewveranoncet3 =
             "保存的报告 - 添加了输出全部战斗报告的设定选项."
         psiccbossfail105 = "在战斗之后报告谁用了绑带治疗boss"
