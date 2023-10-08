@@ -45,10 +45,10 @@ function psiccaftcombop()
         psiccinfframe:SetScript("onescapepressed",
                                 function(self) psiccinfframe:ClearFocus() end)
         psiccinfframe:SetFont(GameFontNormal:GetFont(), 12, "")
-        psiccinfframe:SetMultiLine()
         psiccinfframe:SetAutoFocus(false)
         psiccinfframe:SetHeight(555)
         psiccinfframe:SetWidth(545)
+        psiccinfframe:SetMultiLine(true)
         psiccinfframe:Show()
         psiccinfframe:SetText(pcicccombat4)
 
